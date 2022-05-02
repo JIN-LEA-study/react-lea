@@ -1,7 +1,7 @@
 import React from "react";
 import {
   TableContainer,
-  Typograghy,
+  //   Typograghy,
   Table,
   TableHead,
   TableBody,
@@ -15,7 +15,7 @@ function Timetable() {
   return (
     <>
       <TableContainer>
-        <Typograghy>강의시간표</Typograghy>
+        강의시간표
         <Table>
           <TableHead>
             <TableRow>
@@ -40,66 +40,13 @@ function Timetable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell align="center" width={100}>
-                Time
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Mon
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Tue
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Wed
-              </TableCell>
-              <TableCell align="center" width={200}>
-                The
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Fri
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell align="center" width={100}>
-                Time
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Mon
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Tue
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Wed
-              </TableCell>
-              <TableCell align="center" width={200}>
-                The
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Fri
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell align="center" width={100}>
-                Time
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Mon
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Tue
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Wed
-              </TableCell>
-              <TableCell align="center" width={200}>
-                The
-              </TableCell>
-              <TableCell align="center" width={200}>
-                Fri
-              </TableCell>
-            </TableRow>
+            {hourData.map((time, index) => (
+              <TableRow key={index}>
+                <TableCell align="center">
+                  {`${time}:00 - ${time + 1}:00`}
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
