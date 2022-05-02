@@ -9,10 +9,13 @@ import {
   TableCell,
 } from "@mui/material";
 import TimeTableRow from "./TimeTableRow";
+import { useRecoilValue } from "recoil";
+import { timeTableState } from "../store/store";
 
 const hourData = Array.from({ length: 11 }, (i, j) => j + 9);
 
 function TimeTable() {
+  //   const timeTableData = useRecoilValue(timeTableState); //입력을 할 때 사용
   return (
     <>
       <TableContainer>
@@ -46,7 +49,7 @@ function TimeTable() {
                 <TableCell align="center">
                   {`${time}:00 - ${time + 1}:00`}
                 </TableCell>
-                <TimeTableRow />
+                <TimeTableRow timeNum={time} />
               </TableRow>
             ))}
           </TableBody>
