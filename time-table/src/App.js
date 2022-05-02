@@ -1,10 +1,10 @@
 import logo from "./logo.svg";
-import Timetable from "./Timetable/Timetable";
+import TimeTable from "./Timetable/TimeTable";
 
 import "./App.css";
 
 function App() {
-  return <Timetable />;
+  return <TimeTable />;
 }
 
 export default App;

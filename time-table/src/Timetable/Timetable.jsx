@@ -8,10 +8,11 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
+import TimeTableRow from "./TimeTableRow";
 
 const hourData = Array.from({ length: 11 }, (i, j) => j + 9);
 
-function Timetable() {
+function TimeTable() {
   return (
     <>
       <TableContainer>
@@ -45,6 +46,7 @@ function Timetable() {
                 <TableCell align="center">
                   {`${time}:00 - ${time + 1}:00`}
                 </TableCell>
+                <TimeTableRow />
               </TableRow>
             ))}
           </TableBody>
@@ -54,4 +56,4 @@ function Timetable() {
   );
 }
 
-export default Timetable;
+export default TimeTable;
