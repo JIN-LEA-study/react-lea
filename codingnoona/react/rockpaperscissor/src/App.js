@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import Box from "./componet/Box";
 import "./App.css";
 
@@ -17,14 +17,17 @@ const choice = {
   },
 };
 function App() {
+  //useSelet값은 내가 선택하기 전에 초기값이 null
+  const [userSelect, setUserSelect] = useState(null);
   const play = (userChoice) => {
+    setUserSelect(choice[userChoice]);
     console.log("선택됨", userChoice);
   };
   return (
     <div>
       <div className="main">
-        <Box title="You" />
-        <Box title="Computer" />
+        <Box title="You" item={userSelect} />
+        {/* <Box title="Computer" /> */}
       </div>
       <div className="main">
         <button onClick={() => play("scissors")}>가위</button>
