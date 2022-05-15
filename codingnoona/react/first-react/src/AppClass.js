@@ -20,13 +20,20 @@ class AppClass extends Component {
     });
   };
 
+  componentDidMount() {
+    console.log(this.componentDidMount);
+  }
+  componentDidUpdate() {
+    console.log(this.state);
+  }
   render() {
     return (
       <div>
         {/* this를 매번 써줘야됨, this의 연속 */}
         <div>state: {this.state.counter2}</div>
         <button onClick={this.increase}>클릭!</button>
-        <BoxClass num={this.state.value} />
+        {/* 3보다 커지면 앞에 조건이 false가 되면서 Boxclass가 사라짐 */}
+        {this.state.counter2 < 3 && <BoxClass num={this.state.value} />}
       </div>
     );
   }
