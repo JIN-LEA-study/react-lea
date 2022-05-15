@@ -24,10 +24,15 @@ function App() {
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
     let computerChoice = randomChoice();
+    setCouputerSelect(computerChoice);
   };
 
+  // 랜덤 로직 짜는 법
   const randomChoice = () => {
-    let randomItem = Math.random();
+    let itemArray = Object.keys(choice); //배열로 만들어줌
+    let randomItem = Math.floor(Math.random() * itemArray.length);
+    let final = itemArray[randomItem];
+    return choice[final]; //choice의 final 값을 리턴
   };
 
   return (
