@@ -20,9 +20,11 @@
 
 ## study
 
-```html
-- react는 UI를 그려줄 때 함수를 먼저 실행함 -> 콜백함수 사용 - onClick은
-콜백함수형으로 넣어줘야 한다 - null false, !null true - Math.random() : 0~1
-사이에 random한 값을 반환 - Object.keys() : 객체에 키값만 뽑아서 array로
-만들어주는 함수 - Math.floor() : 소수점 아래에 있는 숫자들은 버려버림
+```
+- react는 UI를 그려줄 때 함수를 먼저 실행함 -> 콜백함수 사용
+- onClick은 콜백함수형으로 넣어줘야 한다
+- null false, !null true
+- Math.random() : 0~1 사이에 random한 값을 반환
+- Object.keys() : 객체에 키값만 뽑아서 array로 만들어주는 함수
+- Math.floor() : 소수점 아래에 있는 숫자들은 버려버림
 ```
