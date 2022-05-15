@@ -18,3 +18,10 @@
 - rafce : React Arrow Funciton Export Componet
 - component : 내가 원하는 태그들을 모아 하나의 태그로 사용 가능 (재사용 가능)
 - props : 함수의 매개변수와 같은 존재, 내가 보낸 값이 객체 안에 매개변수로 들어가있음
+
+<b>첫번째 프로젝트: 가위바위보</b>
+
+<b>todo list</b>
+
+- [] 개인소개
+- [] 박스 만들기
