@@ -8,3 +8,4 @@
 - JSX에서는 div를 하나로 묶어줘야 한다.
 - rafce : React Arrow Funciton Export Componet
 - component : 내가 원하는 태그들을 모아 하나의 태그로 사용 가능 (재사용 가능)
+- props : 함수의 매개변수와 같은 존재, 내가 보낸 값이 객체 안에 매개변수로 들어가있음

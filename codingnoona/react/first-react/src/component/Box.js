@@ -1,9 +1,9 @@
 import React from "react";
 
-const box = () => {
+const box = (props) => {
   return (
     <div className="Box">
-      box <p>리사</p>
+      box{props.num} <p>{props.name}</p>
     </div>
   );
 };
