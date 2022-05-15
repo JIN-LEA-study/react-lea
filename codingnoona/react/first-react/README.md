@@ -4,3 +4,4 @@
 <b>study</b>
 
 - SPA : Single Page Application
+- index.js : index.html + App.js 연결
