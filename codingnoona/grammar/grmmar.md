@@ -1,5 +1,6 @@
-// object shorthand assignment
+## object shorthand assignment
 
+```js
 let name = "noona";
 let age = "30";
 
@@ -7,9 +8,11 @@ let person = {
   name,
   age,
 };
+```
 
-// Destructuring 객체를 분해해서 값을 가져옴
+## Destructuring 객체를 분해해서 값을 가져옴
 
+```js
 let person = {
   name: "noona",
   age: 20,
@@ -19,14 +22,16 @@ let name = person.name;
 let age = person["age"];
 
 let { name, age } = person;
+```
 
-//배열 (이 문법이 가장 많이 쓰임)
+## 배열 (이 문법이 가장 많이 쓰임)
 
+```js
 let array = [1, 2, 3, 4];
 let [a, b] = array; // array 안의 배열 순서대로 변수에 들어감
 let [a, b, ...rest] = array; // rest === 나머지값
 
-// spread
+// spread ...
 
 let person = { name: "lea", age: 30 };
 
@@ -40,9 +45,11 @@ let a = [1, 2];
 let b = [...a, 3]; // [1,2,3]
 
 let c = [...a, ...b]; // a, b, 모두 가져올 수 있음
+```
 
-// 삼항연산자
+## 삼항연산자
 
+```js
 let cat = { name: "summer", age: 6 };
 
 if (cat) {
@@ -53,3 +60,4 @@ if (cat) {
 
 // ? 왼쪽이 true 면 ? 오른쪽 실행, 아니면 : 뒤에 실행
 cat ? cat.name : "there is no cat";
+```
