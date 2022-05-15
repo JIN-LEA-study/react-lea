@@ -2,7 +2,24 @@ import logo from "./logo.svg";
 import Box from "./componet/Box";
 import "./App.css";
 
+const choice = {
+  rock: {
+    name: "Rock",
+    img: "https://nationaltoday.com/wp-content/uploads/2021/08/National-Pet-Rock-Day-640x514.jpg",
+  },
+  scissors: {
+    name: "Scissors",
+    img: "https://www.ikea.com/kr/en/images/products/sy-scissors__0112301_pe263788_s5.jpg?f=s",
+  },
+  paper: {
+    name: "Paper",
+    img: "https://www.collinsdictionary.com/images/full/paper_111691001.jpg",
+  },
+};
 function App() {
+  const play = (userChoice) => {
+    console.log("선택됨", userChoice);
+  };
   return (
     <div>
       <div className="main">
@@ -10,9 +27,9 @@ function App() {
         <Box title="Computer" />
       </div>
       <div className="main">
-        <button>가위</button>
-        <button>바위</button>
-        <button>보</button>
+        <button onClick={() => play("scissors")}>가위</button>
+        <button onClick={() => play("rock")}>바위</button>
+        <button onClick={() => play("paper")}>보</button>
       </div>
     </div>
   );
