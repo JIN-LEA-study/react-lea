@@ -1,0 +1,23 @@
+body {
+  background: url(https://cdn.pixabay.com/photo/2020/02/21/17/23/sky-4868218_1280.jpg);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  /* 가운데 정렬 문제없음 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  flex-direction: column; /* 방향을 세로 기둥으로 바꿔주삼 */
+}
+
+.weather-box {
+  border: 3px solid white;
+  border-radius: 30px;
+  background-color: azure;
+  padding: 80px; /*안의 공간*/
+}

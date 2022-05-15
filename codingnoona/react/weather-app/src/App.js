@@ -1,5 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import WeatherBox from "./component/WeatherBox";
+import WeatherButton from "./component/WeatherButton";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   // 현재위치정보 위도,경도
@@ -19,11 +22,19 @@ function App() {
     let data = await response.json(); //json 추출을 좀 기다려주셈
     console.log(data);
   };
+
   useEffect(() => {
     getCurrentLocation();
   }, []);
 
-  return <div>hiii</div>;
+  return (
+    <div>
+      <div className="container">
+        <WeatherBox />
+        <WeatherButton />
+      </div>
+    </div>
+  );
 }
 
 export default App;
