@@ -22,7 +22,11 @@
 
 ## study
 
--
+- url을 넣을 땐 백틱으로 감싸준다
+- 다이나믹 value는 ${}을 사용한다
+- control + c : 서버종료
+- null error 초기값이 null, useEffect UI render 후 값이 보여짐
+- weather && weather.name === weather?.name : weather이 있으면 weather.name을 보여줘 (삼항연산자)
 
 ## note
 
