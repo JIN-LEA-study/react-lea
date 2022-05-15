@@ -1,12 +1,13 @@
 <h3>CodingNoona React study</h3>
 <b>todo list</b>
-
-- Part1 리액트의 기초
-- [o] 리액트란?
-- [o] NodeJS 설치
-- [o] component
-- [o] props
-- [] state
+<p>Part1 리액트의 기초</p>
+<ul>
+    <li>[o] 리액트란? </li>
+    <li>[o] NodeJS 설치 </li>
+    <li>[o] component </li>
+    <li>[o] props </li>
+    <li>[] state </li>
+</ul>
 
 <b>study</b>
 
