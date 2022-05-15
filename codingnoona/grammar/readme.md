@@ -19,3 +19,7 @@
 - componentUpdate() : state가 완전히 업데이트가 됐는지? 알려주는 함수. render 다음 단계 (최신 업데이트 값을 확인할 수 있음)
 - JS와 HTML 같이 작업하고 싶을 땐 대괄호{} 안에 JS를 써줘야 한다.
 - && 연산자로 조건부 렌더링 가능
+- useEffect() : 함수형 lifecycle함수, callback function()=>{}과 array[] === componentDidMount()
+- 배열 안에 state값이 들어가면 리액트가 업데이트 되는 것을 알려줌 === componentUpdate()
+- useEffect() 배열에 들어가는 state값이 하나라도 변하면 useEffect가 호출된다. 배열 안에 state가 있으면 componentDidMount() + componentUpdate() 작동
+- useEffect() 배열에 아무것도 없으면 componentDidMount()처럼 작동
