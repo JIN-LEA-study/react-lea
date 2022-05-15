@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const cities = ["Paris", "New york", "Tokyo", "Seoul"];
 
   // 현재위치정보 위도,경도
   const getCurrentLocation = () => {
@@ -33,7 +34,7 @@ function App() {
     <div>
       <div className="container">
         <WeatherBox weather={weather} />
-        <WeatherButton />
+        <WeatherButton cities={cities} />
       </div>
     </div>
   );

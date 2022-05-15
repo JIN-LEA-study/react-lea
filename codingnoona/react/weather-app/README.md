@@ -27,6 +27,8 @@
 - control + c : 서버종료
 - null error 초기값이 null, useEffect UI render 후 값이 보여짐
 - weather && weather.name === weather?.name : weather이 있으면 weather.name을 보여줘 (삼항연산자)
+- return 안에 JS를 쓰고 싶을 떈 {}를 써주셈
+- 배열을 이용하며 map 함수 사용. 변수명.map(() => ())
 
 ## note
 
