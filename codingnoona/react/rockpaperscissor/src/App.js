@@ -19,15 +19,22 @@ const choice = {
 function App() {
   //useSelet값은 내가 선택하기 전에 초기값이 null
   const [userSelect, setUserSelect] = useState(null);
+  const [computerSelect, setCouputerSelect] = useState(null);
+
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
-    console.log("선택됨", userChoice);
+    let computerChoice = randomChoice();
   };
+
+  const randomChoice = () => {
+    let randomItem = Math.random();
+  };
+
   return (
     <div>
       <div className="main">
         <Box title="You" item={userSelect} />
-        {/* <Box title="Computer" /> */}
+        <Box title="Computer" item={computerSelect} />
       </div>
       <div className="main">
         <button onClick={() => play("scissors")}>가위</button>

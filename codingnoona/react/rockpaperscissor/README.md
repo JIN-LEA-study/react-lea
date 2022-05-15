@@ -14,3 +14,4 @@
 - react는 UI를 그려줄 때 함수를 먼저 실행함 -> 콜백함수 사용
 - onClick은 콜백함수형으로 넣어줘야 한다
 - null false, !null true
+- Math.random() : 0~1 사이에 random한 값을 반환
