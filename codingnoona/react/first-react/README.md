@@ -1,6 +1,7 @@
 <h3>CodingNoona React study</h3>
 
 <b>Part 1. 리액트의 기초</b>
+
 <b>todo list</b>
 
 <ul>
