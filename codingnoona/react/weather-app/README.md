@@ -1,4 +1,4 @@
-<h3>CodingNoona React study</h3>
+## CodingNoona React study
 
 <b>part 3. 두번째 프로젝트: 날씨앱 만들기</b>
 
