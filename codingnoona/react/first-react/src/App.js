@@ -1,17 +1,12 @@
 import "./App.css";
+import Box from "./component/Box";
 
 function App() {
   return (
     <div>
-      <div className="box">
-        box1<p>리사</p>
-      </div>
-      <div className="box">
-        box1<p>리사</p>
-      </div>
-      <div className="box">
-        box1<p>리사</p>
-      </div>
+      <Box />
+      <Box />
+      <Box />
     </div>
   );
 }
