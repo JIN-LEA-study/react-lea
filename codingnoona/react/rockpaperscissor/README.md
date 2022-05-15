@@ -2,8 +2,13 @@
 
 <b>part 2. 첫번째 프로젝트: 가위바위보</b>
 
+## todo list
+
 ```html
-<b>todo list</b>
+<ul>
+  <li>[o] 게임소개</li>
+  <li>[o] 박스 만들기</li>
+</ul>
 
 - [o] 게임소개 - [o] 박스 만들기 <br />
 1.박스 2개, 타이틀, 사진, 결과 추가 / 2. 가위,바위,보 버튼 만들기 / 3. 버튼을
@@ -13,9 +18,9 @@
 랜덤하게 선택하기
 ```
 
-```html
-<b>study</b>
+## study
 
+```html
 - react는 UI를 그려줄 때 함수를 먼저 실행함 -> 콜백함수 사용 - onClick은
 콜백함수형으로 넣어줘야 한다 - null false, !null true - Math.random() : 0~1
 사이에 random한 값을 반환 - Object.keys() : 객체에 키값만 뽑아서 array로
