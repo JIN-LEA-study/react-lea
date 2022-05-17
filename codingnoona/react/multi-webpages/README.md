@@ -27,6 +27,8 @@
 - useParams(): /:id로 사용한 id값을 가져올 수 있다
 - ? : ? 뒤에 들어가는 조건들은 쿼리라고 함, 추가적인 조건과 정보를 보낼 때 사용, ? 쿼리 뒤에 있는 값은 url 경로에 영향을 미치지 않는다. 선택적인 정보임
 - useSearchParams() : query 값 가지고 올 때 사용
+- useNavigate()와 Navigate는 다름
+- Navigate : 컴포넌트
 
 ## note
 
