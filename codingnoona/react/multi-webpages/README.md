@@ -24,6 +24,7 @@
 - restful route: URL design
 - HTTP Verb : GET: fetch해서 데이터를 가져올 때 쓰는 명령어, POST : 새로운 데이터를 만들어낼 때 사용하는 명령어 , PUT: 수정, DELETE: 삭제
 - /:id : 파라미터(가변적인 값) : id값을 입력해주면 동적으로 사용 가능
+- params: /:id로 사용한 id값을 가져올 수 있다
 
 ## note
 
