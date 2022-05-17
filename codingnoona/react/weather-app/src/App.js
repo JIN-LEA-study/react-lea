@@ -43,6 +43,7 @@ function App() {
       getWeatherByCity();
     }
   }, [city]); //배열에 있는 값이 바뀔 때마다 호출
+  // 이부분 이슈 확인하고 수정하기
 
   return (
     <div>
