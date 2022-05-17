@@ -21,6 +21,9 @@
 - Routes: 각각의 페이지를 스위치하는 역할을 해준다(버전5에선 스위치)
 - Route: 각각의 페이지를 정의
 - Link, navigate(함수안에서 사용하게 될 경우) : 원하는 페이지로 이동
+- restful route: URL design
+- HTTP Verb : GET: fetch해서 데이터를 가져올 때 쓰는 명령어, POST : 새로운 데이터를 만들어낼 때 사용하는 명령어 , PUT: 수정, DELETE: 삭제
+- /:id : 파라미터(가변적인 값) : id값을 입력해주면 동적으로 사용 가능
 
 ## note
 
