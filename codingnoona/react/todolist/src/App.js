@@ -19,7 +19,8 @@ function App() {
         onChange={(event) => setInputValue(event.target.value)}
       />
       <button onClick={addItem}>추가</button>
-      <TodoBoard />
+      {/* TodoBoard에 값 전달 */}
+      <TodoBoard todoList={todoList} />
     </main>
   );
 }
