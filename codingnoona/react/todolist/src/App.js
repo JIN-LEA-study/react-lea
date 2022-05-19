@@ -1,10 +1,15 @@
-import logo from "./logo.svg";
+import React, { useSate } from "react";
 import "./App.css";
 
 function App() {
+  const [inputValue, setInputValue] = useSate("");
   return (
     <main>
-      <input type="text" />
+      <input
+        value={inputValue}
+        type="text"
+        onChange={(event) => setInputValue(event.target.value)}
+      />
       <button>추가</button>
     </main>
   );
