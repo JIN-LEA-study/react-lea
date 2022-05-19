@@ -1,8 +1,15 @@
-import React, { useSate } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [inputValue, setInputValue] = useSate("");
+  const [inputValue, setInputValue] = useState("");
+  const [todoList, setTodoList] = useState([]);
+
+  const addItem = () => {
+    console.log(inputValue);
+    //기존에 있는 아이템은 유지하고 새로운 inputValue를 넣어주세요.
+    setTodoList([...todoList, inputValue]);
+  };
   return (
     <main>
       <input
@@ -10,7 +17,7 @@ function App() {
         type="text"
         onChange={(event) => setInputValue(event.target.value)}
       />
-      <button>추가</button>
+      <button onClick={addItem}>추가</button>
     </main>
   );
 }
