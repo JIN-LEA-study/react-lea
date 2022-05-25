@@ -26,6 +26,9 @@
 
 ## study
 
+- botstrap 한 줄 사이즈 12, 반으로 쪼개고 싶을 땐 6, 6
+- Container : 아이템을 모이게 해줌
+
 ## note
 
 - https://fontawesome.com/ 아이콘을 가져오는 사이트
