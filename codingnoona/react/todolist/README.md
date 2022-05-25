@@ -11,6 +11,8 @@
   - 아이템 삭제버튼을 누르면 삭제가 가능하다
 
 - 리액트 프로젝트는 컴포넌트의 모임, 하나하나 나눠서 컴포넌트화 시키자 (반복되는 것)
+- onChange : input창에 값이 입력될 때마다 호출되는 onChange이벤트
+- onClick : click할 때마다 함수를 호출
 
 ```js
 Math.floor(Math.random() * 100); //0~99
