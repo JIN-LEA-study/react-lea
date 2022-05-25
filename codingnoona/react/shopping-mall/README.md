@@ -30,3 +30,4 @@
 
 - https://fontawesome.com/ 아이콘을 가져오는 사이트
 - https://fontawesome.com/v5/docs/web/use-with/react 리액트 전용사이트
+- json-server 시작하는 방법 : json-server --watch db.json
