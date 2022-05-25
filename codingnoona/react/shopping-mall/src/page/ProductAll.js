@@ -9,7 +9,7 @@ const ProductAll = () => {
     let url = `http://localhost:5000/products`;
     let response = await fetch(url);
     let data = await response.json();
-    setProductList(data);
+    setProductList(data); //response로 받아온 데이터를 setProduct에 넣어주기
   };
   useEffect(() => {
     getProducts();
