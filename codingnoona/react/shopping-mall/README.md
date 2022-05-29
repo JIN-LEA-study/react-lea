@@ -28,6 +28,8 @@
 
 - botstrap 한 줄 사이즈 12, 반으로 쪼개고 싶을 땐 6, 6
 - Container : 아이템을 모이게 해줌
+- onSubmit : Form을 누르면 새로고침 (정보를 백엔드에 넘겨줘야 함) 를 사용할 때 (type이 submit일 때)는 onSubmit
+- event.preventDefault(): Form이 refresh(새로고침) 되는 것을 막아주는 함수
 
 ## note
 
