@@ -6,6 +6,7 @@ import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
 import ProductDetail from "./page/ProductDetail";
 import Navbar from "./component/Navbar";
+import PrivateRoute from "./route/PrivateRoute";
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
@@ -21,7 +22,10 @@ function App() {
           path="/login"
           element={<Login setAuthenticate={setAuthenticate} />} //setAuthenticate을 props로 넘겨줌
         />
-        <Route path="/poduct/:id" element={<ProductDetail />} />
+        <Route
+          path="/poduct/:id"
+          element={<PrivateRoute authenticate={authenticate} />}
+        />
       </Routes>
     </div>
   );
