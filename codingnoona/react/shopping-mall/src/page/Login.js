@@ -1,10 +1,11 @@
 import React from "react";
 import { Form, Button, Container } from "react-bootstrap";
 
-const Login = () => {
+const Login = ({ setAuthenticate }) => {
   const loginUser = (event) => {
     event.preventDefault(); //새로고침을 막아줌
     console.log("login user function issue");
+    setAuthenticate(true);
   };
   return (
     <Container>

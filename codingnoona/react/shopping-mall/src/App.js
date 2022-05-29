@@ -14,7 +14,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<ProductAll />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setAuthenticate={setAuthenticate} />} //setAuthenticate을 props로 넘겨줌
+        />
         <Route path="/poduct/:id" element={<ProductDetail />} />
       </Routes>
     </div>
