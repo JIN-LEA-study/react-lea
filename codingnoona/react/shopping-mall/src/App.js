@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
 import ProductDetail from "./page/ProductDetail";
@@ -9,6 +9,9 @@ import Navbar from "./component/Navbar";
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
+  useEffect(() => {
+    console.log("aaa", setAuthenticate);
+  });
   return (
     <div>
       <Navbar />
