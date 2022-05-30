@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const ProductCard = ({ item }) => {
   const navigate = useNavigate();
   const showDetail = () => {
-    navigate(`/product/${item.id}`); //동적으로 바뀔 때(id값)
+    navigate(`/products/${item.id}`); //동적으로 바뀔 때(id값)
   };
   return (
     <div className="card" onClick={showDetail}>

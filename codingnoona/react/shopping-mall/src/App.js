@@ -23,7 +23,7 @@ function App() {
           element={<Login setAuthenticate={setAuthenticate} />} //setAuthenticate을 props로 넘겨줌
         />
         <Route
-          path="/poduct/:id"
+          path="/products/:id"
           element={<PrivateRoute authenticate={authenticate} />}
         />
       </Routes>
