@@ -2,6 +2,7 @@
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+  cursor: pointer;
 }
 
 .nav-seciton {
@@ -20,4 +21,9 @@
 
 .menu-list li {
   padding: 10px;
+}
+
+.product-img {
+  display: flex;
+  justify-content: flex-end;
 }
