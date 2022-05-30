@@ -33,6 +33,7 @@
 - json-server 시작하는 방법 : json-server --watch db.json
 - json-server --watch db.json --port 3004 : db.json을 이용해서 json-sever을 열어주셈
 - useEffect: Function, array 두개의 매개변수
+- onKeyPress
 
 ## note
 

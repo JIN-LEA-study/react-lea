@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const menuList = [
@@ -15,11 +15,19 @@ const Navbar = () => {
     "지속가능성",
   ];
 
-  const Navigate = useNavigate();
-  const goToLogin = () =>{
-    Navigate('/login');
+  const navigate = useNavigate();
+  const goToLogin = () => {
+    navigate("/login");
+  };
 
-  }
+  const search = (event) => {
+    // enter를 누를 경우에만 작동하도록 설정
+    if (event.key === "Enter") {
+      let keyword = event.target.value;
+      navigate(`/?q=${keyword}`);
+      console.log("we click this key", event.key);
+    }
+  };
   return (
     <div>
       <div>
@@ -43,7 +51,7 @@ const Navbar = () => {
         </ul>
         <div>
           <FontAwesomeIcon icon={faSearch} />
-          <input type="text" />
+          <input type="text" onKeyPress={(event) => search(event)} />
         </div>
       </div>
     </div>
