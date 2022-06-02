@@ -61,7 +61,55 @@ const [temp, setTemp] = useState(0); //초기값 0
 
 - state의 값이 바뀌어도 화면이 재랜더링(새로고침)을 시킬 필요가 없음
 - state의 값을 바꿀 때는 항상 setState를 사용해야 함
--
+
+```js
+// 예시1
+// useState [1,2,3] 배열 안에 4를 추가 하고 싶은 경우
+const [temp, setTemp] = useState([1, 2, 3]);
+
+<button
+  onClcik={() => {
+    let arr = [];
+    arr = [...Temp]; // 배열을 복사 1,2,3
+    arr.push(4); // 1,2,3,4
+    setTemp([...arr]); // [1,2,3,4]
+  }}
+>
+  증가
+</button>;
+
+// 예시2
+const [temp, setTemp] = useState([]);
+const [number, setNumber] = useSTate(0);
+
+<button
+  onClcik={() => {
+    let arr = [];
+    arr = [...Temp];
+    arr.push(Number);
+    setNuber(Number + 1);
+    setTemp([...arr]); // [0,1,2,3,4,5...]
+  }}
+>
+  증가
+</button>;
+```
+
+```js
+const [temp, setTemp] = useState(false);
+
+return (
+  <div>
+    {
+      temp ? <h1> Test </h1> : null
+    }
+    <button onClick=(()=>{
+      setTemp(!temp);
+    })> {temp ? '숨기기' : '보기'}
+    </button>
+  </div>
+)
+```
 
 ### Express/Mongoose/Style
 
