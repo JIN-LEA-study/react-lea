@@ -11,7 +11,7 @@ export function ProgressBar({ page, maxPage }) {
         <div className="gauge">
           <span
             className="fill"
-            style={{ width: `${(page - 1 / maxPage) * 100}%` }}
+            style={{ width: `${(page / maxPage) * 100}%` }}
           ></span>
         </div>
       </div>
