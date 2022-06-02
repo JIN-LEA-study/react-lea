@@ -1,4 +1,4 @@
-## MERN STACK 커뮤니티
+## MERN STACK 커뮤니티 [React/Express/Post/Authentication/Reple/ScaleUp/Outtro]
 
 ### React
 
