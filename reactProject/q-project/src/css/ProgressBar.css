@@ -1,9 +1,10 @@
 span.fill {
-  background-color: #449ce2;
+  background-color: #90bdda;
   display: inline-block;
   height: inherit;
   position: relative;
   top: -4px;
+  border-radius: 20px;
 }
 
 div.gauge {
@@ -12,6 +13,11 @@ div.gauge {
   background-color: #f7f7f7;
   margin-top: 10px;
   text-align: left;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 div.progress {
