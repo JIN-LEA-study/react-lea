@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { PinkButton } from "./components/PinkButton";
-import { next } from "./store/modules/score";
+import { next, reset } from "./store/modules/score";
 import { Quiz } from "./components/Quiz";
 import styled from "styled-components";
 
@@ -30,7 +30,13 @@ const SubHeader = styled.h2`
   margin-bottom: 30px;
 `;
 
+const Score = styled.div`
+  font-size: 4em;
+  color: #f92b46;
+`;
+
 function App() {
+  const score = useSelector((state) => state.score.score);
   const page = useSelector((state) => state.score.page);
   const dispatch = useDispatch();
   const quizs = useSelector((state) => state.score.quizs);
@@ -57,7 +63,19 @@ function App() {
           <Quiz />
         </Main>
       )}
-      {page > quizs.length && <Main> 마지막 페이지 </Main>}
+      {page > quizs.length && (
+        <Main>
+          <Header>당신의 수도 퀴즈 점수는?</Header>
+          <Score>{score}점</Score>
+          <SubHeader></SubHeader>
+          <PinkButton
+            text="다시 테스트하기"
+            clickEvent={() => {
+              dispatch(reset());
+            }}
+          />
+        </Main>
+      )}
     </>
   );
 }

@@ -19,7 +19,7 @@ export function Quiz() {
             key={item.text}
             clickEvent={() => {
               //정답체크
-              dispatch(check(item.isCorrect));
+              dispatch(check({ isCorrect: item.isCorrect }));
               //다음 페이지로 이동
               dispatch(next());
             }}
