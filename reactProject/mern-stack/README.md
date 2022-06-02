@@ -165,6 +165,15 @@ useEffect(
 
 - [install] npm install express --save (Express 홈페이지 참조)
 
+```js
+// "/" url, req : 요청 (클라이언트->서버), res : 응답(서버->클라이언트)
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+```
+
+- `npm run-script build` client에서 build 하는 방법
+
 ### Post
 
 ### Authentication
