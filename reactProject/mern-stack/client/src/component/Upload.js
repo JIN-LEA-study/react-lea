@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Upload() {
+function Upload(props) {
   const [content, setContent] = useState("");
-  const [contentList, setContentList] = useState([]);
+
   const onSubmit = () => {
-    let tempArr = [...contentList];
+    let tempArr = [...props.contentList];
     tempArr.push(content);
-    setContentList([...tempArr]);
+    props.setContentList([...tempArr]);
     setContent("");
   };
   return (

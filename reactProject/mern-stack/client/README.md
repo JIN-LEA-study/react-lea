@@ -6,7 +6,7 @@
 - [o] JSX
 - [o] useState
 - [o] react-router-dom
-- [] props
+- [o] props
 - [] useEffect
 
 #### - Study Note
