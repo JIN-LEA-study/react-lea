@@ -6,8 +6,8 @@
 - [o] JSX
 - [o] useState
 - [o] react-router-dom
-- [] props
-- [] useEffect
+- [o] props
+- [o] useEffect
 
 #### - Study Note
 
@@ -136,7 +136,25 @@ return (
 )
 ```
 
+- useEffect() : 빈배열 안에는 state(조건)가 들어감, state가 바뀔 때마다 실행
+
+```js
+useEffect(
+  () => {
+    // 컴포넌트가 나타날 때 실행될 코드(mount)
+    return () => {
+      // 컴포넌트가 죽을 때 실행될 코드
+    };
+  },
+  [
+    /*useEffect가 실행될 조건, 빈배열일 경우 한번만 실행*/
+  ]
+);
+```
+
 ### Express/Mongoose/Style
+
+- [install] npm install express --save (Express 홈페이지 참조)
 
 ### Post
 

@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 
-function List() {
-  const [content, setContent] = useState("");
-  const [contentList, setContentList] = useState([]);
-  const onSubmit = () => {
-    let tempArr = [...contentList];
-    tempArr.push(content);
-    setContentList([...tempArr]);
-    setContent("");
-  };
+function List(props) {
   return (
     <div>
-      {contentList.map((content, index) => {
+      <h1>List</h1>
+      {props.contentList.map((content, index) => {
         return (
           <div
             key={index}
