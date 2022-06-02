@@ -4,7 +4,7 @@
 
 - [o] Component
 - [o] JSX
-- [] useState
+- [o] useState
 - [] react-router-dom
 - [] props
 - [] useEffect
@@ -51,6 +51,17 @@ return (
   </div>
 );
 ```
+
+- useSatate() : 배열의 첫번째 인자 -> 변수의 이름, 두번째 인자 -> state를 바꿔주는 함수, useState 함수 인자 -> state의 초기 type, 값
+
+```js
+const [temp, setTemp] = useState(0); //초기값 0
+<button onClick={() => setTemp(temp + 1)}>증가</button>;
+```
+
+- state의 값이 바뀌어도 화면이 재랜더링(새로고침)을 시킬 필요가 없음
+- state의 값을 바꿀 때는 항상 setState를 사용해야 함
+-
 
 ### Express/Mongoose/Style
 

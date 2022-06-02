@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Test() {
+  const [state, setState] = useState("");
   return (
     <div>
-      <h1>Function Components</h1>
+      <h1 className="test">Function Components</h1>
     </div>
   );
 }
