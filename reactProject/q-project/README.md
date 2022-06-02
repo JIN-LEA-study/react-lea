@@ -1,4 +1,4 @@
-## Quiz wep site project
+## Quiz web site project
 
 ### todolist
 
