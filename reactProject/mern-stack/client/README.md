@@ -95,7 +95,10 @@ const [number, setNumber] = useSTate(0);
 </button>;
 ```
 
+- 삼항연산자와 버튼을 활용한 state
+
 ```js
+//삼항연산자 활용
 const [temp, setTemp] = useState(false);
 
 return (
@@ -107,6 +110,28 @@ return (
       setTemp(!temp);
     })> {temp ? '숨기기' : '보기'}
     </button>
+  </div>
+)
+```
+
+- state를 통한 input(form) 활용방법
+
+```js
+const [content, setContent] = useState('');
+const onSubmit = () => {
+  alert(content);
+}
+
+return (
+  <div>
+    <input type="text" value={content} onChange={(e)=>{
+      setContent(e.currentTarget.value); //사용자가 입력한 값을 추적 가능
+    }}/>
+    <button
+      style={{marginTop="1rem"}}
+      onClick={() => {
+        onSubmit();
+      }}>제출</button>
   </div>
 )
 ```
