@@ -5,7 +5,7 @@
 - [o] Component
 - [o] JSX
 - [o] useState
-- [] react-router-dom
+- [o] react-router-dom
 - [] props
 - [] useEffect
 
@@ -149,3 +149,5 @@ return (
 ### Outtro
 
 ### Notice
+
+- react-router-dom@6
