@@ -71,6 +71,142 @@ const initialState = {
         },
       ],
     },
+    {
+      q: "일본의 수도는?",
+      a: [
+        {
+          text: "도쿄",
+          isCorrect: true,
+        },
+        {
+          text: "오사카",
+          isCorrect: false,
+        },
+        {
+          text: "오키나와",
+          isCorrect: false,
+        },
+      ],
+    },
+    {
+      q: "베트남의 수도는?",
+      a: [
+        {
+          text: "호이안",
+          isCorrect: true,
+        },
+        {
+          text: "다낭",
+          isCorrect: false,
+        },
+        {
+          text: "하노이",
+          isCorrect: false,
+        },
+      ],
+    },
+    {
+      q: "태국의 수도는?",
+      a: [
+        {
+          text: "파타야",
+          isCorrect: false,
+        },
+        {
+          text: "방콕",
+          isCorrect: true,
+        },
+        {
+          text: "코사무이",
+          isCorrect: false,
+        },
+      ],
+    },
+    {
+      q: "프랑스의 수도는?",
+      a: [
+        {
+          text: "파리",
+          isCorrect: true,
+        },
+        {
+          text: "마르세유",
+          isCorrect: false,
+        },
+        {
+          text: "낭트",
+          isCorrect: false,
+        },
+      ],
+    },
+    {
+      q: "포르투갈의 수도는?",
+      a: [
+        {
+          text: "신트라",
+          isCorrect: false,
+        },
+        {
+          text: "포르투",
+          isCorrect: false,
+        },
+        {
+          text: "리스본",
+          isCorrect: true,
+        },
+      ],
+    },
+    {
+      q: "이탈리아의 수도는?",
+      a: [
+        {
+          text: "베네치아",
+          isCorrect: false,
+        },
+        {
+          text: "나폴리",
+          isCorrect: false,
+        },
+        {
+          text: "로마",
+          isCorrect: true,
+        },
+      ],
+    },
+    {
+      q: "그리스의 수도는?",
+      a: [
+        {
+          text: "아테네",
+          isCorrect: true,
+        },
+        {
+          text: "산토리니",
+          isCorrect: false,
+        },
+        {
+          text: "크레타",
+          isCorrect: false,
+        },
+      ],
+    },
+    {
+      q: "캐나다의 수도는?",
+      a: [
+        {
+          text: "토론토",
+          isCorrect: false,
+        },
+        {
+          text: "오타와",
+          isCorrect: true,
+        },
+        {
+          text: "캘거리",
+          isCorrect: false,
+        },
+      ],
+    },
   ],
 };
 

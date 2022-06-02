@@ -4,6 +4,7 @@ import { PinkButton } from "./components/PinkButton";
 import { next, reset } from "./store/modules/score";
 import { Quiz } from "./components/Quiz";
 import styled from "styled-components";
+import "./App.css";
 
 const Main = styled.main`
   width: 100%;
@@ -11,26 +12,31 @@ const Main = styled.main`
   padding: 30px 0;
   margin: auto;
   text-align: center;
+  font-family: "Jua";
 `;
 
 const MainImg = styled.img`
   width: inherit;
+  font-family: "Jua";
 `;
 const Header = styled.h1`
   margin-bottom: 30px 0;
-  margin-top: 0;
+  margin-top: 30px;
+  font-family: "Jua";
 `;
 const SubHeader = styled.h2`
   font-size: 1.1em;
   color: #a3b0b7;
   font-weight: 400;
-  margin: 30px 0;
+  margin: 20px 0;
   margin-bottom: 30px;
+  font-family: "Jua";
 `;
 
 const Score = styled.div`
   font-size: 4em;
-  color: #f92b46;
+  color: #b18597;
+  font-family: "Jua";
 `;
 
 function App() {
