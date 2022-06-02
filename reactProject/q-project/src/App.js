@@ -8,18 +8,16 @@ import styled from "styled-components";
 const Main = styled.main`
   width: 100%;
   max-width: 360px;
+  padding: 30px 0;
   margin: auto;
   text-align: center;
-  /* display: felx;
-  justify-content: center; */
 `;
 
 const MainImg = styled.img`
   width: inherit;
-  margin-bottom: 30px;
 `;
 const Header = styled.h1`
-  margin-bottom: 30px;
+  margin-bottom: 30px 0;
   margin-top: 0;
 `;
 const SubHeader = styled.h2`
