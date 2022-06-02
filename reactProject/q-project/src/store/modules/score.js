@@ -54,6 +54,23 @@ const initialState = {
         },
       ],
     },
+    {
+      q: "미국의 수도는?",
+      a: [
+        {
+          text: "샌프란시스코",
+          isCorrect: false,
+        },
+        {
+          text: "워싱턴 D.C",
+          isCorrect: true,
+        },
+        {
+          text: "뉴욕",
+          isCorrect: false,
+        },
+      ],
+    },
   ],
 };
 
@@ -72,6 +89,12 @@ export default function score(state = initialState, action) {
       return {
         ...state,
         page: state.page + 1,
+      };
+    case RESET:
+      return {
+        ...state,
+        score: 0,
+        page: 0,
       };
     default:
       return state;
