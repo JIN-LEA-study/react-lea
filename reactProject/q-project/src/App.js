@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { PinkButton } from "./components/PinkButton";
 import { next } from "./store/modules/score";
+import { Quiz } from "./components/Quiz";
 import styled from "styled-components";
 
 const Main = styled.main`
@@ -50,7 +51,11 @@ function App() {
           />
         </Main>
       )}
-      {page > 0 && <Main></Main>}
+      {page > 0 && (
+        <Main>
+          <Quiz />
+        </Main>
+      )}
     </>
   );
 }
