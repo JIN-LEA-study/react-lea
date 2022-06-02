@@ -12,10 +12,10 @@ const RESET = "score/RESET";
 
 // 액션 생성 함수
 
-export function check({ quizIndex, answerIndex }) {
+export function check({ isCorrect }) {
   return {
     type: CHECK_CORRECT,
-    payload: { quizIndex, answerIndex },
+    payload: { isCorrect },
   };
 }
 
@@ -81,9 +81,7 @@ export default function score(state = initialState, action) {
     case CHECK_CORRECT:
       return {
         ...state,
-        score: state.quizs[action.payload.quizIndex].isCorrect
-          ? state.score + 10
-          : state.score,
+        score: action.payload.isCorrect ? state.score + 10 : state.score,
       };
     case NEXT_PAGE:
       return {
