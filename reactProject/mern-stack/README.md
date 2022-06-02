@@ -154,6 +154,15 @@ useEffect(
 
 ### Express/Mongoose/Style
 
+- [] Express
+- [] MongoDB
+- [] axios & cors
+- [] Mongoose Model
+- [] React Bootstrap
+- [] Emotion
+
+#### - Study Note
+
 - [install] npm install express --save (Express 홈페이지 참조)
 
 ### Post
