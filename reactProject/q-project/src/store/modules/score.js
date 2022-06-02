@@ -39,6 +39,7 @@ const initialState = {
   quizs: [
     {
       q: "대한민국의 수도는?",
+      img: "https://images.unsplash.com/photo-1595185515922-9b79af1ef52d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80",
       a: [
         {
           text: "서울",
@@ -56,6 +57,7 @@ const initialState = {
     },
     {
       q: "미국의 수도는?",
+      img: "https://images.unsplash.com/photo-1569328922596-4c04460c91a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2400&q=80",
       a: [
         {
           text: "샌프란시스코",
@@ -73,6 +75,7 @@ const initialState = {
     },
     {
       q: "일본의 수도는?",
+      img: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2300&q=80",
       a: [
         {
           text: "도쿄",
@@ -90,6 +93,7 @@ const initialState = {
     },
     {
       q: "베트남의 수도는?",
+      img: "https://images.unsplash.com/photo-1555921015-5532091f6026?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
       a: [
         {
           text: "호이안",
@@ -107,6 +111,7 @@ const initialState = {
     },
     {
       q: "태국의 수도는?",
+      img: "https://images.unsplash.com/photo-1510379872535-9310dc6fd6a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
       a: [
         {
           text: "파타야",
@@ -124,6 +129,7 @@ const initialState = {
     },
     {
       q: "프랑스의 수도는?",
+      img: "https://images.unsplash.com/photo-1583265266785-aab9e443ee68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
       a: [
         {
           text: "파리",
@@ -141,6 +147,7 @@ const initialState = {
     },
     {
       q: "포르투갈의 수도는?",
+      img: "https://images.unsplash.com/photo-1501927023255-9063be98970c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
       a: [
         {
           text: "신트라",
@@ -158,6 +165,7 @@ const initialState = {
     },
     {
       q: "이탈리아의 수도는?",
+      img: "https://images.unsplash.com/photo-1604579803699-127581deabdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
       a: [
         {
           text: "베네치아",
@@ -175,6 +183,7 @@ const initialState = {
     },
     {
       q: "그리스의 수도는?",
+      img: "https://images.unsplash.com/photo-1555993539-1732b0258235?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
       a: [
         {
           text: "아테네",
@@ -192,6 +201,7 @@ const initialState = {
     },
     {
       q: "캐나다의 수도는?",
+      img: "https://images.unsplash.com/photo-1599457480385-83984b998663?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
       a: [
         {
           text: "토론토",
