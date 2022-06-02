@@ -8,7 +8,12 @@ export function ProgressBar({ page, maxPage }) {
         <div className="page">
           {page}/{maxPage}
         </div>
-        <div className="gauge"></div>
+        <div className="gauge">
+          <span
+            className="fill"
+            style={{ width: `${(page / maxPage) * 100}%` }}
+          ></span>
+        </div>
       </div>
     </>
   );

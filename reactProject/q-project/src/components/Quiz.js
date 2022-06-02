@@ -10,7 +10,7 @@ export function Quiz() {
 
   return (
     <>
-      <h1>{quiz[page - 1].q}</h1>
+      <h1 style={{ margin: "50px 0" }}>{quiz[page - 1].q}</h1>
       {quiz[page - 1].a.map((item) => {
         return <BlueButton text={item.text} key={item.text} />;
       })}
