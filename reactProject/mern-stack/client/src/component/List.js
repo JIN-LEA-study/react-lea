@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function List(props) {
   return (
     <div>
+      <h1>List</h1>
       {props.contentList.map((content, index) => {
         return (
           <div

@@ -12,9 +12,17 @@ function Heading() {
       }}
     >
       <h1>Hello, React!</h1>
-      <Link to="/">home</Link>
-      <Link to="/upload">upload</Link>
-      <Link to="/list">list</Link>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "50%",
+        }}
+      >
+        <Link to="/">home</Link>
+        <Link to="/upload">upload</Link>
+        <Link to="/list">list</Link>
+      </div>
     </div>
   );
 }
