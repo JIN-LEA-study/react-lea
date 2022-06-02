@@ -4,9 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import A from "./component/A";
-import B from "./component/B";
-import C from "./component/C";
+import A from "./component/Heading";
+import B from "./component/List";
+import C from "./component/Upload";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
