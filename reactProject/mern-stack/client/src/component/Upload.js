@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from "../Style/UploadCSS";
 
 function Upload(props) {
   const [content, setContent] = useState("");
@@ -31,14 +32,14 @@ function Upload(props) {
           setContent(e.currentTarget.value);
         }}
       />
-      <button
+      <Button
         onClick={() => {
           onSubmit();
         }}
         style={{ marginTop: "1rem" }}
       >
         제출!
-      </button>
+      </Button>
     </div>
   );
 }
