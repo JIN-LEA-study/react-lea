@@ -1,6 +1,55 @@
 import styled from "@emotion/styled";
 
-const Button = styled.button`
+const UploadDiv = styled.div`
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const UploadForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+
+  input {
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    padding: 10px;
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    min-height: 350px;
+    resize: none;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    padding: 10px;
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: grey;
+      border-radius: 15px;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #c6c6c6;
+      border-radius: 15px;
+      box-shadow: inset 0px 0px 5px whitesmoke;
+    }
+  }
+`;
+
+const UploadButton = styled.button`
   padding: 32px;
   background-color: hotpink;
   font-size: 24px;
@@ -12,4 +61,4 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+export { UploadDiv, UploadForm, UploadButton };
