@@ -17,7 +17,7 @@ const { Post } = require("./Model/Post.js");
 app.listen(port, () => {
   mongoose
     .connect(
-      "mongodb+srv://leaisrevolution:gpdnjsdl27@cluster0.v7mku.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://leaisrevolution:gpdnjsdl27@cluster0.v7mku.mongodb.net/Community?retryWrites=true&w=majority"
     )
     .then(() => {
       console.log(`Example app listening on port ${port}`);
@@ -41,7 +41,7 @@ app.get("*", (req, res) => {
 // });
 
 app.post("/api/test", (req, res) => {
-  const CommunityPost = new Post({ title: "test", content: "테스트입니다" });
+  const CommunityPost = new Post({ title: "test", content: "isTest" });
   CommunityPost.save().then(() => {
     res.status(200).json({ success: true, text: "안녕하세요" });
   });
