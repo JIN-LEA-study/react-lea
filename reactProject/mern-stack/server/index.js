@@ -11,6 +11,8 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const { Post } = require("./Model/Post.js");
+
 // 서버 실행
 app.listen(port, () => {
   mongoose
@@ -39,6 +41,9 @@ app.get("*", (req, res) => {
 // });
 
 app.post("/api/test", (req, res) => {
+  const CommunityPost = new Post({ title: "test", content: "테스트입니다" });
+  CommunityPost.save().then(() => {
+    res.status(200).json({ success: true, text: "안녕하세요" });
+  });
   console.log(req.body);
-  res.status(200).json({ success: true, text: "안녕하세요" });
 });

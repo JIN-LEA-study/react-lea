@@ -1,7 +1,10 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
-const kittySchema = new mongoose.Schema({
-  name: String,
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: Stirng,
 });
 
-const kitten = mongoose.model("ketten", kittySchema);
+const Post = mongoose.model("Post", postSchema);
+
+module.exports = { Post };
