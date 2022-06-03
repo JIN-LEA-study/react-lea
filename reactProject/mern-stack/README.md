@@ -184,7 +184,14 @@ app.get("/", (req, res) => {
 
 ### Post
 
-- useNavigate() :
+- [o] Create : 게시물 생성하기
+- [o] Read : 게시물 불러오기
+- [] Update : 게시물 수정하기
+- [] Delete & Router : 게시물 삭제하기, 라우터
+
+#### - Study Note
+
+- useNavigate()
 
 ### Authentication
 
