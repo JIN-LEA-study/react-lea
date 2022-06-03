@@ -157,7 +157,7 @@ useEffect(
 - [o] Express
 - [o] MongoDB
 - [o] axios & cors
-- [] Mongoose Model
+- [o] Mongoose Model
 - [] React Bootstrap
 - [] Emotion
 
