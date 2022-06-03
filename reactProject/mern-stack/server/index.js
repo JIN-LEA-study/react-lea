@@ -39,6 +39,6 @@ app.get("*", (req, res) => {
 // });
 
 app.post("/api/test", (req, res) => {
-  console.log(res.body);
+  console.log(req.body);
   res.status(200).json({ success: true, text: "안녕하세요" });
 });
