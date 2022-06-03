@@ -8,6 +8,9 @@ const port = 5000;
 // mongodb+srv://leaisrevolution:gpdnjsdl27@cluster0.v7mku.mongodb.net/?retryWrites=true&w=majority
 
 app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // 서버 실행
 app.listen(port, () => {
   mongoose
@@ -36,6 +39,6 @@ app.get("*", (req, res) => {
 // });
 
 app.post("/api/test", (req, res) => {
-  console.log(res);
-  res.status(200).json({ success: true });
+  console.log(res.body);
+  res.status(200).json({ success: true, text: "안녕하세요" });
 });
