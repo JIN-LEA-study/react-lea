@@ -184,6 +184,8 @@ app.get("/", (req, res) => {
 
 ### Post
 
+- useNavigate() :
+
 ### Authentication
 
 ### Reple

@@ -35,7 +35,6 @@ app.get("/", (req, res) => {
 
 app.post("/api/post/submit", (req, res) => {
   let temp = req.body;
-  console.log(temp);
   const CommunityPost = new Post(temp);
   CommunityPost.save()
     .then(() => {
