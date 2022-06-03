@@ -157,9 +157,9 @@ useEffect(
 - [o] Express
 - [o] MongoDB
 - [o] axios & cors
-- [] Mongoose Model
-- [] React Bootstrap
-- [] Emotion
+- [o] Mongoose Model
+- [o] React Bootstrap
+- [o] Emotion
 
 #### - Study Note
 
@@ -180,6 +180,7 @@ app.get("/", (req, res) => {
 - [install] `npm i mongoose --save`
 - 서로 포트가 다를 경우, 보안 규칙을 지켜줘야 함 (proxy 설정)
 - [install] `npm i http-proxy-middleware`
+- [install] `npm i @emotion/css @emotion/react @emotion/styled`
 
 ### Post
 
