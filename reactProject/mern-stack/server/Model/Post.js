@@ -1,11 +1,20 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
+
+// const postSchema = new mongoose.Schema(
+//   {
+//     title: String,
+//     content: Stirng,
+//   },
+//   { Colletion: "posts" }
+// );
 
 const postSchema = new mongoose.Schema(
   {
-    title: string,
-    content: stirng,
+    title: String, // String is shorthand for {type: String}
+    content: String,
   },
-  { colletion: "posts" }
+  { Collections: "posts" }
 );
 
 const Post = mongoose.model("Post", postSchema);
