@@ -34,3 +34,8 @@ app.get("*", (req, res) => {
 // app.get("/express", (req, res) => {
 //   res.send("Hello Express");
 // });
+
+app.post("/api/test", (req, res) => {
+  console.log(res);
+  res.status(200).json({ success: true });
+});

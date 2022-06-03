@@ -1,6 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function List(props) {
+  useEffect(() => {
+    axios
+      .post("/api/test")
+      .then((response) => {
+        alert("요청성공");
+        console.log(response);
+      })
+      .catch((error) => {
+        //에러 핸들링
+        alert("요청실패");
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
       <h1>List</h1>

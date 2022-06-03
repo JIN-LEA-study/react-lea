@@ -178,6 +178,8 @@ app.get("/", (req, res) => {
 - [install] `npm install nodemon --save ` 서버의 코드가 바뀌면 자동으로 알아서 서버를 껐다 켜주는 라이브러리
 - JS에서 `*`은 모든 것을 의미
 - [install] `npm i mongoose --save`
+- 서로 포트가 다를 경우, 보안 규칙을 지켜줘야 함 (proxy 설정)
+- [install] `npm i http-proxy-middleware`
 
 ### Post
 
