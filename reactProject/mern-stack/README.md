@@ -176,6 +176,8 @@ app.get("/", (req, res) => {
 - [install] `npm i path --save` (Sever)
 - `__dirname__dirname` 현재경로
 - [install] `npm install nodemon --save ` 서버의 코드가 바뀌면 자동으로 알아서 서버를 껐다 켜주는 라이브러리
+- JS에서 `*`은 모든 것을 의미
+- [install] `npm i mongoose --save`
 
 ### Post
 
