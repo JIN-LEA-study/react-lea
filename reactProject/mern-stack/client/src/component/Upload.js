@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { UploadDiv, UploadForm, UploadButtonDiv } from "../Style/UploadCSS";
+import axios from "axios";
 
 function Upload(props) {
+  const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const onSubmit = () => {
-    let tempArr = [...props.contentList];
-    tempArr.push(content);
-    props.setContentList([...tempArr]);
-    setContent("");
+    // title, contetn 창에 글이 입력되지 않았을 경우
+    if (title === "" || content === "") {
+      return alert("모든 항목을 채워주세요!");
+    }
+    let body = {
+      title: title,
+      content: content,
+    };
+    axios
+      .post("/api/post/submit", body)
+      .then((response) => {
+        if (response.data.success) {
+          alert("글 작성이 완료되었습니다.");
+        } else {
+          alert("글 작성에 실패하였습니다.");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-
-  useEffect(
-    () => {
-      // 컴포넌트가 나타날 때 실행될 코드(mount)
-      return () => {
-        // 컴포넌트가 죽을 때 실행될 코드
-      };
-    },
-    [
-      /*useEffect가 실행될 조건, 빈배열일 경우 한번만 실행*/
-    ]
-  );
 
   return (
     <UploadDiv>
@@ -30,19 +36,19 @@ function Upload(props) {
         <input
           id="title"
           type="text"
-          value={content}
+          value={title}
           onChange={(e) => {
             setContent(e.currentTarget.value);
           }}
         />
         <label htmlFor="">Content</label>
         <textarea
-        // id="content"
-        // type="text"
-        // value={content}
-        // onChange={(e) => {
-        //   setContent(e.currentTarget.value);
-        // }}
+          id="content"
+          // type="text"
+          value={content}
+          onChange={(e) => {
+            setContent(e.currentTarget.value);
+          }}
         />
         <UploadButtonDiv>
           <button
