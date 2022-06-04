@@ -9,10 +9,12 @@ import { AiFillCustomerService, AiFillStar } from "react-icons/ai";
 const Content = () => {
   const playList = useSelector((state) => state.playList);
   const currentIndex = useSelector((state) => state.currentIndex);
+
   return (
     <ContentSection>
       <ContentTitle>
         <AiFillCustomerService color="#ffffff" size="20px" />
+        <ArtistImg src={playList[currentIndex].img2} />
         &nbsp; {playList[currentIndex].artist} - {playList[currentIndex].name}
       </ContentTitle>
       <ContentLike>
@@ -34,10 +36,22 @@ const ContentSection = styled.div`
   }
 `;
 
+const ArtistImg = styled.img`
+  width: 25px;
+  height: 25px;
+  /* background-color: #ffffff; */
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 10px;
+`;
+
 const ContentTitle = styled.div`
   width: 98%;
   color: #ffffff;
   font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
 `;
 
 const ContentLike = styled.div`

@@ -25,7 +25,6 @@ const Player = () => {
     <Container>
       <AviSection>
         <Content />
-        {/* <Playbutton /> */}
         <ContentSection>
           {/* <ProgressBar ref={audioRef}></ProgressBar> */}
           <Controls
@@ -34,7 +33,13 @@ const Player = () => {
             resetDuration={resetDuration}
           ></Controls>
         </ContentSection>
-        <Avi loop autoPlay src={playList[currentIndex].avi} type="video/mp4" />
+        <Avi
+          loop
+          muted
+          autoPlay
+          src={playList[currentIndex].avi}
+          type="video/mp4"
+        />
         {/* <Img src={playList[currentIndex].img} /> */}
       </AviSection>
     </Container>
@@ -79,11 +84,4 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-// const ContentTitle = styled.div`
-//   width: 90%;
-//   top: 10%;
-//   height: 5%;
-//   position: absolute;
-//   background-color: white;
-// `;
 export default Player;
