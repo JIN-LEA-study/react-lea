@@ -8,9 +8,10 @@ import Playbutton from "./Playbutton";
 import { useSelector } from "react-redux";
 
 const Player = () => {
+  const audioRef = useRef();
   const playList = useSelector((state) => state.playList);
   const currentIndex = useSelector((state) => state.currentIndex);
-  const audioRef = useRef();
+
   const onPlay = useCallback(() => {
     audioRef.current.play();
   }, []);
@@ -40,7 +41,6 @@ const Player = () => {
           src={playList[currentIndex].avi}
           type="video/mp4"
         />
-        {/* <Img src={playList[currentIndex].img} /> */}
       </AviSection>
     </Container>
   );
@@ -77,11 +77,6 @@ const ContentSection = styled.div`
   /* background-color: rgba(255, 255, 255, 0.3); */
   position: absolute;
   border-radius: 20px;
-`;
-
-const Img = styled.img`
-  width: 100%;
-  object-fit: cover;
 `;
 
 export default Player;

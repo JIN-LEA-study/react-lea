@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 // Ant Design Icons
-import { AiFillCustomerService, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 // AiOutlineStar, AiOutlineReload 빈하트
 
 const Content = () => {
@@ -13,9 +13,9 @@ const Content = () => {
   return (
     <ContentSection>
       <ContentTitle>
-        <AiFillCustomerService color="#ffffff" size="20px" />
         <ArtistImg src={playList[currentIndex].img2} />
         &nbsp; {playList[currentIndex].artist} - {playList[currentIndex].name}
+        {/* <AiFillCustomerService color="#ffffff" size="20px" /> */}
       </ContentTitle>
       <ContentLike>
         <AiFillStar color="#ffffff" size="30px" />
@@ -42,7 +42,6 @@ const ArtistImg = styled.img`
   /* background-color: #ffffff; */
   object-fit: cover;
   border-radius: 50%;
-  margin-left: 10px;
 `;
 
 const ContentTitle = styled.div`

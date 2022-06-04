@@ -42,19 +42,22 @@ const initialState = {
   playList,
   currentMVId: playList[0].id,
   currentIndex: 0,
-  playing: false,
+  playing: true,
 };
 
+const repeatMode = ["SHUFFLE"];
 const PLAY_MV = "mvPlayer/PLAY_MV";
 const STOP_MV = "mvPlayer/STOP_MV";
 const NEXT_MV = "mvPlayer/NEXT_MV";
 const PREV_MV = "mvPlayer/PREV_MV";
+const SET_REPEAT = "mvPlayer/SET_REPEAT";
 const SET_CURRENT_INDEX = "mvPlayer/SET_CURRENT_INDEX";
 
 export const playMV = () => ({ type: PLAY_MV });
 export const stopMV = () => ({ type: STOP_MV });
 export const nextMV = () => ({ type: NEXT_MV });
 export const prevMV = () => ({ type: PREV_MV });
+export const setRepeat = () => ({ type: SET_REPEAT });
 export const setCurrentIndex = (index) => ({ type: SET_CURRENT_INDEX, index });
 
 const getRandomNum = (arr, excludeNum) => {
@@ -106,6 +109,14 @@ export default function mvPlayerReducer(state = initialState, action) {
         ...state,
         currentIndex: prevIndex,
         currentMVId: state.playList[prevIndex].id,
+      };
+    case SET_REPEAT:
+      return {
+        ...state,
+        repeat:
+          repeatMode[
+            (repeatMode.indexOf(state.repeat) + 1) % repeatMode.length
+          ],
       };
 
     default:

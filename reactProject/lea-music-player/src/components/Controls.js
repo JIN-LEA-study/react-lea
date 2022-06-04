@@ -1,13 +1,16 @@
 import React, { memo, useCallback } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+//Typicons
 import {
-  TbPlayerPlay,
-  TbPlayerSkipBack,
-  TbPlayerSkipForward,
-} from "react-icons/tb";
-import { nextMV } from "../store/mvPlayerList";
-const Controls = ({ setshowPlayList, resetDuration, play, pause }) => {
+  TiMediaPlay,
+  TiMediaFastForward,
+  TiMediaRewind,
+  TiMediaPause,
+} from "react-icons/ti";
+import { nextMV, prevMV, setRepeat } from "../store/mvPlayerList";
+
+const Controls = ({ resetDuration, play, pause }) => {
   const playing = useSelector((state) => state.playing);
   const repeat = useSelector((state) => state.repeat);
   const dispatch = useDispatch();
@@ -19,49 +22,49 @@ const Controls = ({ setshowPlayList, resetDuration, play, pause }) => {
     pause();
   }, [pause]);
 
-  // const onChangeVolume = useCallback(
-  //   (event) => {
-  //     changeVolume(event.target.value);
-  //   },
-  //   [changeVolume]
-  // );
-
-  // const onClickPrevious = useCallback(() => {
-  //   if (repeat === "ONE") {
-  //     resetDuration();
-  //   } else {
-  //     dispatch(prevMV());
-  //   }
-  // }, [repeat, resetDuration, dispatch]);
+  const onClickPrevious = useCallback(() => {
+    if (repeat === "ONE") {
+      resetDuration();
+    } else {
+      dispatch(prevMV());
+    }
+  }, [repeat, resetDuration, dispatch]);
 
   const onClickNext = useCallback(() => {
     if (repeat === "ONE") {
       resetDuration();
     } else {
       dispatch(nextMV());
+      console.log(onClickNext());
     }
   }, [repeat, resetDuration, dispatch]);
-
-  // const onClickRepeat = useCallback(() => {
-  //   dispatch(setRepeat());
-  // }, [dispatch]);
 
   return (
     <ControlsScetion>
       <SectionDiv>
-        <TbPlayerSkipBack
+        <TiMediaRewind
           size="45px"
           color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
-          onClick={onClickPause}
+          onClick={onClickPrevious}
         />
-        <TbPlayerPlay
-          size="45px"
-          color="rgba(255, 255, 255, 0.8)"
-          cursor="pointer"
-          onClick={onClickPlay}
-        />
-        <TbPlayerSkipForward
+        {playing ? (
+          <TiMediaPause
+            size="45px"
+            color="rgba(255, 255, 255, 0.8)"
+            cursor="pointer"
+            onClick={onClickPause}
+          />
+        ) : (
+          <TiMediaPlay
+            size="45px"
+            color="rgba(255, 255, 255, 0.8)"
+            cursor="pointer"
+            onClick={onClickPlay}
+          />
+        )}
+
+        <TiMediaFastForward
           size="45px"
           color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
