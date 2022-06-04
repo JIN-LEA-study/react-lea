@@ -1,12 +1,51 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import {
   TbPlayerPlay,
   TbPlayerSkipBack,
   TbPlayerSkipForward,
 } from "react-icons/tb";
+import { nextMV } from "../store/mvPlayerList";
+const Controls = ({ setshowPlayList, resetDuration, play, pause }) => {
+  const playing = useSelector((state) => state.playing);
+  const repeat = useSelector((state) => state.repeat);
+  const dispatch = useDispatch();
+  const onClickPlay = useCallback(() => {
+    play();
+  }, [play]);
 
-const Controls = () => {
+  const onClickPause = useCallback(() => {
+    pause();
+  }, [pause]);
+
+  // const onChangeVolume = useCallback(
+  //   (event) => {
+  //     changeVolume(event.target.value);
+  //   },
+  //   [changeVolume]
+  // );
+
+  // const onClickPrevious = useCallback(() => {
+  //   if (repeat === "ONE") {
+  //     resetDuration();
+  //   } else {
+  //     dispatch(prevMV());
+  //   }
+  // }, [repeat, resetDuration, dispatch]);
+
+  const onClickNext = useCallback(() => {
+    if (repeat === "ONE") {
+      resetDuration();
+    } else {
+      dispatch(nextMV());
+    }
+  }, [repeat, resetDuration, dispatch]);
+
+  // const onClickRepeat = useCallback(() => {
+  //   dispatch(setRepeat());
+  // }, [dispatch]);
+
   return (
     <ControlsScetion>
       <SectionDiv>
@@ -14,16 +53,19 @@ const Controls = () => {
           size="45px"
           color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
+          onClick={onClickPause}
         />
         <TbPlayerPlay
           size="45px"
           color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
+          onClick={onClickPlay}
         />
         <TbPlayerSkipForward
           size="45px"
           color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
+          onClick={onClickNext}
         />
       </SectionDiv>
     </ControlsScetion>
@@ -46,4 +88,4 @@ const SectionDiv = styled.div`
   width: 30%;
   /* background-color: red; */
 `;
-export default Controls;
+export default memo(Controls);

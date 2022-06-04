@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef } from "react";
+
 import styled from "styled-components";
 import ProgressBar from "./ProgressBar";
 import Controls from "./Controls";
 import Content from "./Content";
 import Playbutton from "./Playbutton";
-import { aviData } from "../Data/aviData";
+import { useSelector } from "react-redux";
 
-const Player = (props) => {
-  const [aviImg, setAviImg] = useState(aviData);
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || "";
+const Player = () => {
+  const audioRef = useRef();
+  const playList = useSelector((state) => state.playList);
+  const currentIndex = useSelector((state) => state.currentIndex);
+  const onPlay = useCallback(() => {
+    audioRef.current.play();
+  }, []);
+  const onPause = useCallback(() => {
+    audioRef.current.pause();
+  }, []);
+  const resetDuration = useCallback(() => {
+    audioRef.current.resetDuration();
+  }, []);
 
   return (
     <Container>
       <AviSection>
-        {/* <Avi
-          autoPlay
-          src={process.env.PUBLIC_URL + `/public/avi/avi_2.mp4`}
-          type="video/mp4"
-        ></Avi> */}
-
         <Content />
-        <Playbutton />
+        {/* <Playbutton /> */}
         <ContentSection>
+          {/* <ProgressBar ref={audioRef}></ProgressBar> */}
           <ProgressBar></ProgressBar>
-          <Controls></Controls>
+          <Controls
+            play={onPlay}
+            pause={onPause}
+            resetDuration={resetDuration}
+          ></Controls>
         </ContentSection>
-        <Img src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/900/014/80900014_1480412901845_1_600x600.JPG/dims/resize/Q_80,0" />
+        <Avi loop autoPlay src={playList[currentIndex].avi} type="video/mp4" />
+        {/* <Img src={playList[currentIndex].img} /> */}
       </AviSection>
     </Container>
   );
@@ -52,6 +62,7 @@ const AviSection = styled.div`
 
 const Avi = styled.video`
   width: 100%;
+  object-fit: cover;
   /* position: absolute; */
 `;
 
