@@ -6,7 +6,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 const Playbutton = () => {
   return (
     <PlayButtonSection>
-      <AiFillPlayCircle color="#ffffff" size="90px" />
+      <AiFillPlayCircle color="#ffffff" size="90px" cursor="pointer" />
     </PlayButtonSection>
   );
 };

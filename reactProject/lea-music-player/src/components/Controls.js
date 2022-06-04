@@ -10,9 +10,21 @@ const Controls = () => {
   return (
     <ControlsScetion>
       <SectionDiv>
-        <TbPlayerSkipBack size="45px" color="rgba(255, 255, 255, 0.8)" />
-        <TbPlayerPlay size="45px" color="rgba(255, 255, 255, 0.8)" />
-        <TbPlayerSkipForward size="45px" color="rgba(255, 255, 255, 0.8)" />
+        <TbPlayerSkipBack
+          size="45px"
+          color="rgba(255, 255, 255, 0.8)"
+          cursor="pointer"
+        />
+        <TbPlayerPlay
+          size="45px"
+          color="rgba(255, 255, 255, 0.8)"
+          cursor="pointer"
+        />
+        <TbPlayerSkipForward
+          size="45px"
+          color="rgba(255, 255, 255, 0.8)"
+          cursor="pointer"
+        />
       </SectionDiv>
     </ControlsScetion>
   );
