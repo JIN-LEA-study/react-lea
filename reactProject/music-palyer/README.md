@@ -2,4 +2,4 @@
 
 ### notice
 
-- [install] node-sass, classnames, react-redux, mui/icons-material
+- [install] node-sass, classnames, react-redux, @mui/icons-material, @mui/material @emotion/react #emotion/styled
