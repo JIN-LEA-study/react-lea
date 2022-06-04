@@ -21,7 +21,7 @@ const Content = () => {
 
 const ContentSection = styled.div`
   width: 90%;
-  top: 10%;
+  top: 7%;
   height: 5%;
   position: absolute;
   /* background-color: white; */
