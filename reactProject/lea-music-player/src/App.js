@@ -1,12 +1,11 @@
 import Player from "./components/Player";
 import styled from "styled-components";
 import "./App.css";
-import aviData from "./Data/aviData";
 
 function App() {
   return (
     <Wrap>
-      <Player aviData={aviData} />
+      <Player />
     </Wrap>
   );
 }
