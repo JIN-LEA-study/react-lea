@@ -7,7 +7,9 @@ const Controls = () => {
 
 const ControlsScetion = styled.div`
   width: 100%;
-  height: 10%;
-  background-color: orange;
+  height: 50%;
+  background-color: transparent;
+  /* position: absolute; */
+  top: 90%;
 `;
 export default Controls;
