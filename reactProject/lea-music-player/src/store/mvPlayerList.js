@@ -34,7 +34,7 @@ const playList = [
 
 const initialState = {
   playList,
-  currentMusicId: playList[0].id,
+  currentMVId: playList[0].id,
   currentIndex: 0,
   playing: false,
 };

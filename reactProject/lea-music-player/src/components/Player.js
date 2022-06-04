@@ -27,8 +27,8 @@ const Player = () => {
         <Content />
         {/* <Playbutton /> */}
         <ContentSection>
-          {/* <ProgressBar ref={audioRef}></ProgressBar> */}
-          <ProgressBar></ProgressBar>
+          <ProgressBar ref={audioRef}></ProgressBar>
+          {/* <ProgressBar></ProgressBar> */}
           <Controls
             play={onPlay}
             pause={onPause}

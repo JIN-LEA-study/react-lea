@@ -76,18 +76,15 @@ function ProgressBar(props, ref) {
   return (
     <ProgressBarScetion>
       {/* <ProgressBarScetion onMouseDown={onClickProgress}> */}
-      <ProgressBarArea>
-        <ProgressBarUI />
-        {/* <ProgressBarArea ref={progressBar}> */}
-        {/* <ProgressBarUI
-          autoPlay
+      {/* <ProgressBarArea> */}
+      <ProgressBarArea ref={progressBar}>
+        <ProgressBarUI
           onPlay={onPlay}
           onTimeUpdate={onTimeUpdate}
           onPause={onPause}
           onEnded={onEnded}
-          src={playList[currentIndex].src}
           ref={audio}
-        ></ProgressBarUI> */}
+        ></ProgressBarUI>
       </ProgressBarArea>
       <ProgressBarTime>
         <div>{currentTime}</div>
