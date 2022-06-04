@@ -18,34 +18,31 @@ const Controls = ({
   pause,
   setVolume,
 }) => {
+  const onClickPlay = () => {
+    play();
+  };
+  const onClickPause = () => {
+    pause();
+  };
 
   return (
     <div className="control-area">
-      <QueueMusic
-        sx={{ fontSize: 30, cursor: "pointer" }}
-    
-      />
+      <QueueMusic sx={{ fontSize: 30, cursor: "pointer" }} />
       <RepeatIcon sx={{ fontSize: 30, cursor: "pointer" }} />
-      <SkipPrevious
-        sx={{ fontSize: 30, cursor: "pointer" }}
-
-      />
+      <SkipPrevious sx={{ fontSize: 30, cursor: "pointer" }} />
       {true ? (
         <PauseIcon
           sx={{ fontSize: 30, cursor: "pointer" }}
-          
+          onClick={onClickPause}
         />
       ) : (
         <PlayArrow
           className="play"
           sx={{ fontSize: 30, cursor: "pointer" }}
-    
+          onClick={onClickPlay}
         />
       )}
-      <SkipNext
-        sx={{ fontSize: 30, cursor: "pointer" }}
-
-      />
+      <SkipNext sx={{ fontSize: 30, cursor: "pointer" }} />
       <div className="volume-container">
         <VolumeUpIcon sx={{ fontSize: 20 }} />
         <input

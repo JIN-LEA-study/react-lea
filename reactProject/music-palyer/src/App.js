@@ -1,19 +1,27 @@
-import SortableList from "./lib/SortableList";
-import { data } from "./TestItem/TestData";
-import TestItem from "./TestItem/TestItem";
+import React, { useRef } from "react";
+import "./App.scss";
+import PlayList from "./components/PlayList/PlayList";
+import ProgressArea from "./components/ProgrssArea/ProgressArea";
+import Controls from "./components/Controls/Controls";
+import SongDetail from "./components/SongDetail/SongDetail";
 
 function App() {
-  const onDropItem = (newList) => console.log(newList);
-  const onClickItem = (index) => alert(index);
+  const audioRef = useRef();
+  const onPlay = () => {
+    audioRef.current.paly();
+  };
+  const onPause = () => {
+    audioRef.current.pause();
+  };
   return (
-    <SortableList
-      data={data}
-      renderItem={(item, index) => {
-        <TestItem data={item} index={index} />;
-      }}
-      onDropItem={onDropItem}
-      onClickItem={onClickItem}
-    />
+    <div className="App">
+      <div className="container">
+        <SongDetail />
+        <ProgressArea ref={audioRef} />
+        <Controls paly={onPlay} pause={onPause} />
+        <PlayList />
+      </div>
+    </div>
   );
 }
 
