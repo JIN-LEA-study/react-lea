@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ProgressBar from "./ProgressBar";
 import Controls from "./Controls";
+import Content from "./Content";
+import Playbutton from "./Playbutton";
 import { aviData } from "../Data/aviData";
 
 const Player = (props) => {
@@ -17,11 +19,14 @@ const Player = (props) => {
           src={process.env.PUBLIC_URL + `/public/avi/avi_2.mp4`}
           type="video/mp4"
         ></Avi> */}
+
+        <Content />
+        <Playbutton />
         <ContentSection>
           <ProgressBar></ProgressBar>
           <Controls></Controls>
         </ContentSection>
-        <Img src="https://file.mk.co.kr/meet/neds/2018/12/image_readtop_2018_757693_15439024753557045.jpg" />
+        <Img src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/900/014/80900014_1480412901845_1_600x600.JPG/dims/resize/Q_80,0" />
       </AviSection>
     </Container>
   );
@@ -42,6 +47,7 @@ const AviSection = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  border-radius: 20px;
 `;
 
 const Avi = styled.video`
@@ -63,4 +69,11 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
+// const ContentTitle = styled.div`
+//   width: 90%;
+//   top: 10%;
+//   height: 5%;
+//   position: absolute;
+//   background-color: white;
+// `;
 export default Player;
