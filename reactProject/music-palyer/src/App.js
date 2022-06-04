@@ -15,6 +15,7 @@ function App() {
   };
   return (
     <div className="App">
+      <div>하이</div>
       <div className="container">
         <SongDetail />
         <ProgressArea ref={audioRef} />
