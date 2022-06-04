@@ -8,9 +8,10 @@ import Playbutton from "./Playbutton";
 import { useSelector } from "react-redux";
 
 const Player = () => {
+  const audioRef = useRef();
   const playList = useSelector((state) => state.playList);
   const currentIndex = useSelector((state) => state.currentIndex);
-  const audioRef = useRef();
+
   const onPlay = useCallback(() => {
     audioRef.current.play();
   }, []);
@@ -25,7 +26,6 @@ const Player = () => {
     <Container>
       <AviSection>
         <Content />
-        {/* <Playbutton /> */}
         <ContentSection>
           {/* <ProgressBar ref={audioRef}></ProgressBar> */}
           <Controls
@@ -34,8 +34,13 @@ const Player = () => {
             resetDuration={resetDuration}
           ></Controls>
         </ContentSection>
-        <Avi loop autoPlay src={playList[currentIndex].avi} type="video/mp4" />
-        {/* <Img src={playList[currentIndex].img} /> */}
+        <Avi
+          loop
+          muted
+          autoPlay
+          src={playList[currentIndex].avi}
+          type="video/mp4"
+        />
       </AviSection>
     </Container>
   );
@@ -74,16 +79,4 @@ const ContentSection = styled.div`
   border-radius: 20px;
 `;
 
-const Img = styled.img`
-  width: 100%;
-  object-fit: cover;
-`;
-
-// const ContentTitle = styled.div`
-//   width: 90%;
-//   top: 10%;
-//   height: 5%;
-//   position: absolute;
-//   background-color: white;
-// `;
 export default Player;

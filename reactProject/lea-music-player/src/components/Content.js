@@ -3,20 +3,22 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 // Ant Design Icons
-import { AiFillCustomerService, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 // AiOutlineStar, AiOutlineReload 빈하트
 
 const Content = () => {
   const playList = useSelector((state) => state.playList);
   const currentIndex = useSelector((state) => state.currentIndex);
+
   return (
     <ContentSection>
       <ContentTitle>
-        <AiFillCustomerService color="#ffffff" size="20px" />
+        <ArtistImg src={playList[currentIndex].img2} />
         &nbsp; {playList[currentIndex].artist} - {playList[currentIndex].name}
+        {/* <AiFillCustomerService color="#ffffff" size="20px" /> */}
       </ContentTitle>
       <ContentLike>
-        <AiFillStar color="#ffffff" size="30px" />
+        <AiFillStar color="#ffffff" size="30px" cursor="pointer" />
       </ContentLike>
     </ContentSection>
   );
@@ -34,10 +36,21 @@ const ContentSection = styled.div`
   }
 `;
 
+const ArtistImg = styled.img`
+  width: 25px;
+  height: 25px;
+  /* background-color: #ffffff; */
+  object-fit: cover;
+  border-radius: 50%;
+`;
+
 const ContentTitle = styled.div`
   width: 98%;
   color: #ffffff;
   font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
 `;
 
 const ContentLike = styled.div`

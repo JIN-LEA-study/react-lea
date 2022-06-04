@@ -1,13 +1,16 @@
 import React, { memo, useCallback } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+//Typicons
 import {
-  TbPlayerPlay,
-  TbPlayerSkipBack,
-  TbPlayerSkipForward,
-} from "react-icons/tb";
-import { nextMV } from "../store/mvPlayerList";
-const Controls = ({ setshowPlayList, resetDuration, play, pause }) => {
+  TiMediaPlay,
+  TiMediaFastForward,
+  TiMediaRewind,
+  TiMediaPause,
+} from "react-icons/ti";
+import { nextMV, prevMV, setRepeat } from "../store/mvPlayerList";
+
+const Controls = ({ resetDuration, play, pause }) => {
   const playing = useSelector((state) => state.playing);
   const repeat = useSelector((state) => state.repeat);
   const dispatch = useDispatch();
@@ -19,13 +22,6 @@ const Controls = ({ setshowPlayList, resetDuration, play, pause }) => {
     pause();
   }, [pause]);
 
-  // const onChangeVolume = useCallback(
-  //   (event) => {
-  //     changeVolume(event.target.value);
-  //   },
-  //   [changeVolume]
-  // );
-
   // const onClickPrevious = useCallback(() => {
   //   if (repeat === "ONE") {
   //     resetDuration();
@@ -34,34 +30,50 @@ const Controls = ({ setshowPlayList, resetDuration, play, pause }) => {
   //   }
   // }, [repeat, resetDuration, dispatch]);
 
-  const onClickNext = useCallback(() => {
-    if (repeat === "ONE") {
-      resetDuration();
-    } else {
-      dispatch(nextMV());
-    }
-  }, [repeat, resetDuration, dispatch]);
+  // const onClickNext = useCallback(() => {
+  //   if (repeat === "ONE") {
+  //     resetDuration();
+  //   } else {
+  //     dispatch(nextMV());
+  //     console.log(onClickNext());
+  //   }
+  // }, [repeat, resetDuration, dispatch]);
 
-  // const onClickRepeat = useCallback(() => {
-  //   dispatch(setRepeat());
-  // }, [dispatch]);
+  const onClickPrevious = useCallback(() => {
+    dispatch(prevMV());
+  }, [dispatch]);
+
+  const onClickNext = useCallback(() => {
+    dispatch(nextMV());
+    console.log(onClickNext());
+  }, [dispatch]);
 
   return (
     <ControlsScetion>
       <SectionDiv>
-        <TbPlayerSkipBack
+        <TiMediaRewind
           size="45px"
-          color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
-          onClick={onClickPause}
-        />
-        <TbPlayerPlay
-          size="45px"
           color="rgba(255, 255, 255, 0.8)"
-          cursor="pointer"
-          onClick={onClickPlay}
+          onClick={onClickPrevious}
         />
-        <TbPlayerSkipForward
+        {playing ? (
+          <TiMediaPause
+            size="45px"
+            cursor="pointer"
+            color="rgba(255, 255, 255, 0.8)"
+            onClick={onClickPause}
+          />
+        ) : (
+          <TiMediaPlay
+            cursor="pointer"
+            size="45px"
+            color="rgba(255, 255, 255, 0.8)"
+            onClick={onClickPlay}
+          />
+        )}
+
+        <TiMediaFastForward
           size="45px"
           color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
