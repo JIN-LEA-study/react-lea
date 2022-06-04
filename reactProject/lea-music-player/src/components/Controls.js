@@ -22,44 +22,53 @@ const Controls = ({ resetDuration, play, pause }) => {
     pause();
   }, [pause]);
 
+  // const onClickPrevious = useCallback(() => {
+  //   if (repeat === "ONE") {
+  //     resetDuration();
+  //   } else {
+  //     dispatch(prevMV());
+  //   }
+  // }, [repeat, resetDuration, dispatch]);
+
+  // const onClickNext = useCallback(() => {
+  //   if (repeat === "ONE") {
+  //     resetDuration();
+  //   } else {
+  //     dispatch(nextMV());
+  //     console.log(onClickNext());
+  //   }
+  // }, [repeat, resetDuration, dispatch]);
+
   const onClickPrevious = useCallback(() => {
-    if (repeat === "ONE") {
-      resetDuration();
-    } else {
-      dispatch(prevMV());
-    }
-  }, [repeat, resetDuration, dispatch]);
+    dispatch(prevMV());
+  }, [dispatch]);
 
   const onClickNext = useCallback(() => {
-    if (repeat === "ONE") {
-      resetDuration();
-    } else {
-      dispatch(nextMV());
-      console.log(onClickNext());
-    }
-  }, [repeat, resetDuration, dispatch]);
+    dispatch(nextMV());
+    console.log(onClickNext());
+  }, [dispatch]);
 
   return (
     <ControlsScetion>
       <SectionDiv>
         <TiMediaRewind
           size="45px"
-          color="rgba(255, 255, 255, 0.8)"
           cursor="pointer"
+          color="rgba(255, 255, 255, 0.8)"
           onClick={onClickPrevious}
         />
         {playing ? (
           <TiMediaPause
             size="45px"
-            color="rgba(255, 255, 255, 0.8)"
             cursor="pointer"
+            color="rgba(255, 255, 255, 0.8)"
             onClick={onClickPause}
           />
         ) : (
           <TiMediaPlay
+            cursor="pointer"
             size="45px"
             color="rgba(255, 255, 255, 0.8)"
-            cursor="pointer"
             onClick={onClickPlay}
           />
         )}

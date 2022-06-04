@@ -18,7 +18,7 @@ const Content = () => {
         {/* <AiFillCustomerService color="#ffffff" size="20px" /> */}
       </ContentTitle>
       <ContentLike>
-        <AiFillStar color="#ffffff" size="30px" />
+        <AiFillStar color="#ffffff" size="30px" cursor="pointer" />
       </ContentLike>
     </ContentSection>
   );
