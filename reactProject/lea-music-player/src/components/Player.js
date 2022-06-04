@@ -5,10 +5,11 @@ import ProgressBar from "./ProgressBar";
 import Controls from "./Controls";
 import Content from "./Content";
 import Playbutton from "./Playbutton";
-import Avi from "./Avi";
 import { useSelector } from "react-redux";
 
 const Player = () => {
+  const playList = useSelector((state) => state.playList);
+  const currentIndex = useSelector((state) => state.currentIndex);
   const audioRef = useRef();
   const onPlay = useCallback(() => {
     audioRef.current.play();
@@ -26,15 +27,14 @@ const Player = () => {
         <Content />
         {/* <Playbutton /> */}
         <ContentSection>
-          <ProgressBar ref={audioRef}></ProgressBar>
-          {/* <ProgressBar></ProgressBar> */}
+          {/* <ProgressBar ref={audioRef}></ProgressBar> */}
           <Controls
             play={onPlay}
             pause={onPause}
             resetDuration={resetDuration}
           ></Controls>
         </ContentSection>
-        <Avi />
+        <Avi loop autoPlay src={playList[currentIndex].avi} type="video/mp4" />
         {/* <Img src={playList[currentIndex].img} /> */}
       </AviSection>
     </Container>
@@ -59,15 +59,15 @@ const AviSection = styled.div`
   border-radius: 20px;
 `;
 
-// const Avi = styled.video`
-//   width: 100%;
-//   object-fit: cover;
-//   /* position: absolute; */
-// `;
+const Avi = styled.video`
+  width: 100%;
+  object-fit: cover;
+  /* position: absolute; */
+`;
 
 const ContentSection = styled.div`
   width: 90%;
-  top: 75%;
+  top: 85%;
   height: 20%;
   /* background-color: rgba(255, 255, 255, 0.3); */
   position: absolute;
