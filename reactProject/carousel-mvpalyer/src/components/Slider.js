@@ -45,53 +45,60 @@ export default function Slider() {
   }, [currentSlide]);
 
   return (
-    <Container>
-      <ControlsSection>
-        <SectionDiv>
-          <TiMediaRewind
-            type="button"
-            size="30px"
-            color="rgba(255, 255, 255, 0.8)"
-            cursor="pointer"
-            onClick={PrevSlide}
-          ></TiMediaRewind>
-          <TiMediaPlay
-            type="button"
-            size="30px"
-            color="rgba(255, 255, 255, 0.8)"
-            cursor="pointer"
-            onClick={NextSlide}
-          ></TiMediaPlay>
-          <TiMediaFastForward
-            type="button"
-            size="30px"
-            color="rgba(255, 255, 255, 0.8)"
-            cursor="pointer"
-            onClick={NextSlide}
-          ></TiMediaFastForward>
-        </SectionDiv>
-      </ControlsSection>
-      <SliderContainer ref={slideRef}>
-        {/* <Text>
+    <>
+      <Container>
+        <SliderContainer ref={slideRef}>
+          {/* <Text>
         <p>{currentSlide + 1}번 째 사진</p>
       </Text> */}
-        <Slide avi={mv1} />
-        <Slide avi={mv2} />
-        <Slide avi={mv3} />
-        {/* <ContentSection>ㅎ2</ContentSection> */}
-      </SliderContainer>
-    </Container>
+          <Slide avi={mv1} />
+          <Slide avi={mv2} />
+          <Slide avi={mv3} />
+          {/* <ContentSection>ㅎ2</ContentSection> */}
+        </SliderContainer>
+        <ControlsSection>
+          <SectionDiv>
+            <TiMediaRewind
+              type="button"
+              size="30px"
+              color="rgba(255, 255, 255, 0.8)"
+              cursor="pointer"
+              onClick={PrevSlide}
+            ></TiMediaRewind>
+            <TiMediaPlay
+              type="button"
+              size="30px"
+              color="rgba(255, 255, 255, 0.8)"
+              cursor="pointer"
+              onClick={NextSlide}
+            ></TiMediaPlay>
+            <TiMediaFastForward
+              type="button"
+              size="30px"
+              color="rgba(255, 255, 255, 0.8)"
+              cursor="pointer"
+              onClick={NextSlide}
+            ></TiMediaFastForward>
+          </SectionDiv>
+        </ControlsSection>
+      </Container>
+    </>
   );
 }
 
 const Container = styled.div`
-  width: 850px;
-  height: 500px;
+  width: 900px;
+  height: 900px;
   border-radius: 20px;
-  overflow: hidden;
-  /* position: relative; */
+  text-align: center;
 `;
 const SliderContainer = styled.div`
+  border-radius: 20px;
+  width: 850px;
+  height: 500px;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
   display: flex; // 이미지들을 가로로 나열합니다.
   /* position: relative; */
 `;
