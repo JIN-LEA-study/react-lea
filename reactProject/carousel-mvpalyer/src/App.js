@@ -13,6 +13,7 @@ function App() {
 const Wrap = styled.div`
   //중앙위치
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;

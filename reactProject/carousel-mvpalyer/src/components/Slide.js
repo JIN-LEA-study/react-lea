@@ -7,5 +7,6 @@ export default function Slide({ avi }) {
 
 const AVI = styled.video`
   width: 100%;
+  height: 100%;
   object-fit: cover;
 `;
