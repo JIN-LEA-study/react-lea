@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { UploadDiv, UploadForm, UploadButtonDiv } from "../../Style/UploadCSS";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ImageUpload from "./ImageUpload";
 
 function Upload(props) {
   const [title, setTitle] = useState("");
@@ -45,6 +46,7 @@ function Upload(props) {
             setTitle(event.currentTarget.value);
           }}
         />
+        <ImageUpload />
         <label htmlFor="">Content</label>
         <textarea
           id="content"

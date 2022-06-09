@@ -193,6 +193,11 @@ app.get("/", (req, res) => {
 
 - useNavigate() : navigate(-1)를 넣어주면 뒤로가기 구현가능
 
+```js
+// accept : input으로 받는 파일을 지정해줄 수 있음
+<Form.Control type="file" className="shadow-none" accept="image/*" />
+```
+
 ### Authentication
 
 ### Reple
