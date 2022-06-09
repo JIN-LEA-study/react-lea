@@ -1,5 +1,4 @@
 const AWS = require("aws-sdk");
-const fs = require("fs");
 const endpoint = new AWS.Endpoint("https://kr.object.ncloudstorage.com");
 const region = "kr-standard";
 const access_key = "ACCESS_KEY";
