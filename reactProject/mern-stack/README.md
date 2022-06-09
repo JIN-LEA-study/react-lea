@@ -186,12 +186,17 @@ app.get("/", (req, res) => {
 
 - [o] Create : 게시물 생성하기
 - [o] Read : 게시물 불러오기
-- [] Update : 게시물 수정하기
-- [] Delete & Router : 게시물 삭제하기, 라우터
+- [o] Update : 게시물 수정하기
+- [o] Delete & Router : 게시물 삭제하기, 라우터
 
 #### - Study Note
 
-- useNavigate()
+- useNavigate() : navigate(-1)를 넣어주면 뒤로가기 구현가능
+
+```js
+// accept : input으로 받는 파일을 지정해줄 수 있음
+<Form.Control type="file" className="shadow-none" accept="image/*" />
+```
 
 ### Authentication
 

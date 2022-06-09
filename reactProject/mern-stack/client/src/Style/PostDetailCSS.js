@@ -24,8 +24,11 @@ const Post = styled.div`
   height: auto;
   background: #ffffff;
   padding: 30px 20px;
-  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.03),
-    0px 15px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid #c6c6c6;
+
+  /* box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.03),
+    0px 15px 12px rgba(0, 0, 0, 0.1); */
   h1 {
     font-weight: bold;
   }

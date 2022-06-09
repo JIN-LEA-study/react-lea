@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import ImageUpload from "./ImageUpload.js";
 
@@ -14,11 +13,11 @@ function Edit() {
   let params = useParams();
   let navigate = useNavigate();
 
-  const [PostInfo, setPostInfo] = useState({});
-  const [Flag, setFlag] = useState(false);
-  const [Title, setTitle] = useState("");
-  const [Content, setContent] = useState("");
-  const [Image, setImage] = useState("");
+  const [postInfo, setPostInfo] = useState({});
+  const [flag, setFlag] = useState(false);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     let body = {
@@ -38,21 +37,21 @@ function Edit() {
   }, []);
 
   useEffect(() => {
-    setTitle(PostInfo.title);
-    setContent(PostInfo.content);
-    setImage(PostInfo.image);
-  }, [PostInfo]);
+    setTitle(postInfo.title);
+    setContent(postInfo.content);
+    setImage(postInfo.image);
+  }, [postInfo]);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (Title === "" || Content === "") {
+    if (title === "" || content === "") {
       return alert("모든 항목을 채워주세요!");
     }
 
     let body = {
-      title: Title,
-      content: Content,
+      title: title,
+      content: content,
       postNum: params.postNum,
       image: Image,
     };
@@ -74,13 +73,13 @@ function Edit() {
 
   return (
     <UploadDiv>
-      {Flag && (
+      {flag && (
         <UploadForm>
           <label htmlFor="label">제목</label>
           <input
             id="title"
             type="text"
-            value={Title}
+            value={title}
             onChange={(e) => {
               setTitle(e.currentTarget.value);
             }}
@@ -89,7 +88,7 @@ function Edit() {
           <label htmlFor="content">내용</label>
           <textarea
             id="content"
-            value={Content}
+            value={content}
             onChange={(e) => {
               setContent(e.currentTarget.value);
             }}
@@ -98,7 +97,7 @@ function Edit() {
             <button
               className="cancel"
               onClick={(e) => {
-                e.preventDefault();
+                e.preventDefault(); //새로고침 방지
                 navigate(-1);
               }}
             >
