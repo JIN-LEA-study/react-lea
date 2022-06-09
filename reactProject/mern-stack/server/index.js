@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 const port = 5000;
+const config = require("./config/key");
 
 // mongodb+srv://leaisrevolution:gpdnjsdl27@cluster0.v7mku.mongodb.net/?retryWrites=true&w=majority
 
@@ -18,9 +19,7 @@ app.use("/api/post", require("./Router/post"));
 // 서버 실행
 app.listen(port, () => {
   mongoose
-    .connect(
-      "mongodb+srv://leaisrevolution:gpdnjsdl27@cluster0.v7mku.mongodb.net/Cummunity?retryWrites=true&w=majority"
-    )
+    .connect(config.mongoURI)
     .then(() => {
       console.log(`Example app listening on port ${port}`);
       console.log("connection MongoDB...");
