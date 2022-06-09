@@ -13,7 +13,7 @@ function Upload(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // title, contetn 창에 글이 입력되지 않았을 경우
+    // title, content 창에 글이 입력되지 않았을 경우
     if (title === "" || content === "") {
       return alert("모든 항목을 채워주세요!");
     }
