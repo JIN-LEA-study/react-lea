@@ -74,4 +74,7 @@ router.post("/delete", (req, res) => {
     });
 });
 
+router.post("/image/upload", (req, res) => {
+  console.log(req.body, req.formData);
+});
 module.exports = router;
