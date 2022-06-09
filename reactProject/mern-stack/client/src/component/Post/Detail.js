@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import { PostDiv, Post, BtnDiv } from "../../Style/PostDetailCSS.js";
 
@@ -35,10 +34,10 @@ function Detail() {
     <PostDiv>
       {flag ? (
         <>
-          <div>
+          <Post>
             {postInfo.title}
             {postInfo.content}
-          </div>
+          </Post>
           <BtnDiv>
             <Link to={`/edit/${postInfo.postNum}`}>
               <button className="edit">수정</button>

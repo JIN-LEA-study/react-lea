@@ -69,7 +69,7 @@ app.post("/api/post/list", (req, res) => {
 });
 
 app.post("/api/post/detail", (req, res) => {
-  Post.findOne({ postNum: Num(req.body.postNum) })
+  Post.findOne({ postNum: Number(req.body.postNum) })
     .exec()
     .then((doc) => {
       console.log(doc);
