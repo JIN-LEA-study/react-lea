@@ -55,8 +55,15 @@ function Detail() {
       {flag ? (
         <>
           <Post>
-            {postInfo.title}
-            {postInfo.content}
+            <h1>{postInfo.title}</h1>
+            {postInfo.image ? (
+              <img
+                src={`http://localhost:5000/${postInfo.image}`}
+                alt=""
+                style={{ width: "100%", height: "auto" }}
+              />
+            ) : null}
+            <p>{postInfo.content}</p>
           </Post>
           <BtnDiv>
             <Link to={`/edit/${postInfo.postNum}`}>

@@ -7,6 +7,8 @@ import ImageUpload from "./ImageUpload";
 function Upload(props) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
+
   let navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -18,6 +20,7 @@ function Upload(props) {
     let body = {
       title: title,
       content: content,
+      image: image,
     };
     axios
       .post("/api/post/submit", body)
@@ -46,7 +49,7 @@ function Upload(props) {
             setTitle(event.currentTarget.value);
           }}
         />
-        <ImageUpload />
+        <ImageUpload setImage={setImage} />
         <label htmlFor="">Content</label>
         <textarea
           id="content"
