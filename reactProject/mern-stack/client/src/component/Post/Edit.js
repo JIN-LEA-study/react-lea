@@ -97,7 +97,7 @@ function Edit() {
             <button
               className="cancel"
               onClick={(e) => {
-                e.preventDefault();
+                e.preventDefault(); //새로고침 방지
                 navigate(-1);
               }}
             >
