@@ -181,6 +181,7 @@ app.get("/", (req, res) => {
 - 서로 포트가 다를 경우, 보안 규칙을 지켜줘야 함 (proxy 설정)
 - [install] `npm i http-proxy-middleware`
 - [install] `npm i @emotion/css @emotion/react @emotion/styled`
+- [install] `npm i multer --save`
 
 ### Post
 
