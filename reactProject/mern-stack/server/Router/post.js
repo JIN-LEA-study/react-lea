@@ -5,6 +5,8 @@ const multer = require("multer");
 const { Post } = require("../Model/Post.js");
 const { Counter } = require("../Model/Counter.js");
 
+const setUpload = require("../Util/upload");
+
 router.post("/submit", (req, res) => {
   let temp = req.body;
   Counter.findOne({ name: "counter" })
@@ -75,6 +77,17 @@ router.post("/delete", (req, res) => {
     });
 });
 
+router.post(
+  "/image/upload",
+  setUpload("react-community-lea/post"),
+  (req, res, next) => {
+    console.log(res.req);
+    res.status(200).json({ success: true, filePath: res.req.file.path });
+  }
+);
+
+/*
+// 로컬에 저장
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "image/");
@@ -97,4 +110,7 @@ router.post("/image/upload", (req, res) => {
     }
   });
 });
+
+*/
+
 module.exports = router;
