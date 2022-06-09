@@ -8,6 +8,7 @@ const port = 5000;
 // mongodb+srv://leaisrevolution:gpdnjsdl27@cluster0.v7mku.mongodb.net/?retryWrites=true&w=majority
 
 app.use(express.static(path.join(__dirname, "../client/build")));
+app.use("/image", express.static("./image"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

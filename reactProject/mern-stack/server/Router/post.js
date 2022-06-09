@@ -93,6 +93,7 @@ router.post("/image/upload", (req, res) => {
       res.status(400).json({ success: false });
     } else {
       console.log(res.req.file);
+      res.status(200).json({ success: true, filePath: res.req.file.path });
     }
   });
 });
