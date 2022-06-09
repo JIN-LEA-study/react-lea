@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import ImageUpload from "./ImageUpload.js";
+import ImageUpload from "./ImageUpload.js";
 
 import {
   UploadDiv,
@@ -53,7 +53,7 @@ function Edit() {
       title: title,
       content: content,
       postNum: params.postNum,
-      image: Image,
+      image: image,
     };
 
     axios
@@ -84,7 +84,7 @@ function Edit() {
               setTitle(e.currentTarget.value);
             }}
           />
-          {/* <ImageUpload setImage={setImage} /> */}
+          <ImageUpload setImage={setImage} />
           <label htmlFor="content">내용</label>
           <textarea
             id="content"
