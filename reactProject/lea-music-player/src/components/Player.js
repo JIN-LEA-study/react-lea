@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 import styled from "styled-components";
 import ProgressBar from "./ProgressBar";
@@ -29,7 +29,14 @@ const Player = () => {
         <ContentSection>
           {/* <ProgressBar ref={audioRef}></ProgressBar> */}
         </ContentSection>
-        <Avi loop autoPlay src={playList[currentIndex].avi} type="video/mp4" />
+        <Avi
+          loop
+          // muted
+          autoPlay
+          src={playList[currentIndex].avi}
+          type="video/mp4"
+          ref={audioRef}
+        />
         <Controls
           play={onPlay}
           pause={onPause}

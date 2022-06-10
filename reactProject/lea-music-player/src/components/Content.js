@@ -17,9 +17,9 @@ const Content = () => {
         &nbsp; {playList[currentIndex].artist} - {playList[currentIndex].name}
         {/* <AiFillCustomerService color="#ffffff" size="20px" /> */}
       </ContentTitle>
-      <ContentLike>
+      {/* <ContentLike>
         <AiFillStar color="#ffffff" size="30px" cursor="pointer" />
-      </ContentLike>
+      </ContentLike> */}
     </ContentSection>
   );
 };
