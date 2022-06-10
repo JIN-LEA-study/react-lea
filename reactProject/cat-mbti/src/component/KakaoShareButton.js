@@ -42,7 +42,7 @@ const KakaoShareButton = () => {
         width: 170,
         marginLeft: "10px",
       }}
-      data={resultData}
+      // data={resultData}
     >
       카카오톡 공유하기
     </Button>

@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Button from "react-bootstrap/Button";
+import {
+  Wrapper,
+  Container,
+  Header,
+  Title,
+  Button,
+  LogoImg,
+  Desc,
+  ResultHeader,
+  DescContent,
+} from "../style/styleCss";
 import { ResultData } from "../assets/data/resultData";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import KakaoShareButton from "../component/KakaoShareButton";
@@ -19,79 +29,28 @@ const Result = () => {
 
   return (
     <Wrapper>
-      <Header>예비집사 판별기</Header>
-      <Contents>
-        <Title>결과 보기</Title>
-        <LogoImage>
-          <img
-            alt="결과이미지"
-            src={resultData.image}
-            className="rounded-circle"
-            width={350}
-            height={350}
-          />
-        </LogoImage>
-        <Desc>예비 집사님과 찰떡궁합인 고양이는 {resultData.name}입니다.</Desc>
+      <Container>
+        <LogoImg>
+          <img alt="결과이미지" src={resultData.image} />
+        </LogoImg>
+        <ResultHeader>
+          예비 집사님과 찰떡궁합인 고양이는 '<span>{resultData.name}</span>'
+          입니다.
+        </ResultHeader>
         <DescContent>{resultData.desc}</DescContent>
         <ButtonSection>
-          <Button
-            variant="light"
-            style={{ fontFamily: "S-CoreDream-3Light", width: 170 }}
-            onClick={() => navigate("/")}
-          >
-            Test Again!
-          </Button>
-          <KakaoShareButton data={resultData} />
+          <Button onClick={() => navigate("/")}>Again!</Button>
+          {/* <KakaoShareButton data={resultData} /> */}
         </ButtonSection>
-      </Contents>
+      </Container>
     </Wrapper>
   );
 };
 
 export default Result;
 
-const Wrapper = styled.div`
-  background-color: pink;
-  height: 100vh;
-  width: 100%;
-`;
-
-const Header = styled.div`
-  font-size: 40pt;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "yg-jalnan";
-`;
-
-const Contents = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Title = styled.div`
-  font-size: 30pt;
-  margin-top: 40px;
-  font-family: "S-CoreDream-3Light";
-`;
-
-const LogoImage = styled.div`
-  margin-top: 10px;
-`;
-
-const Desc = styled.div`
-  font-size: 20pt;
-  margin-top: 20px;
-  font-family: "yg-jalnan";
-`;
-
 const ButtonSection = styled.div`
   display: flex;
   flex-direction: row;
-`;
-
-const DescContent = styled.div`
-  font-family: "S-CoreDream-3Light";
+  margin-top: 30px;
 `;
