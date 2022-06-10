@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// css-in-js
 import styled from "styled-components";
-// import PangImage from '../assets/ggompang.jpeg';
 import Button from "react-bootstrap/Button";
 import { ResultData } from "../assets/data/resultData";
 import { useSearchParams, useNavigate } from "react-router-dom";
@@ -37,12 +35,21 @@ const Result = () => {
         <ButtonSection>
           <Button
             variant="light"
-            style={{ fontFamily: "SimKyungha", width: 170 }}
+            style={{ fontFamily: "S-CoreDream-3Light", width: 170 }}
             onClick={() => navigate("/")}
           >
             Test Again!
           </Button>
-          {/* <KakaoShareButton data={resultData} /> */}
+          <Button
+            style={{
+              fontFamily: "S-CoreDream-3Light",
+              width: 170,
+              marginLeft: "10px",
+            }}
+            data={resultData}
+          >
+            카카오톡 공유하기
+          </Button>
         </ButtonSection>
       </Contents>
     </Wrapper>
