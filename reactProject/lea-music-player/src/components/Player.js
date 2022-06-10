@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 import styled from "styled-components";
 import ProgressBar from "./ProgressBar";
@@ -35,6 +35,7 @@ const Player = () => {
           autoPlay
           src={playList[currentIndex].avi}
           type="video/mp4"
+          ref={audioRef}
         />
         <Controls
           play={onPlay}
