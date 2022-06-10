@@ -10,20 +10,20 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"),
     clean: true,
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   mode: "development",
   devServer: {
     host: "localhost",
     port: 8080,
     open: true,
-    watchFiles: 'index.html',
+    watchFiles: "index.html",
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: "project",
       template: "./index.html",
       inject: "body",
-      favicon: "./favicon.ico"
+      favicon: "./favicon.ico",
     }),
     new MiniCssExtractPlugin({ filename: "style.css" }),
   ],
@@ -33,12 +33,13 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.jpeg$/,
+        type: "asset/inline",
+      },
     ],
   },
   optimization: {
-    minimizer: [
-      new TerserPlugin(),
-      new CssMinimizerPlugin()
-    ]
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
 };
