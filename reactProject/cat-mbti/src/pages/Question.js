@@ -6,16 +6,50 @@ import { questionData } from "../assets/data/questionData";
 function Question() {
   // 0번 인덱스부터 시작
   const [questionNum, setQuestionNum] = useState(0);
-  console.log("questionNum", questionNum);
+  const [totalScore, setTotalScore] = useState([
+    { id: "EI", score: 0 },
+    { id: "SN", score: 0 },
+    { id: "TF", score: 0 },
+    { id: "JP", score: 0 },
+  ]);
+
+  const handClickButtonA = (num, type) => {
+    if (type === "EI") {
+      //기존 스코어에 더할 값을 계산
+      const addScore = totalScore[0].score + num;
+      // 새로운 객체
+      const newObj = { id: "EI", score: addScore };
+      // splice 통해 새로우 ㄴ객체를 해당 객체 자리에 넣어줌
+      totalScore.splice(0, 1, newObj);
+    } else if (type === "SN") {
+      const addScore = totalScore[1].score + num;
+      const newObj = { id: "SN", score: addScore };
+      totalScore.splice(1, 1, newObj);
+    } else if (type === "TF") {
+      const addScore = totalScore[2].score + num;
+      const newObj = { id: "TF", score: addScore };
+      totalScore.splice(2, 1, newObj);
+    } else {
+      const addScore = totalScore[3].score + num;
+      const newObj = { id: "JP", score: addScore };
+      totalScore.splice(3, 1, newObj);
+    }
+
+    setQuestionNum(questionNum + 1);
+  };
+  const handClickButtonB = (num) => {
+    setQuestionNum(questionNum + 1);
+  };
+
   return (
     <Wrapper>
       <ProgressBar
         striped
         variant="danger"
-        now={80}
+        now={(questionNum / questionData.length) * 100}
         style={{ marginTop: "20px" }}
       />
-      <Title>{questionData[0].title}</Title>
+      <Title>{questionData[questionNum].title}</Title>
       <ButtonSection>
         <Button
           style={{
@@ -24,8 +58,9 @@ function Question() {
             fontSize: "15pt",
             marginRight: "20px",
           }}
+          onClick={() => handClickButtonA(1, questionData[questionNum].type)}
         >
-          {questionData[0].answera}
+          {questionData[questionNum].answera}
         </Button>
         <Button
           style={{
@@ -33,8 +68,9 @@ function Question() {
             minHeight: "200px",
             fontSize: "15pt",
           }}
+          onClick={() => handClickButtonB(0, questionData[questionNum].type)}
         >
-          {questionData[0].answerb}
+          {questionData[questionNum].answerb}
         </Button>
       </ButtonSection>
     </Wrapper>
