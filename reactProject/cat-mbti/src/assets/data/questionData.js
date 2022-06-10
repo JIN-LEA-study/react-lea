@@ -1,4 +1,4 @@
-export const questionData = [
+export const QuestionData = [
   {
     id: 1,
     title: "새로운 고양이를 데려왔다! 나의 반응은?",

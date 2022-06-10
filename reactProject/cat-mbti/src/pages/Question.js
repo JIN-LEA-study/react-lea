@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
-import { questionData } from "../assets/data/questionData";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
-function Question() {
-  const navigate = useNavigate();
-  // 0번 인덱스부터 시작
+import { QuestionData } from "../assets/data/questionData";
+
+const Question = () => {
   const [questionNum, setQuestionNum] = useState(0);
   const [totalScore, setTotalScore] = useState([
     { id: "EI", score: 0 },
@@ -14,22 +13,27 @@ function Question() {
     { id: "TF", score: 0 },
     { id: "JP", score: 0 },
   ]);
+  const navigate = useNavigate();
 
-  const handClickButton = (num, type) => {
+  const handleClickButton = (no, type) => {
     const newScore = totalScore.map((item) =>
-      item.id === type ? { id: item.id, score: item.score + num } : item
+      item.id === type ? { id: item.id, score: item.score + no } : item
     );
 
     setTotalScore(newScore);
-    if (questionData.length !== questionNum + 1) {
+
+    if (QuestionData.length !== questionNum + 1) {
+      // 다음문제로 문제수 증가
       setQuestionNum(questionNum + 1);
     } else {
       // mbti도출
       const mbti = newScore.reduce(
         (acc, curr) =>
           acc +
-          (curr.score >= 2 ? curr.id.substring(0, 1) : curr.id.substring(1, 2))
+          (curr.score >= 2 ? curr.id.substring(0, 1) : curr.id.substring(1, 2)),
+        ""
       );
+      // 결과 페이지 이동
       navigate({
         pathname: "/result",
         search: `?${createSearchParams({
@@ -37,75 +41,71 @@ function Question() {
         })}`,
       });
     }
+
     // if (type === "EI") {
-    //   //기존 스코어에 더할 값을 계산
-    //   const addScore = totalScore[0].score + num;
+    //   // 기존 스코어에 더할 값을 계산 (기존의 값 + 배점)
+    //   const addScore = totalScore[0].score + no;
     //   // 새로운 객체
-    //   const newObj = { id: "EI", score: addScore };
-    //   // splice 통해 새로우 ㄴ객체를 해당 객체 자리에 넣어줌
-    //   totalScore.splice(0, 1, newObj);
+    //   const newObject = { id: "EI", score: addScore };
+    //   // splice 통해 새로운 객체를 해당객체 자리에 넣어줌
+    //   totalScore.splice(0, 1, newObject);
     // } else if (type === "SN") {
-    //   const addScore = totalScore[1].score + num;
-    //   const newObj = { id: "SN", score: addScore };
-    //   totalScore.splice(1, 1, newObj);
+    //   const addScore = totalScore[1].score + no;
+    //   const newObject = { id: "SN", score: addScore };
+    //   totalScore.splice(1, 1, newObject);
     // } else if (type === "TF") {
-    //   const addScore = totalScore[2].score + num;
-    //   const newObj = { id: "TF", score: addScore };
-    //   totalScore.splice(2, 1, newObj);
+    //   const addScore = totalScore[2].score + no;
+    //   const newObject = { id: "TF", score: addScore };
+    //   totalScore.splice(2, 1, newObject);
     // } else {
-    //   const addScore = totalScore[3].score + num;
-    //   const newObj = { id: "JP", score: addScore };
-    //   totalScore.splice(3, 1, newObj);
+    //   const addScore = totalScore[3].score + no;
+    //   const newObject = { id: "JP", score: addScore };
+    //   totalScore.splice(3, 1, newObject);
     // }
   };
 
   return (
     <Wrapper>
       <ProgressBar
-        striped
-        variant="danger"
-        now={(questionNum / questionData.length) * 100}
+        variant="warning"
+        now={(questionNum / QuestionData.length) * 100}
         style={{ marginTop: "20px" }}
       />
-      <Title>{questionData[questionNum].title}</Title>
+      <Title>{QuestionData[questionNum].title}</Title>
       <ButtonSection>
         <Button
-          style={{
-            width: "40%",
-            minHeight: "200px",
-            fontSize: "15pt",
-            marginRight: "20px",
-          }}
-          onClick={() => handClickButton(1, questionData[questionNum].type)}
+          onClick={() => handleClickButton(1, QuestionData[questionNum].type)}
+          style={{ width: "40%", minHeight: "200px", fontSize: "15pt" }}
         >
-          {questionData[questionNum].answera}
+          {QuestionData[questionNum].answera}
         </Button>
         <Button
+          onClick={() => handleClickButton(0, QuestionData[questionNum].type)}
           style={{
             width: "40%",
             minHeight: "200px",
             fontSize: "15pt",
+            marginLeft: "20px",
           }}
-          onClick={() => handClickButton(0, questionData[questionNum].type)}
         >
-          {questionData[questionNum].answerb}
+          {QuestionData[questionNum].answerb}
         </Button>
       </ButtonSection>
     </Wrapper>
   );
-}
+};
+
+export default Question;
 
 const Wrapper = styled.div`
-  /* background-color: pink; */
   height: 100vh;
   width: 100%;
 `;
 
 const Title = styled.div`
   font-size: 30pt;
-  margin-top: 40px;
   text-align: center;
-  font-family: "S-CoreDream-3Light";
+  font-family: "yg-jalnan";
 `;
 
 const ButtonSection = styled.div`
@@ -114,7 +114,4 @@ const ButtonSection = styled.div`
   align-items: center;
   justify-content: center;
   font-family: "S-CoreDream-3Light";
-  margin-top: 50px;
 `;
-
-export default Question;

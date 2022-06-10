@@ -1,39 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+// css-in-js
 import styled from "styled-components";
-import Summer from "../assets/KakaoTalk_Photo_2021-09-13-15-30-10 002.jpg";
+// import PangImage from '../assets/ggompang.jpeg';
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-import { resultData } from "../assets/data/resultData";
+import { ResultData } from "../assets/data/resultData";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-function Result() {
+const Result = () => {
   const navigate = useNavigate();
-  const handleClickButton = () => {
-    //페이지 이동
-    navigate("/");
-  };
+  const [searchParams] = useSearchParams();
+  const mbti = searchParams.get("mbti");
+  // 최종결과
+  const [resultData, setResultData] = useState({});
+
+  useEffect(() => {
+    const result = ResultData.find((item) => item.best === mbti);
+    setResultData(result);
+  }, [mbti]);
+
   return (
     <Wrapper>
       <Header>예비집사 판별기</Header>
       <Contents>
-        <Title>결과보기</Title>
-        <LogoImg>
+        <Title>결과 보기</Title>
+        <LogoImage>
           <img
-            src={resultData[0].image}
+            alt="결과이미지"
+            src={resultData.image}
             className="rounded-circle"
-            width="350px"
-            height="350px"
+            width={350}
+            height={350}
           />
-        </LogoImg>
-        <Desc>
-          예비집사님과 찰떡궁합인 고양이는 <b>{resultData[0].name}</b>입니다
-        </Desc>
-        <Button variant="light" onClick={() => navigate("/")}>
-          Test again
-        </Button>
+        </LogoImage>
+        <Desc>예비 집사님과 찰떡궁합인 고양이는 {resultData.name}입니다.</Desc>
+        <DescContent>{resultData.desc}</DescContent>
+        <ButtonSection>
+          <Button
+            variant="light"
+            style={{ fontFamily: "SimKyungha", width: 170 }}
+            onClick={() => navigate("/")}
+          >
+            Test Again!
+          </Button>
+          {/* <KakaoShareButton data={resultData} /> */}
+        </ButtonSection>
       </Contents>
     </Wrapper>
   );
-}
+};
+
+export default Result;
 
 const Wrapper = styled.div`
   background-color: pink;
@@ -54,7 +70,6 @@ const Contents = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "S-CoreDream-3Light";
 `;
 
 const Title = styled.div`
@@ -63,14 +78,21 @@ const Title = styled.div`
   font-family: "S-CoreDream-3Light";
 `;
 
-const LogoImg = styled.div`
+const LogoImage = styled.div`
   margin-top: 10px;
 `;
 
 const Desc = styled.div`
   font-size: 20pt;
   margin-top: 20px;
-  font-family: "S-CoreDream-3Light";
+  font-family: "yg-jalnan";
 `;
 
-export default Result;
+const ButtonSection = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const DescContent = styled.div`
+  font-family: "S-CoreDream-3Light";
+`;
