@@ -7,6 +7,7 @@ import {
   Title,
   Button,
   LogoImg,
+  ContentContainer,
 } from "../style/styleCss";
 import Summer from "../assets/KakaoTalk_Photo_2021-09-13-15-30-10 002.jpg";
 // import Button from "react-bootstrap/Button";
@@ -22,22 +23,17 @@ function Home() {
     <Wrapper>
       <Container>
         <LogoImg>
-          <img
-            alt="메인이미지"
-            src={Summer}
-            // className="rounded-circle"
-            width={350}
-            height={350}
-          />
+          <img alt="메인이미지" src={Summer} />
         </LogoImg>
-        <Header>당신과 찰떡궁합 주인님은~?</Header>
-
-        <Title>
-          MBTI를 기반으로 하는 <b>나랑 잘맞는 고양이</b> 찾기
-        </Title>
-        <Button style={{ marginTop: "20px" }} onClick={handleClickButton}>
-          Go! Test
-        </Button>
+        <ContentContainer>
+          <Header>고양이를 사랑하는 당신! 당신과 찰떡궁합 주인님은~?</Header>
+          <Title>
+            집사의 MBTI를 기반으로 하는 <b>나랑 잘맞는 고양이</b> 찾기
+          </Title>
+          <Button style={{ marginTop: "40px" }} onClick={handleClickButton}>
+            Go! Test
+          </Button>
+        </ContentContainer>
       </Container>
     </Wrapper>
   );

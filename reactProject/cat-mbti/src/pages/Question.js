@@ -3,13 +3,14 @@ import styled from "styled-components";
 import {
   Wrapper,
   Container,
-  Header,
+  QuestionHeader,
   Title,
   Button,
   LogoImg,
   QuestionButton,
+  ContentContainer,
 } from "../style/styleCss";
-import { ProgressBar } from "react-bootstrap";
+// import { ProgressBar } from "react-bootstrap";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
 import { QuestionData } from "../assets/data/questionData";
@@ -76,32 +77,41 @@ const Question = () => {
   return (
     <Wrapper>
       <Container>
-        {/* <ProgressBarScetion>
+        <LogoImg>
+          <img alt="메인이미지" src={QuestionData[questionNum].image} />
+        </LogoImg>
+        <ContentContainer>
+          {/* <ProgressBarScetion>
           <ProgressBar
             variant="warning"
             now={(questionNum / QuestionData.length) * 100}
             style={{ marginTop: "20px" }}
           />
         </ProgressBarScetion> */}
-        <Header>
-          <span>Q{QuestionData[questionNum].id}</span>{" "}
-          {QuestionData[questionNum].title}
-        </Header>
-        <ButtonSection>
-          <QuestionButton
-            onClick={() => handleClickButton(1, QuestionData[questionNum].type)}
-          >
-            {QuestionData[questionNum].answera}
-          </QuestionButton>
-          <QuestionButton
-            onClick={() => handleClickButton(0, QuestionData[questionNum].type)}
-            style={{
-              marginLeft: "20px",
-            }}
-          >
-            {QuestionData[questionNum].answerb}
-          </QuestionButton>
-        </ButtonSection>
+          <QuestionHeader>
+            <span>Q{QuestionData[questionNum].id}</span>{" "}
+            {QuestionData[questionNum].title}
+          </QuestionHeader>
+          <ButtonSection>
+            <QuestionButton
+              onClick={() =>
+                handleClickButton(1, QuestionData[questionNum].type)
+              }
+            >
+              {QuestionData[questionNum].answera}
+            </QuestionButton>
+            <QuestionButton
+              onClick={() =>
+                handleClickButton(0, QuestionData[questionNum].type)
+              }
+              style={{
+                marginLeft: "20px",
+              }}
+            >
+              {QuestionData[questionNum].answerb}
+            </QuestionButton>
+          </ButtonSection>
+        </ContentContainer>
       </Container>
     </Wrapper>
   );
@@ -114,7 +124,7 @@ const ButtonSection = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 30px;
   /* font-family: "S-CoreDream-3Light"; */
 `;
 

@@ -3,13 +3,12 @@ import styled from "styled-components";
 import {
   Wrapper,
   Container,
-  Header,
-  Title,
   Button,
   LogoImg,
-  Desc,
   ResultHeader,
+  QuestionHeader,
   DescContent,
+  ContentContainer,
 } from "../style/styleCss";
 import { ResultData } from "../assets/data/resultData";
 import { useSearchParams, useNavigate } from "react-router-dom";
@@ -33,15 +32,17 @@ const Result = () => {
         <LogoImg>
           <img alt="결과이미지" src={resultData.image} />
         </LogoImg>
-        <ResultHeader>
-          예비 집사님과 찰떡궁합인 고양이는 '<span>{resultData.name}</span>'
-          입니다.
-        </ResultHeader>
-        <DescContent>{resultData.desc}</DescContent>
-        <ButtonSection>
-          <Button onClick={() => navigate("/")}>Again!</Button>
-          {/* <KakaoShareButton data={resultData} /> */}
-        </ButtonSection>
+        <ContentContainer>
+          <QuestionHeader>
+            예비 집사님과 찰떡궁합인 고양이는 '<span>{resultData.name}</span>'
+            입니다.
+          </QuestionHeader>
+          <DescContent>{resultData.desc}</DescContent>
+          <ButtonSection>
+            <Button onClick={() => navigate("/")}>Again!</Button>
+            {/* <KakaoShareButton data={resultData} /> */}
+          </ButtonSection>
+        </ContentContainer>
       </Container>
     </Wrapper>
   );

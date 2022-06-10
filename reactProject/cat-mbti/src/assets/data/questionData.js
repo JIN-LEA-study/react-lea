@@ -1,3 +1,20 @@
+import Abyssinian from "../cat/abyssinian.jpg";
+import Ameshort from "../cat/ameshort.png";
+import Bengal from "../cat/bengal.jpg";
+import British from "../cat/british.jpg";
+import Exotic from "../cat/exotic.jpg";
+import Korshort from "../cat/korshort.jpg";
+import Mainecoon from "../cat/mainecoon.jpeg";
+import Munchkin from "../cat/munchkin.jpg";
+import Norwegianforest from "../cat/norwegianforest.jpg";
+import Persian from "../cat/persian.jpg";
+import Ragdoll from "../cat/ragdoll.jpg";
+import Russianblue from "../cat/russianblue.jpg";
+import Scottishfold from "../cat/scottishfold.jpg";
+import Siamese from "../cat/siamese.jpg";
+import Sphinx from "../cat/sphinx.jpg";
+import Turkishangora from "../cat/turkishangora.jpg";
+
 export const QuestionData = [
   {
     id: 1,
@@ -5,6 +22,7 @@ export const QuestionData = [
     answera: "머해? 이름은 뭐로 해줄까? 자꾸 말을 걸고 싶다.",
     answerb: "혼자만의 시간이 필요하지? 적응할 시간을 준다.",
     type: "EI",
+    image: `${Abyssinian}`,
   },
   {
     id: 2,
@@ -14,6 +32,7 @@ export const QuestionData = [
     answerb:
       "커뮤니티에 가입은 하지만 눈으로 참고만 하고 혼자 찾아보는게 편하다.",
     type: "EI",
+    image: `${Ameshort}`,
   },
   {
     id: 3,
@@ -22,6 +41,7 @@ export const QuestionData = [
       "'고양이 너무 이쁜 것 같아.. 사람들한테 자랑해야지..!!'하며 인스타를 만들어서 사진도 공유하고 소통도 한다.",
     answerb: "우리 고양이 너무 이쁘다.. 사진찍어서 사진첩에 간직한다.",
     type: "EI",
+    image: `${Bengal}`,
   },
   {
     id: 4,
@@ -29,6 +49,7 @@ export const QuestionData = [
     answera: "다른 유튜버들을 가이드 라인 삼아 비슷하게 만든다.",
     answerb: "새롭거나 자유로운 방식으로 만들기 위해 생각한다.",
     type: "SN",
+    image: `${British}`,
   },
   {
     id: 5,
@@ -37,6 +58,7 @@ export const QuestionData = [
     answera: "꼼꼼하게 정확하게 읽는다.",
     answerb: "전체적인 의미를 파악하며 읽는다.",
     type: "SN",
+    image: `${Exotic}`,
   },
   {
     id: 6,
@@ -44,6 +66,7 @@ export const QuestionData = [
     answera: "손, 눈대중으로 대충 이정도면 되겠지 하고 급여한다.",
     answerb: "칼로리를 정확히 맞춰 저울이나 스푼으로 계랑해서 급여한다.",
     type: "SN",
+    image: `${Korshort}`,
   },
   {
     id: 7,
@@ -52,6 +75,7 @@ export const QuestionData = [
       "'이건 이렇게 하면 어떨까?' 해결책을 함께 생각하며 정보들은 같이 찾아본다.",
     answerb: "'아이고,, 어쩌면 좋아..' 일단 먼저 위로를 해준다.",
     type: "TF",
+    image: `${Mainecoon}`,
   },
   {
     id: 8,
@@ -61,6 +85,7 @@ export const QuestionData = [
     answerb:
       "나의 의견이 상대방을 기분 나쁘게 하지 않도록 잘 전달하려고 먼저 생각한다.",
     type: "TF",
+    image: `${Munchkin}`,
   },
   {
     id: 9,
@@ -68,6 +93,7 @@ export const QuestionData = [
     answera: "성과가 중요하지!! 좋은 성과를 낸 병원",
     answerb: "사람이 중요하지!! 원장님의 성격이 좋다고 되어있는 병원",
     type: "TF",
+    image: `${Norwegianforest}`,
   },
   {
     id: 10,
@@ -76,6 +102,7 @@ export const QuestionData = [
       "'우리 고양이 몸무게는 5키로니까 하루세번 몇시에 이만큼 씩 주고, 간식은 이때 챙겨줘야겠다. 영양제도 미리미리 챙겨줘야지!' 계획을 세운다. ",
     answerb: "사료주면 알아서 먹겠지! 일단 자율급식으로 한꺼번에 줘본다.",
     type: "JP",
+    image: `${Persian}`,
   },
   {
     id: 11,
@@ -84,6 +111,7 @@ export const QuestionData = [
       "사료를 조금씩 급여해서 고양이의 기호를 테스트 해보고 다 잘먹는다면 날짜에 맞춰서 질리지 않도록 바꿔가며  급여한다.",
     answerb: " 끌리는 걸로 그때그때 급여한다.",
     type: "JP",
+    image: `${Ragdoll}`,
   },
   {
     id: 12,
@@ -91,5 +119,6 @@ export const QuestionData = [
     answera: "내일 할 일을 미리미리 정해놓고 잔다.",
     answerb: "누우면 장땡! 일단 눕고 생각한다.",
     type: "JP",
+    image: `${Russianblue}`,
   },
 ];

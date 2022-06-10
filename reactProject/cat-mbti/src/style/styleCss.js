@@ -2,17 +2,29 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: radial-gradient(60% 90% at 70% 70%, #fde68c 30%, #ffd0a1 100%);
 `;
 
 const Container = styled.div`
+  width: 1200px;
+  height: 1200px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+`;
+
+const ContentContainer = styled.div`
   background-color: #fefdf8;
   border-radius: 30px;
   width: 1200px;
-  height: 700px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +37,17 @@ const Header = styled.div`
   /* background-color: red; */
   width: 90%;
   font-size: 30pt;
+  font-family: "yg-jalnan";
+  margin-top: 30px;
+  color: #413434;
+  span {
+    color: #ffd0a1;
+  }
+`;
+
+const QuestionHeader = styled.div`
+  width: 90%;
+  font-size: 23pt;
   font-family: "yg-jalnan";
   margin-top: 30px;
   color: #413434;
@@ -75,7 +98,7 @@ const QuestionButton = styled.div`
   align-items: center;
   /* font-family: "yg-jalnan"; */
   font-family: "S-CoreDream-3Light";
-  font-size: 20pt;
+  font-size: 18pt;
   padding: 10px;
   &:hover {
     background: #ffd0a1;
@@ -83,15 +106,16 @@ const QuestionButton = styled.div`
 `;
 
 const LogoImg = styled.div`
-  width: 350px;
-  height: 350px;
+  position: relative;
+  top: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 10px solid #fde68c;
-  position: relative;
+  border: 6px solid #fde68c;
   img {
-    width: 350px;
-    height: 350px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     background-size: contain;
   }
@@ -109,6 +133,7 @@ const Contents = styled.div`
 const DescContent = styled.div`
   width: 80%;
   margin-top: 30px;
+  font-size: 18pt;
   font-family: "S-CoreDream-3Light";
 `;
 
@@ -124,4 +149,6 @@ export {
   Contents,
   ResultHeader,
   DescContent,
+  ContentContainer,
+  QuestionHeader,
 };
