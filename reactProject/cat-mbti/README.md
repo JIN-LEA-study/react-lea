@@ -3,3 +3,4 @@
 ### install
 
 - `react-bootstrap bootstrap`
+- `react-router-dom@6 `
