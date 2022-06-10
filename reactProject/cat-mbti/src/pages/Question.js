@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
 import { questionData } from "../assets/data/questionData";
@@ -24,7 +24,18 @@ function Question() {
     if (questionData.length !== questionNum + 1) {
       setQuestionNum(questionNum + 1);
     } else {
-      navigate("/result");
+      // mbti도출
+      const mbti = newScore.reduce(
+        (acc, curr) =>
+          acc +
+          (curr.score >= 2 ? curr.id.substring(0, 1) : curr.id.substring(1, 2))
+      );
+      navigate({
+        pathname: "/result",
+        search: `?${createSearchParams({
+          mbti: mbti,
+        })}`,
+      });
     }
     // if (type === "EI") {
     //   //기존 스코어에 더할 값을 계산
