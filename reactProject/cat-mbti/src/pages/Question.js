@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
 import { questionData } from "../assets/data/questionData";
 
 function Question() {
+  const navigate = useNavigate();
   // 0번 인덱스부터 시작
   const [questionNum, setQuestionNum] = useState(0);
   const [totalScore, setTotalScore] = useState([
@@ -13,52 +15,37 @@ function Question() {
     { id: "JP", score: 0 },
   ]);
 
-  const handClickButtonA = (num, type) => {
-    if (type === "EI") {
-      //기존 스코어에 더할 값을 계산
-      const addScore = totalScore[0].score + num;
-      // 새로운 객체
-      const newObj = { id: "EI", score: addScore };
-      // splice 통해 새로우 ㄴ객체를 해당 객체 자리에 넣어줌
-      totalScore.splice(0, 1, newObj);
-    } else if (type === "SN") {
-      const addScore = totalScore[1].score + num;
-      const newObj = { id: "SN", score: addScore };
-      totalScore.splice(1, 1, newObj);
-    } else if (type === "TF") {
-      const addScore = totalScore[2].score + num;
-      const newObj = { id: "TF", score: addScore };
-      totalScore.splice(2, 1, newObj);
-    } else {
-      const addScore = totalScore[3].score + num;
-      const newObj = { id: "JP", score: addScore };
-      totalScore.splice(3, 1, newObj);
-    }
+  const handClickButton = (num, type) => {
+    const newScore = totalScore.map((s) =>
+      s.id === type ? { id: s.id, score: s.score + num } : s
+    );
 
-    setQuestionNum(questionNum + 1);
-  };
-  const handClickButtonB = (num, type) => {
-    if (type === "EI") {
-      //기존 스코어에 더할 값을 계산
-      const addScore = totalScore[0].score + num;
-      // 새로운 객체
-      const newObj = { id: "EI", score: addScore };
-      // splice 통해 새로우 ㄴ객체를 해당 객체 자리에 넣어줌
-      totalScore.splice(0, 1, newObj);
-    } else if (type === "SN") {
-      const addScore = totalScore[1].score + num;
-      const newObj = { id: "SN", score: addScore };
-      totalScore.splice(1, 1, newObj);
-    } else if (type === "TF") {
-      const addScore = totalScore[2].score + num;
-      const newObj = { id: "TF", score: addScore };
-      totalScore.splice(2, 1, newObj);
+    setTotalScore(newScore);
+    if (questionData.length !== questionNum + 1) {
+      setQuestionNum(questionNum + 1);
     } else {
-      const addScore = totalScore[3].score + num;
-      const newObj = { id: "JP", score: addScore };
-      totalScore.splice(3, 1, newObj);
+      navigate("/result");
     }
-    setQuestionNum(questionNum + 1);
+    // if (type === "EI") {
+    //   //기존 스코어에 더할 값을 계산
+    //   const addScore = totalScore[0].score + num;
+    //   // 새로운 객체
+    //   const newObj = { id: "EI", score: addScore };
+    //   // splice 통해 새로우 ㄴ객체를 해당 객체 자리에 넣어줌
+    //   totalScore.splice(0, 1, newObj);
+    // } else if (type === "SN") {
+    //   const addScore = totalScore[1].score + num;
+    //   const newObj = { id: "SN", score: addScore };
+    //   totalScore.splice(1, 1, newObj);
+    // } else if (type === "TF") {
+    //   const addScore = totalScore[2].score + num;
+    //   const newObj = { id: "TF", score: addScore };
+    //   totalScore.splice(2, 1, newObj);
+    // } else {
+    //   const addScore = totalScore[3].score + num;
+    //   const newObj = { id: "JP", score: addScore };
+    //   totalScore.splice(3, 1, newObj);
+    // }
   };
 
   return (
@@ -78,7 +65,7 @@ function Question() {
             fontSize: "15pt",
             marginRight: "20px",
           }}
-          onClick={() => handClickButtonA(1, questionData[questionNum].type)}
+          onClick={() => handClickButton(1, questionData[questionNum].type)}
         >
           {questionData[questionNum].answera}
         </Button>
@@ -88,7 +75,7 @@ function Question() {
             minHeight: "200px",
             fontSize: "15pt",
           }}
-          onClick={() => handClickButtonB(0, questionData[questionNum].type)}
+          onClick={() => handClickButton(0, questionData[questionNum].type)}
         >
           {questionData[questionNum].answerb}
         </Button>
