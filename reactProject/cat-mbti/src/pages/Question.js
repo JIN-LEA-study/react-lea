@@ -16,8 +16,8 @@ function Question() {
   ]);
 
   const handClickButton = (num, type) => {
-    const newScore = totalScore.map((s) =>
-      s.id === type ? { id: s.id, score: s.score + num } : s
+    const newScore = totalScore.map((item) =>
+      item.id === type ? { id: item.id, score: item.score + num } : item
     );
 
     setTotalScore(newScore);
