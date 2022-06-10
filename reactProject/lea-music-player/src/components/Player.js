@@ -28,19 +28,13 @@ const Player = () => {
         <Content />
         <ContentSection>
           {/* <ProgressBar ref={audioRef}></ProgressBar> */}
-          <Controls
-            play={onPlay}
-            pause={onPause}
-            resetDuration={resetDuration}
-          ></Controls>
         </ContentSection>
-        <Avi
-          loop
-          muted
-          autoPlay
-          src={playList[currentIndex].avi}
-          type="video/mp4"
-        />
+        <Avi loop autoPlay src={playList[currentIndex].avi} type="video/mp4" />
+        <Controls
+          play={onPlay}
+          pause={onPause}
+          resetDuration={resetDuration}
+        ></Controls>
       </AviSection>
     </Container>
   );

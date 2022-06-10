@@ -90,8 +90,9 @@ const ControlsScetion = styled.div`
   width: 100%;
   height: 50%;
   background-color: transparent;
-  /* position: absolute; */
-  top: 90%;
+  position: absolute;
+  top: 85%;
+  z-index: 100px;
 `;
 
 const SectionDiv = styled.div`
