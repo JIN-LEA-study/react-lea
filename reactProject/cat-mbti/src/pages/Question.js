@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
 import { questionData } from "../assets/data/questionData";
 
 function Question() {
+  // 0번 인덱스부터 시작
+  const [questionNum, setQuestionNum] = useState(0);
+  console.log("questionNum", questionNum);
   return (
     <Wrapper>
       <ProgressBar
@@ -22,7 +25,7 @@ function Question() {
             marginRight: "20px",
           }}
         >
-          {questionData[0].answerA}
+          {questionData[0].answera}
         </Button>
         <Button
           style={{
@@ -31,7 +34,7 @@ function Question() {
             fontSize: "15pt",
           }}
         >
-          {questionData[0].answerB}
+          {questionData[0].answerb}
         </Button>
       </ButtonSection>
     </Wrapper>
@@ -57,6 +60,7 @@ const ButtonSection = styled.div`
   align-items: center;
   justify-content: center;
   font-family: "S-CoreDream-3Light";
+  margin-top: 50px;
 `;
 
 export default Question;
