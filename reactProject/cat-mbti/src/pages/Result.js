@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import { ResultData } from "../assets/data/resultData";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import KakaoShareButton from "../component/KakaoShareButton";
 
 const Result = () => {
   const navigate = useNavigate();
@@ -40,16 +41,7 @@ const Result = () => {
           >
             Test Again!
           </Button>
-          <Button
-            style={{
-              fontFamily: "S-CoreDream-3Light",
-              width: 170,
-              marginLeft: "10px",
-            }}
-            data={resultData}
-          >
-            카카오톡 공유하기
-          </Button>
+          <KakaoShareButton data={resultData} />
         </ButtonSection>
       </Contents>
     </Wrapper>
