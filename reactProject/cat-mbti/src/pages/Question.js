@@ -37,7 +37,27 @@ function Question() {
 
     setQuestionNum(questionNum + 1);
   };
-  const handClickButtonB = (num) => {
+  const handClickButtonB = (num, type) => {
+    if (type === "EI") {
+      //기존 스코어에 더할 값을 계산
+      const addScore = totalScore[0].score + num;
+      // 새로운 객체
+      const newObj = { id: "EI", score: addScore };
+      // splice 통해 새로우 ㄴ객체를 해당 객체 자리에 넣어줌
+      totalScore.splice(0, 1, newObj);
+    } else if (type === "SN") {
+      const addScore = totalScore[1].score + num;
+      const newObj = { id: "SN", score: addScore };
+      totalScore.splice(1, 1, newObj);
+    } else if (type === "TF") {
+      const addScore = totalScore[2].score + num;
+      const newObj = { id: "TF", score: addScore };
+      totalScore.splice(2, 1, newObj);
+    } else {
+      const addScore = totalScore[3].score + num;
+      const newObj = { id: "JP", score: addScore };
+      totalScore.splice(3, 1, newObj);
+    }
     setQuestionNum(questionNum + 1);
   };
 
