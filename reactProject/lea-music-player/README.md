@@ -1,5 +1,1 @@
-## 클론코딩하다가 좋은 생각이 떠올라서 만드는 lea palyer
-
-### notice
-
-- [install] react-icons, styled-components
+## 클론코딩하다가 좋은 생각이 떠올라서 만드는 lea player
