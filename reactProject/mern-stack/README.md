@@ -202,6 +202,10 @@ app.get("/", (req, res) => {
 
 ### Authentication
 
+#### - install
+
+- `firebase`
+
 ### Reple
 
 ### ScaleUp

@@ -1,11 +1,30 @@
 import React, { useState } from "react";
 import { LoginDiv } from "../Style/UserCss";
+import firebase from "../component/firebase";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
-  const [psConfirm, setPwConfirm] = useState("");
+  const [pwConfirm, setPwConfirm] = useState("");
+  const RegisterFunc = async (e) => {
+    e.preventDefault();
+    if (!(name && email && pw && setPwConfirm)) {
+      return alert("모든 값을 채워주세요!");
+    }
+    if (pw !== pwConfirm) {
+      return alert("비밀번호와 비밀번호 확인 값이 일치하지 않습니다");
+    }
+    // firebase가 회원가입 하기 전까지 잠시 기다려주세요
+    let createdUser = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, pw);
+    await createdUser.user.updateProfile({
+      displayName: name,
+    });
+
+    console.log(createdUser.user);
+  };
 
   return (
     <LoginDiv>
@@ -31,10 +50,10 @@ function Register() {
         <label>Confirm password</label>
         <input
           type="password"
-          value={psConfirm}
+          value={pwConfirm}
           onChange={(e) => setPwConfirm(e.currentTarget.value)}
         />
-        <button>Signup</button>
+        <button onClick={(e) => RegisterFunc(e)}>Signup</button>
       </form>
     </LoginDiv>
   );
