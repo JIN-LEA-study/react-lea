@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { LoginDiv } from "../Style/UserCss";
 import firebase from "../component/firebase";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -24,6 +27,20 @@ function Register() {
     });
 
     console.log(createdUser.user);
+    let body = {
+      email: createdUser.user.multiFactor.user.email,
+      displayName: createdUser.user.multiFactor.user.displayName,
+      uid: createdUser.user.multiFactor.user.uid,
+    };
+    axios.post("/api/user/register", body).then((response) => {
+      if (response.data.success) {
+        //회원가입 성공시
+        navigate("/login");
+      } else {
+        //회원가입 실패시
+        return alert("회원가입이 실패하였습니다.");
+      }
+    });
   };
 
   return (

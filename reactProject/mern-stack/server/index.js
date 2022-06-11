@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // 라우터 경로
 app.use("/api/post", require("./Router/post"));
+app.use("/api/user", require("./Router/user"));
 
 // 서버 실행
 app.listen(port, () => {
