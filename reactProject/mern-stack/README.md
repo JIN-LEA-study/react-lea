@@ -211,8 +211,8 @@ app.get("/", (req, res) => {
 - [o] Register (Signup)
 - [o] Login
 - [o] Logout
-- [] Post-User (link together post && member)
-- [] Name Check
+- [o] Post-User (link together post && member)
+- [o] Name Check
 
 #### - install
 
@@ -269,6 +269,10 @@ app.get("/", (req, res) => {
 - [] Reple Content
 - [] Reple Update
 - [] Reple Delete
+
+#### - study
+
+- 하나의 파일에선 하나의 기능만 구현하자
 
 ### ScaleUp
 

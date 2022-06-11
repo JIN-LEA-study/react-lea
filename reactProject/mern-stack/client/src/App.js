@@ -14,6 +14,7 @@ import List from "./component/Post/List";
 import Heading from "./component/Heading";
 import Upload from "./component/Post/Upload";
 import Detail from "./component/Post/Detail";
+import PostArea from "./component/Post/PostArea";
 import Edit from "./component/Post/Edit";
 import Login from "./user/Login";
 import Register from "./user/Register";
@@ -41,7 +42,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/upload" element={<Upload />}></Route>
-        <Route path="/post/:postNum" element={<Detail />}></Route>
+        <Route path="/post/:postNum" element={<PostArea />}></Route>
         <Route path="/edit/:postNum" element={<Edit />}></Route>
       </Routes>
     </>
