@@ -209,6 +209,7 @@ app.get("/", (req, res) => {
 #### - install
 
 - `firebase`
+- `@reduxjs/toolkit react-redux`
 
 ### Reple
 
