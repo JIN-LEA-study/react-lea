@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
+
+// firebase
+import firebase from "./component/firebase";
+
+// redux toolkit
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, clearUser } from "./Reducer/userSlice";
+
+// router
 import { Routes, Route } from "react-router-dom";
 import List from "./component/Post/List";
 import Heading from "./component/Heading";
@@ -8,8 +17,30 @@ import Detail from "./component/Post/Detail";
 import Edit from "./component/Post/Edit";
 import Login from "./user/Login";
 import Register from "./user/Register";
+// import { firebase } from "firebase/compat/app";
 
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((userInfo) => {
+      // console.log("userInfo:", userInfo);
+      if (userInfo !== null) {
+        dispatch(loginUser(userInfo.multiFactor.user));
+      }
+    });
+  }, []);
+
+  // user가 바뀔 때 마다
+  useEffect(() => {
+    console.log("user:", user);
+  }, [user]);
+
+  useEffect(() => {
+    // firebase.auth().signOut();
+  }, []);
+
   return (
     <>
       <Heading />
