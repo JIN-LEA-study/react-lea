@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { LoginDiv } from "../Style/UserCss";
 import { useNavigate } from "react-router-dom";
 import firebase from "../component/firebase";
+import { useSelector } from "react-redux";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   const SingInFunc = async (e) => {
@@ -27,6 +31,12 @@ function Login() {
       }
     }
   };
+
+  useEffect(() => {
+    if (user.accessToken) {
+      navigate("/");
+    }
+  }, []);
 
   // 에러 메세지가 나오고 5초의 시간이 흐르면 에러 메세지가 사라짐
   useEffect(() => {

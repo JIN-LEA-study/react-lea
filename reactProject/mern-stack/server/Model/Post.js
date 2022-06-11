@@ -11,10 +11,14 @@ const { Schema } = mongoose;
 
 const postSchema = new mongoose.Schema(
   {
-    title: String, // String is shorthand for {type: String}
+    title: String,
     content: String,
     postNum: Number,
     image: String,
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { Collections: "posts" }
 );
