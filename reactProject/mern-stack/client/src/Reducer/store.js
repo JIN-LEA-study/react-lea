@@ -5,4 +5,8 @@ export default configureStore({
   reducer: {
     user: userSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

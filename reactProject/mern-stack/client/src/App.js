@@ -35,7 +35,7 @@ function App() {
   // user가 바뀔 때 마다
   useEffect(() => {
     console.log("user:", user);
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     // firebase.auth().signOut();
