@@ -1,11 +1,52 @@
 import React, { useState } from "react";
 import { LoginDiv } from "../Style/UserCss";
+import firebase from "../component/firebase";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
-  const [psConfirm, setPwConfirm] = useState("");
+  const [pwConfirm, setPwConfirm] = useState("");
+  const [flag, setFlag] = useState(false);
+
+  const RegisterFunc = async (e) => {
+    setFlag(true);
+    e.preventDefault();
+    if (!(name && email && pw && setPwConfirm)) {
+      return alert("모든 값을 채워주세요!");
+    }
+    if (pw !== pwConfirm) {
+      return alert("비밀번호와 비밀번호 확인 값이 일치하지 않습니다");
+    }
+    // firebase가 회원가입 하기 전까지 잠시 기다려주세요
+    let createdUser = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, pw);
+    await createdUser.user.updateProfile({
+      displayName: name,
+    });
+
+    console.log(createdUser.user);
+    let body = {
+      email: createdUser.user.multiFactor.user.email,
+      displayName: createdUser.user.multiFactor.user.displayName,
+      uid: createdUser.user.multiFactor.user.uid,
+    };
+    axios.post("/api/user/register", body).then((response) => {
+      setFlag(false);
+      if (response.data.success) {
+        //회원가입 성공시
+        alert("회원가입이 완료되었습니다.");
+        navigate("/login");
+      } else {
+        //회원가입 실패시
+        return alert("회원가입이 실패하였습니다.");
+      }
+    });
+  };
 
   return (
     <LoginDiv>
@@ -26,15 +67,23 @@ function Register() {
         <input
           type="password"
           value={pw}
+          minLength={8}
           onChange={(e) => setPw(e.currentTarget.value)}
         />
         <label>Confirm password</label>
         <input
           type="password"
-          value={psConfirm}
+          value={pwConfirm}
+          minLength={8}
           onChange={(e) => setPwConfirm(e.currentTarget.value)}
         />
-        <button>Signup</button>
+        <button
+          // 여러번 클릭방지
+          disabled={flag}
+          onClick={(e) => RegisterFunc(e)}
+        >
+          Signup
+        </button>
       </form>
     </LoginDiv>
   );

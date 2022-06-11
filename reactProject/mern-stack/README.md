@@ -1,4 +1,6 @@
-## MERN STACK 커뮤니티 [React/Express/Post/Authentication/Reple/ScaleUp/Outtro]
+# MERN STACK 커뮤니티
+
+[React/Express/Post/Authentication/Reple/ScaleUp/Outtro]
 
 ### React
 
@@ -161,9 +163,19 @@ useEffect(
 - [o] React Bootstrap
 - [o] Emotion
 
-#### - Study Note
+#### - install
 
-- [install] `npm install express --save`(Sever) (Express 홈페이지 참조)
+- `express --save`(Sever) (Express 홈페이지 참조)
+- `npm run-script build`(Client) client에서 build 하는 방법
+- `i path --save` (Sever)
+- `nodemon --save ` 서버의 코드가 바뀌면 자동으로 알아서 서버를 껐다 켜주는 라이브러리
+- `mongoose --save`
+- `http-proxy-middleware`
+- `@emotion/css @emotion/react @emotion/styled`
+- `multer --save`
+- `--save aws-sdk@2.348.0` - 네이버 클라우드
+
+#### - Study Note
 
 ```js
 // "/" url, req : 요청 (클라이언트->서버), res : 응답(서버->클라이언트)
@@ -172,17 +184,9 @@ app.get("/", (req, res) => {
 });
 ```
 
-- [install] `npm run-script build`(Client) client에서 build 하는 방법
-- [install] `npm i path --save` (Sever)
 - `__dirname__dirname` 현재경로
-- [install] `npm install nodemon --save ` 서버의 코드가 바뀌면 자동으로 알아서 서버를 껐다 켜주는 라이브러리
 - JS에서 `*`은 모든 것을 의미
-- [install] `npm i mongoose --save`
 - 서로 포트가 다를 경우, 보안 규칙을 지켜줘야 함 (proxy 설정)
-- [install] `npm i http-proxy-middleware`
-- [install] `npm i @emotion/css @emotion/react @emotion/styled`
-- [install] `npm i multer --save`
-- [install] `npm install --save aws-sdk@2.348.0` - 네이버 클라우드
 
 ### Post
 
@@ -201,6 +205,10 @@ app.get("/", (req, res) => {
 ```
 
 ### Authentication
+
+#### - install
+
+- `firebase`
 
 ### Reple
 
