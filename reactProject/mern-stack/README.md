@@ -211,6 +211,48 @@ app.get("/", (req, res) => {
 - `firebase`
 - `@reduxjs/toolkit react-redux`
 
+#### - study
+
+- JS에서는 ""(빈문자열)은 false로 return, 아무 문자열이라도 있다면 true로 return
+
+```js
+{
+  user.accessToken ? (
+    <Navbar.Text>Logout</Navbar.Text>
+  ) : (
+    <Link
+      to="/login"
+      style={{
+        color: "black",
+        textDecoration: "none",
+        marginRight: "10px",
+      }}
+    >
+      login
+    </Link>
+  );
+}
+```
+
+```js
+{
+  user.accessToken === "" ? (
+    <Link
+      to="/login"
+      style={{
+        color: "black",
+        textDecoration: "none",
+        marginRight: "10px",
+      }}
+    >
+      login
+    </Link>
+  ) : (
+    <Navbar.Text>Logout</Navbar.Text>
+  );
+}
+```
+
 ### Reple
 
 ### ScaleUp
