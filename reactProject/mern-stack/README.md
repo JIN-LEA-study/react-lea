@@ -163,8 +163,6 @@ useEffect(
 - [o] React Bootstrap
 - [o] Emotion
 
-#### - Study Note
-
 #### - install
 
 - `express --save`(Sever) (Express 홈페이지 참조)
@@ -176,6 +174,8 @@ useEffect(
 - `@emotion/css @emotion/react @emotion/styled`
 - `multer --save`
 - `--save aws-sdk@2.348.0` - 네이버 클라우드
+
+#### - Study Note
 
 ```js
 // "/" url, req : 요청 (클라이언트->서버), res : 응답(서버->클라이언트)
