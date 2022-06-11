@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
 
 const repleSchema = new mongoose.Schema(
   {
@@ -12,9 +11,9 @@ const repleSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
     },
   },
-  { Collections: "reples" }
+  { collection: "reples", timestamps: true }
 );
 
-const Reple = mongoose.model("Reple", postSchema);
+const Reple = mongoose.model("Reple", repleSchema);
 
 module.exports = { Reple };
