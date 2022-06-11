@@ -32,14 +32,14 @@ function Heading() {
                 upload
               </Link>
               <Link
-                to="/"
+                to="/login"
                 style={{
                   color: "black",
                   textDecoration: "none",
                   marginRight: "10px",
                 }}
               >
-                list
+                login
               </Link>
             </Nav>
           </Navbar.Collapse>

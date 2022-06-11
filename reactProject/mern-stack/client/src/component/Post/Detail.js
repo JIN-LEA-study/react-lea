@@ -58,7 +58,8 @@ function Detail() {
             <h1>{postInfo.title}</h1>
             {postInfo.image ? (
               <img
-                src={`http://localhost:5000/${postInfo.image}`}
+                //외부저장소로 변경
+                src={postInfo.image}
                 alt=""
                 style={{ width: "100%", height: "auto" }}
               />

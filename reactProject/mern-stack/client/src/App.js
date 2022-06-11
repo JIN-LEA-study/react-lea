@@ -6,6 +6,8 @@ import Heading from "./component/Heading";
 import Upload from "./component/Post/Upload";
 import Detail from "./component/Post/Detail";
 import Edit from "./component/Post/Edit";
+import Login from "./user/Login";
+import Register from "./user/Register";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Heading />
       <Routes>
         <Route path="/" element={<List />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="/upload" element={<Upload />}></Route>
         <Route path="/post/:postNum" element={<Detail />}></Route>
         <Route path="/edit/:postNum" element={<Edit />}></Route>
