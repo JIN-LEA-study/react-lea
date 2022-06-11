@@ -165,7 +165,7 @@ useEffect(
 
 #### - Study Note
 
-#### - intall
+#### - install
 
 - `express --save`(Sever) (Express 홈페이지 참조)
 - `npm run-script build`(Client) client에서 build 하는 방법
