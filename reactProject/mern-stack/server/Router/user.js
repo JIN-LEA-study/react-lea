@@ -27,4 +27,20 @@ router.post("/register", (req, res) => {
   console.log(req.body);
 });
 
+router.post("/namecheck", (req, res) => {
+  User.findOneAndDelete({ displayName: req.body.displayName })
+    .exec()
+    .then((doc) => {
+      let check = true;
+      if (doc) {
+        check = false;
+      }
+      res.status(200).json({ success: true, check });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json({ success: false });
+    });
+});
+
 module.exports = router;

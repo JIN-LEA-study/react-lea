@@ -55,24 +55,32 @@ function Register() {
 
   const nameCheckFunc = (e) => {
     e.preventDefault();
-    axios.post("/api/user/namecheck").then((response) => {
+    if (!name) {
+      return alert("닉네임을 입력해주세요");
+    }
+    let body = {
+      displayName: name,
+    };
+    axios.post("/api/user/namecheck", body).then((response) => {
       if (response.data.success) {
         if (response.data.check) {
           setNameCheck(true);
           setNameInfo("사용 가능한 닉네임입니다");
+        } else {
+          setNameInfo("사용 불가능한 닉네임입니다");
         }
-        setNameInfo("사용 불가능한 닉네임입니다");
       }
     });
   };
   return (
     <LoginDiv>
       <form action="">
-        <label>Name</label>
+        <label>Nickname</label>
         <input
-          type="nickname"
+          type="name"
           value={name}
           onChange={(e) => setName(e.currentTarget.value)}
+          disabled={nameCheck} //name이 true이면 수정 안됨
         />
         {nameInfo}
         <button onClick={(e) => nameCheckFunc(e)}>nickname check</button>
