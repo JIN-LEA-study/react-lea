@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LoginDiv } from "../Style/UserCss";
 import { useNavigate } from "react-router-dom";
 import firebase from "../component/firebase";
@@ -27,6 +27,14 @@ function Login() {
       }
     }
   };
+
+  // 에러 메세지가 나오고 5초의 시간이 흐르면 에러 메세지가 사라짐
+  useEffect(() => {
+    setTimeout(() => {
+      setErrorMsg("");
+    }, 5000);
+  }, [errorMsg]);
+
   return (
     <LoginDiv>
       <form action="">
