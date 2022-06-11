@@ -13,9 +13,9 @@ export const userSlice = createSlice({
     },
     // user가 로그아웃을 하면 값을 비워줌
     clearUser: (state) => {
-      displayName = "";
-      uid = "";
-      accessToken = "";
+      state.displayName = "";
+      state.uid = "";
+      state.accessToken = "";
     },
   },
 });

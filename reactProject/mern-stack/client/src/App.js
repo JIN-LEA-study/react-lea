@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import "./App.css";
 
+// firebase
+import firebase from "./component/firebase";
+
 // redux toolkit
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, clearUser } from "./Reducer/userSlice";
@@ -14,13 +17,16 @@ import Detail from "./component/Post/Detail";
 import Edit from "./component/Post/Edit";
 import Login from "./user/Login";
 import Register from "./user/Register";
+// import { firebase } from "firebase/compat/app";
 
 function App() {
   useEffect(() => {
-    return () => {};
+    firebase.auth().onAuthStateChanged((userInfo) => {
+      console.log("userInfo:", userInfo);
+    });
   }, []);
   useEffect(() => {
-    return () => {};
+    // firebase.auth().signOut();
   }, []);
 
   return (
