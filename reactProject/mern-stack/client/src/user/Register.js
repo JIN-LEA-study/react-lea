@@ -39,6 +39,7 @@ function Register() {
       setFlag(false);
       if (response.data.success) {
         //회원가입 성공시
+        alert("회원가입이 완료되었습니다.");
         navigate("/login");
       } else {
         //회원가입 실패시
