@@ -10,7 +10,10 @@ function Register() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
+  const [flag, setFlag] = useState(false);
+
   const RegisterFunc = async (e) => {
+    setFlag(true);
     e.preventDefault();
     if (!(name && email && pw && setPwConfirm)) {
       return alert("모든 값을 채워주세요!");
@@ -33,6 +36,7 @@ function Register() {
       uid: createdUser.user.multiFactor.user.uid,
     };
     axios.post("/api/user/register", body).then((response) => {
+      setFlag(false);
       if (response.data.success) {
         //회원가입 성공시
         navigate("/login");
@@ -62,15 +66,23 @@ function Register() {
         <input
           type="password"
           value={pw}
+          minLength={8}
           onChange={(e) => setPw(e.currentTarget.value)}
         />
         <label>Confirm password</label>
         <input
           type="password"
           value={pwConfirm}
+          minLength={8}
           onChange={(e) => setPwConfirm(e.currentTarget.value)}
         />
-        <button onClick={(e) => RegisterFunc(e)}>Signup</button>
+        <button
+          // 여러번 클릭방지
+          disabled={flag}
+          onClick={(e) => RegisterFunc(e)}
+        >
+          Signup
+        </button>
       </form>
     </LoginDiv>
   );
