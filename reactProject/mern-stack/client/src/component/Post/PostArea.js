@@ -3,6 +3,7 @@ import axios from "axios";
 import Detail from "./Detail";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import RepleArea from "../Reple/RepleArea";
 import { SpinnerDiv } from "../../Style/PostDetailCSS";
 
 const PostArea = () => {
@@ -29,7 +30,10 @@ const PostArea = () => {
   return (
     <div>
       {flag ? (
-        <Detail postInfo={postInfo} />
+        <>
+          <Detail postInfo={postInfo} />
+          <RepleArea />
+        </>
       ) : (
         <SpinnerDiv>
           <Spinner animation="border" role="status">
