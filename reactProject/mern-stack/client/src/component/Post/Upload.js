@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { UploadDiv, UploadForm, UploadButtonDiv } from "../../Style/UploadCSS";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +11,14 @@ function Upload(props) {
   const [image, setImage] = useState("");
 
   let navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!user.accessToken) {
+      alert("로그인한 회원만 글을 작성할 수 있습니다");
+      navigate("/login");
+    }
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
