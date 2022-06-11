@@ -1,5 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
+
+// redux toolkit
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, clearUser } from "./Reducer/userSlice";
+
+// router
 import { Routes, Route } from "react-router-dom";
 import List from "./component/Post/List";
 import Heading from "./component/Heading";
@@ -10,6 +16,13 @@ import Login from "./user/Login";
 import Register from "./user/Register";
 
 function App() {
+  useEffect(() => {
+    return () => {};
+  }, []);
+  useEffect(() => {
+    return () => {};
+  }, []);
+
   return (
     <>
       <Heading />
