@@ -21,24 +21,16 @@ import Register from "./user/Register";
 
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((userInfo) => {
       // console.log("userInfo:", userInfo);
       if (userInfo !== null) {
         dispatch(loginUser(userInfo.multiFactor.user));
+      } else {
+        dispatch(clearUser());
       }
     });
-  }, []);
-
-  // user가 바뀔 때 마다
-  useEffect(() => {
-    console.log("user:", user);
-  }, [user]);
-
-  useEffect(() => {
-    // firebase.auth().signOut();
   }, []);
 
   return (
