@@ -30,6 +30,7 @@ function Upload(props) {
       title: title,
       content: content,
       image: image,
+      uid: user.uid,
     };
     axios
       .post("/api/post/submit", body)

@@ -11,6 +11,8 @@ function Register() {
   const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
   const [flag, setFlag] = useState(false);
+  const [nameCheck, setNameCheck] = useState(false);
+  const [nameInfo, setNameInfo] = useState("");
 
   const RegisterFunc = async (e) => {
     setFlag(true);
@@ -20,6 +22,9 @@ function Register() {
     }
     if (pw !== pwConfirm) {
       return alert("비밀번호와 비밀번호 확인 값이 일치하지 않습니다");
+    }
+    if (!nameCheck) {
+      return alert("닉네임 중복검사를 진행해 주세요");
     }
     // firebase가 회원가입 하기 전까지 잠시 기다려주세요
     let createdUser = await firebase
@@ -48,15 +53,29 @@ function Register() {
     });
   };
 
+  const nameCheckFunc = (e) => {
+    e.preventDefault();
+    axios.post("/api/user/namecheck").then((response) => {
+      if (response.data.success) {
+        if (response.data.check) {
+          setNameCheck(true);
+          setNameInfo("사용 가능한 닉네임입니다");
+        }
+        setNameInfo("사용 불가능한 닉네임입니다");
+      }
+    });
+  };
   return (
     <LoginDiv>
       <form action="">
         <label>Name</label>
         <input
-          type="name"
+          type="nickname"
           value={name}
           onChange={(e) => setName(e.currentTarget.value)}
         />
+        {nameInfo}
+        <button onClick={(e) => nameCheckFunc(e)}>nickname check</button>
         <label>Email</label>
         <input
           type="email"

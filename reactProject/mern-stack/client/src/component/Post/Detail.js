@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
@@ -8,8 +9,11 @@ import { PostDiv, Post, BtnDiv } from "../../Style/PostDetailCSS.js";
 function Detail() {
   let params = useParams();
   let navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+
   const [postInfo, setPostInfo] = useState({});
   const [flag, setFlag] = useState(false);
+
   useEffect(() => {
     let body = {
       postNum: params.postNum,
@@ -56,6 +60,7 @@ function Detail() {
         <>
           <Post>
             <h1>{postInfo.title}</h1>
+            <h3>{postInfo.author.displayName}</h3>
             {postInfo.image ? (
               <img
                 //외부저장소로 변경
@@ -66,14 +71,16 @@ function Detail() {
             ) : null}
             <p>{postInfo.content}</p>
           </Post>
-          <BtnDiv>
-            <Link to={`/edit/${postInfo.postNum}`}>
-              <button className="edit">수정</button>
-            </Link>
-            <button className="delete" onClick={() => DeleteHandler()}>
-              삭제
-            </button>
-          </BtnDiv>
+          {user.uid === postInfo.author.uid && (
+            <BtnDiv>
+              <Link to={`/edit/${postInfo.postNum}`}>
+                <button className="edit">수정</button>
+              </Link>
+              <button className="delete" onClick={() => DeleteHandler()}>
+                삭제
+              </button>
+            </BtnDiv>
+          )}
         </>
       ) : (
         <Spinner animation="border" role="status">
