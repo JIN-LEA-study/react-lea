@@ -206,6 +206,14 @@ app.get("/", (req, res) => {
 
 ### Authentication
 
+- [o] User Component (login/signup)
+- [o] Redux-toolkit
+- [o] Register (Signup)
+- [o] Login
+- [o] Logout
+- [] Post-User (link together post && member)
+- [] Name Check
+
 #### - install
 
 - `firebase`
@@ -254,6 +262,13 @@ app.get("/", (req, res) => {
 ```
 
 ### Reple
+
+- [] Reple Component
+- [] Reple Upload
+- [] Reple Read
+- [] Reple Content
+- [] Reple Update
+- [] Reple Delete
 
 ### ScaleUp
 
