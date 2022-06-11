@@ -81,8 +81,8 @@ router.post(
   "/image/upload",
   setUpload("lea-react-community/post"),
   (req, res, next) => {
-    // console.log(res.req);
-    res.status(200).json({ success: true, filePath: res.req.file });
+    console.log(res.req);
+    res.status(200).json({ success: true, filePath: res.req.file.location });
   }
 );
 
