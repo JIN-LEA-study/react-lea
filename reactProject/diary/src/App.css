@@ -203,8 +203,9 @@ header button {
 
 .DiaryItem .diary_date {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
   margin-bottom: 5px;
+  font-family: "Jua";
 }
 
 .DiaryItem .diary_content_preview {
@@ -299,6 +300,8 @@ header button {
 .EmotionItem_off {
   background-color: #ececec;
 }
+
+/* button on color */
 
 .EmotionItem_on_1 {
   background-color: #64c964;

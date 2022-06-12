@@ -2,9 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 
+// 일기데이터를 모두 props로 받는다
 const DiaryItem = ({ id, emotion, content, date }) => {
   const navigate = useNavigate();
 
+  //public 경로
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || "";
 
@@ -31,7 +33,7 @@ const DiaryItem = ({ id, emotion, content, date }) => {
       </div>
       <div onClick={goDetail} className="info_wrapper">
         <div className="diary_date">{strDate}</div>
-        <div className="diary_content_preview">{content.slice(0, 25)}</div>
+        <div className="diary_content_preview">{content.slice(0, 55)}</div>
       </div>
       <div className="btn_wrapper">
         <MyButton onClick={goEdit} text={"수정하기"} />
