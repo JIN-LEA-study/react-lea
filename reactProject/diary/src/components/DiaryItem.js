@@ -33,7 +33,7 @@ const DiaryItem = ({ id, emotion, content, date }) => {
       </div>
       <div onClick={goDetail} className="info_wrapper">
         <div className="diary_date">{strDate}</div>
-        <div className="diary_content_preview">{content.slice(0, 25)}</div>
+        <div className="diary_content_preview">{content.slice(0, 55)}</div>
       </div>
       <div className="btn_wrapper">
         <MyButton onClick={goEdit} text={"수정하기"} />

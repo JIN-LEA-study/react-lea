@@ -15,10 +15,12 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 const DiaryEditor = ({ isEdit, originData }) => {
   const contentRef = useRef();
   const [content, setContent] = useState("");
-  const [emotion, setEmotion] = useState(3);
+  const [emotion, setEmotion] = useState(3); //감정선택
   const [date, setDate] = useState(getStringDate(new Date()));
 
   const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
+
+  //감정선택
   const handleClickEmote = useCallback((emotion) => {
     setEmotion(emotion);
   }, []);
