@@ -42,6 +42,7 @@ const reducer = (state, action) => {
 };
 
 export const DiaryStateContext = React.createContext();
+export const DiaryDispatchContext = React.createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, []);
@@ -77,50 +78,54 @@ function App() {
   env.PUBLIC_URL = env.PUBLIC_URL || "";
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <MyHeader
-          headText={"App"}
-          leftChild={
-            <MyButton
-              text={"왼쪽 버튼"}
-              onClick={() => {
-                alert("왼쪽 클릭");
-              }}
+    <DiaryStateContext.Provider value={data}>
+      <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
+        <BrowserRouter>
+          <div className="App">
+            <MyHeader
+              headText={"App"}
+              leftChild={
+                <MyButton
+                  text={"왼쪽 버튼"}
+                  onClick={() => {
+                    alert("왼쪽 클릭");
+                  }}
+                />
+              }
+              rightChild={
+                <MyButton
+                  text={"오른쪽 버튼"}
+                  onClick={() => {
+                    alert("오른쪽 클릭");
+                  }}
+                />
+              }
             />
-          }
-          rightChild={
             <MyButton
-              text={"오른쪽 버튼"}
-              onClick={() => {
-                alert("오른쪽 클릭");
-              }}
+              text={"버튼"}
+              onClick={() => alert("버튼 클릭")}
+              type={"positive"}
             />
-          }
-        />
-        <MyButton
-          text={"버튼"}
-          onClick={() => alert("버튼 클릭")}
-          type={"positive"}
-        />
-        <MyButton
-          text={"버튼"}
-          onClick={() => alert("버튼 클릭")}
-          type={"negative"}
-        />
-        <MyButton
-          text={"버튼"}
-          onClick={() => alert("버튼 클릭")}
-          type={"default"}
-        />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/new" element={<New />} />
-          <Route path="/edit" element={<Edit />} />
-          <Route path="/diary/:id" element={<Diary />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+            <MyButton
+              text={"버튼"}
+              onClick={() => alert("버튼 클릭")}
+              type={"negative"}
+            />
+            <MyButton
+              text={"버튼"}
+              onClick={() => alert("버튼 클릭")}
+              type={"default"}
+            />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/new" element={<New />} />
+              <Route path="/edit" element={<Edit />} />
+              <Route path="/diary/:id" element={<Diary />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </DiaryDispatchContext.Provider>
+    </DiaryStateContext.Provider>
   );
 }
 
