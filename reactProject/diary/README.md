@@ -18,3 +18,9 @@
 // 이 안에 typ이 있다면 타입 그대로 반환, 없다면 default
 const btnType = ["positive", "negative"].includes(type) ? type : "dafault";
 ```
+
+- getMonth는 0월부터 시작이기 때문에 +1을 해주어야 한다
+
+```js
+${curDate.getMonth()+1}
+```

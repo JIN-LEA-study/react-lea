@@ -74,48 +74,14 @@ function App() {
     });
   };
 
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || "";
+  // const env = process.env;
+  // env.PUBLIC_URL = env.PUBLIC_URL || "";
 
   return (
     <DiaryStateContext.Provider value={data}>
       <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
           <div className="App">
-            <MyHeader
-              headText={"App"}
-              leftChild={
-                <MyButton
-                  text={"왼쪽 버튼"}
-                  onClick={() => {
-                    alert("왼쪽 클릭");
-                  }}
-                />
-              }
-              rightChild={
-                <MyButton
-                  text={"오른쪽 버튼"}
-                  onClick={() => {
-                    alert("오른쪽 클릭");
-                  }}
-                />
-              }
-            />
-            <MyButton
-              text={"버튼"}
-              onClick={() => alert("버튼 클릭")}
-              type={"positive"}
-            />
-            <MyButton
-              text={"버튼"}
-              onClick={() => alert("버튼 클릭")}
-              type={"negative"}
-            />
-            <MyButton
-              text={"버튼"}
-              onClick={() => alert("버튼 클릭")}
-              type={"default"}
-            />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />
