@@ -71,3 +71,17 @@ grid-template-columns: repeat(
 ); // 5개의 아이템을 사이즈는 자동으로 (atuo)
 gap: 2%; //아이템과 아이템 사이의 간격
 ```
+
+- **중요** 클릭한 것에 따라 바뀌는 버튼 설정
+
+```js
+
+// props의 isSelected가 true이면 on, 아니면 off
+<div
+      onClick={() => onClick(emotion_id)}
+      className={[
+        "EmotionItem",
+        isSelected ? `EmotionItem_on_${emotion_id}` : `EmotionItem_off`,
+      ].join(" ")}
+    >
+```

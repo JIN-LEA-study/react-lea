@@ -99,7 +99,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
                 key={it.emotion_id}
                 {...it}
                 onClick={handleClickEmote}
-                isSelected={it.emotion_id === emotion}
+                isSelected={it.emotion_id === emotion} //선택된 이모션과 같으면 true
               />
             ))}
           </div>
