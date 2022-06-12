@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+@font-face {
+  font-family: "Leferi";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* font-family: 'Jua', sans-serif;
 font-family: 'Nanum Gothic', sans-serif; */
@@ -41,4 +48,42 @@ body {
   min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
+
+  font-family: "Leferi";
+}
+
+/* My button */
+.MyButton {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-size: 18px;
+  white-space: nowrap;
+
+  font-family: "Jua";
+}
+
+.MyButton_default {
+  background-color: #ececec;
+  color: black;
+}
+
+.MyButton_positive {
+  background-color: #64c964;
+  color: white;
+}
+
+.MyButton_negative {
+  background-color: #fd565f;
+  color: white;
 }
