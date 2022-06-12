@@ -7,10 +7,6 @@ import Home from "./pages/Home";
 import New from "./pages/New";
 import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
-import MyButton from "./components/MyButton";
-import MyHeader from "./components/MyHeader";
-
-//component
 
 // reducer
 
@@ -44,8 +40,17 @@ const reducer = (state, action) => {
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
+const dummyData = [
+  { id: 1, emotion: 1, contetn: "오늘의 일기", date: 1655026676226 },
+  { id: 2, emotion: 2, contetn: "오늘의 일기", date: 1655026676227 },
+  { id: 3, emotion: 3, contetn: "오늘의 일기", date: 1655026676229 },
+  { id: 4, emotion: 4, contetn: "오늘의 일기", date: 1655026676230 },
+  { id: 5, emotion: 5, contetn: "오늘의 일기", date: 1655026676231 },
+];
+
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, dummyData);
+  console.log(new Date().getTime());
 
   const dataId = useRef(0);
 
@@ -73,9 +78,6 @@ function App() {
       data: { id: targetId, date: new Date(date).getTime(), content, emotion },
     });
   };
-
-  // const env = process.env;
-  // env.PUBLIC_URL = env.PUBLIC_URL || "";
 
   return (
     <DiaryStateContext.Provider value={data}>
