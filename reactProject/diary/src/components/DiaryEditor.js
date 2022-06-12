@@ -27,6 +27,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
+    // 한글자 이상 작성했는지 확인
     if (content.length < 1) {
       contentRef.current.focus();
       return;
