@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./Detail";
-import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import RepleArea from "../Reple/RepleArea";
+
+// Spinner
+import { Spinner } from "react-bootstrap";
 import { SpinnerDiv } from "../../Style/PostDetailCSS";
 
 const PostArea = () => {
-  let params = useParams();
   const [postInfo, setPostInfo] = useState({});
   const [flag, setFlag] = useState(false);
+
+  let params = useParams();
 
   useEffect(() => {
     let body = {
@@ -26,10 +30,14 @@ const PostArea = () => {
         console.log(err);
       });
   }, []);
+
   return (
     <div>
       {flag ? (
-        <Detail postInfo={postInfo} />
+        <>
+          <Detail PostInfo={postInfo} />
+          <RepleArea postId={postInfo._id} />
+        </>
       ) : (
         <SpinnerDiv>
           <Spinner animation="border" role="status">
