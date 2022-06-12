@@ -18,7 +18,7 @@ font-family: 'Nanum Gothic', sans-serif; */
 } */
 
 body {
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,13 +39,13 @@ body {
   }
 }
 
-#root {
+/* #root {
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
+} */
 
 .App {
-  min-height: 80vh;
+  min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
   width: 1000px;

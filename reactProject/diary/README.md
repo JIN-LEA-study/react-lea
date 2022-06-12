@@ -30,3 +30,18 @@ const btnType = ["positive", "negative"].includes(type) ? type : "dafault";
 ```js
 ${curDate.getMonth()+1}
 ```
+
+- JSON.parse, JSON.stringify (원본 복사) : JSON화 시켜서 문자열로 바꿈(stringfy) -> 문자열 반환을 다시 문자열로 복구(parse)
+
+```js
+const copyList = JSON.parse(JSON.stringify(diaryList));
+```
+
+- parseInt : 문자열 -> 숫자
+- state 작업을 하는 경우, 개발자 도구에서 Components를 확인하면서 state가 잘 작동하는지 확인해야 됨
+
+- display: flex 남은 모든 넓이를 차지
+
+```
+flex-gow: 1;
+```

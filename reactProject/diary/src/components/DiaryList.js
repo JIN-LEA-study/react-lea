@@ -32,7 +32,9 @@ const ControlMenu = React.memo(({ value, onChange, optionList }) => {
 
 const DiaryList = ({ diaryList }) => {
   const navigate = useNavigate();
+  // 최신순, 오래된 순
   const [sortType, setSortType] = useState("latest");
+  // 감정필터
   const [filter, setFilter] = useState("all");
 
   const getProcessedDiaryList = () => {
@@ -44,20 +46,23 @@ const DiaryList = ({ diaryList }) => {
       }
     };
 
-    const compare = (a, b) => {
-      if (sortType === "latest") {
-        return parseInt(b.date) - parseInt(a.date);
-      } else {
-        return parseInt(a.date) - parseInt(b.date);
-      }
-    };
-
+    // 원본 배열을 건들이지 않고, 깊은 복사
     const copyList = JSON.parse(JSON.stringify(diaryList));
+
+    // all이라면 모든 리스트 반환,
     const filteredList =
       filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
 
     const sortedList = filteredList.sort(compare);
     return sortedList;
+  };
+
+  const compare = (a, b) => {
+    if (sortType === "latest") {
+      return parseInt(b.date) - parseInt(a.date);
+    } else {
+      return parseInt(a.date) - parseInt(b.date);
+    }
   };
 
   return (
