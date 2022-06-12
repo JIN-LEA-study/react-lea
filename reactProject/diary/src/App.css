@@ -203,8 +203,9 @@ header button {
 
 .DiaryItem .diary_date {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
   margin-bottom: 5px;
+  font-family: "Jua";
 }
 
 .DiaryItem .diary_content_preview {

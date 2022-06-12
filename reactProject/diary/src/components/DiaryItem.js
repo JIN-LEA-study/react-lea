@@ -2,9 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 
+// 일기데이터를 모두 props로 받는다
 const DiaryItem = ({ id, emotion, content, date }) => {
   const navigate = useNavigate();
 
+  //public 경로
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || "";
 

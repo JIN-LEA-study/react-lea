@@ -45,3 +45,9 @@ const copyList = JSON.parse(JSON.stringify(diaryList));
 ```
 flex-gow: 1;
 ```
+
+- 글자 길이제한을 줄 때 slice 사용
+
+```js
+<div className="diary_content_preview">{content.slice(0, 25)}</div>
+```
