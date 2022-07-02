@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../asset/search.svg';
 import SearchTag from './SearchTag';
@@ -47,9 +47,17 @@ const SearchOptionButton = styled.p`
 `;
 
 const Search = ({ setQuery }) => {
+    const savedSearchTags = localStorage.getItem('searchTags');
+    const initialSearchTags = savedSearchTags
+        ? JSON.parse(savedSearchTags) //문자열을 다시 객체로
+        : [];
     const [searchOption, setSearchOption] = useState(false);
+    const [searchTags, setSearchTags] = useState(initialSearchTags); //검색이 일어날 때 업데이트
     const inputRef = useRef(null);
-    // const [inputState, setInputState] = useState('');
+
+    const updateSearchInput = (value) => {
+        inputRef.current.value = value;
+    };
 
     const toggleSearchOption = () => {
         setSearchOption((prev) => !prev);
@@ -59,9 +67,27 @@ const Search = ({ setQuery }) => {
         if (e.key === 'Enter') {
             const currentValue = e.target.value;
             setQuery(currentValue);
-            inputRef.current.value = ''; //검색 후 빈문자열 상태 만들어주기
+            updateSearchInput(''); //검색 후 빈문자열 상태 만들어주기
+            setSearchTags((prev) => [...prev, currentValue]); // 기존값과 새로운 값
         }
     };
+
+    const searchTag = (tag) => {
+        // 현재 클릭 된 최근 검색어로 검색 실행
+        setQuery(tag);
+        // 검색 창 input값 업데이트
+        updateSearchInput(tag);
+    };
+
+    const deleteTag = (idx) => {
+        const newSearchTags = [...searchTags];
+        newSearchTags.splice(idx, 1);
+        setSearchTags(newSearchTags);
+    };
+
+    useEffect(() => {
+        localStorage.setItem('searchTags', JSON.stringify(searchTags));
+    }, [searchTags]);
 
     return (
         <>
@@ -80,7 +106,15 @@ const Search = ({ setQuery }) => {
                 {searchOption && <SearchOption />}
             </SearchBoxContainer>
             <SearchTagContainer>
-                <SearchTag />
+                {searchTags.map((tag, idx) => {
+                    return (
+                        <SearchTag
+                            tag={tag}
+                            searchTag={() => searchTag(tag)}
+                            deleteTag={() => deleteTag(idx)}
+                        />
+                    );
+                })}
             </SearchTagContainer>
         </>
     );

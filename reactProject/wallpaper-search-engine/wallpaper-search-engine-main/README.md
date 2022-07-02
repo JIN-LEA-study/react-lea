@@ -45,3 +45,18 @@
 #### study note
 
 -   api는 여러번 사용될 가능성이 있기 때문에 component를 따로 분리해서 사용하는 것이 좋다.
+-   localStorae는 항상 문자열로 저장,JSON.stringify() 사용
+
+```js
+useEffect(() => {
+    localStorage.setItem('searchTags', JSON.stringify(searchTags));
+}, [searchTags]);
+```
+
+-   localStorage에 저장된 문자열을 다시 객체로 불러올 때는 JSON.parse()를 사용
+
+```js
+const initialSearchTags = savedSearchTags
+    ? JSON.parse(savedSearchTags) //문자열을 다시 객체로
+    : [];
+```
