@@ -25,3 +25,7 @@
 -   CRA 설정 파악
 -   CSS 전처리기
 -   Unit Test
+
+#### study note
+
+-   api는 여러번 사용될 가능성이 있기 때문에 component를 따로 분리해서 사용하는 것이 좋다.
