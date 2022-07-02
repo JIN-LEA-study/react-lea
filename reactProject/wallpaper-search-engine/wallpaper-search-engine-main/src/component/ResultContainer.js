@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DummyData from '../asset/dummyData';
 import ImageCard from './ImageCard';
 import ImageModal from './ImageModal';
 import Pagination from './Pagination';
 import EmptyResult from './EmptyResult';
+import getWallPapers from '../api/getWallPapers';
 
 const Container = styled.div`
     max-width: 1830px;
@@ -21,7 +22,17 @@ const ResultsWrapper = styled.div`
 `;
 
 const ResultContainer = () => {
-    const data = DummyData;
+    const [data, setData] = useState({});
+
+    // useEffect 내부에서 데이터를 fatch하고, fatch한 데이터를 상태저장
+
+    useEffect(() => {
+        const fetch = async () => {
+            const data = await getWallPapers();
+            setData(data);
+        };
+        fetch();
+    }, []);
 
     return (
         <Container>
