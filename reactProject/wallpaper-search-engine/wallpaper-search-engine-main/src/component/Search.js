@@ -75,6 +75,12 @@ const Search = ({ setQuery }) => {
         updateSearchInput(tag);
     };
 
+    const deleteTag = (idx) => {
+        const newSearchTags = [...searchTags];
+        newSearchTags.splice(idx, 1);
+        setSearchTags(newSearchTags);
+    };
+
     return (
         <>
             <SearchBoxContainer>
@@ -92,9 +98,13 @@ const Search = ({ setQuery }) => {
                 {searchOption && <SearchOption />}
             </SearchBoxContainer>
             <SearchTagContainer>
-                {searchTags.map((tag) => {
+                {searchTags.map((tag, idx) => {
                     return (
-                        <SearchTag tag={tag} searchTag={() => searchTag(tag)} />
+                        <SearchTag
+                            tag={tag}
+                            searchTag={() => searchTag(tag)}
+                            deleteTag={() => deleteTag(idx)}
+                        />
                     );
                 })}
             </SearchTagContainer>
