@@ -8,6 +8,7 @@ const Edit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  // diarylist data
   const diaryList = useContext(DiaryStateContext);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Edit = () => {
         navigate("/", { replace: true });
       }
     }
-  }, [id, diaryList]);
+  }, [id, diaryList]); //id와 list가 변할 때마다 꺼내옴
 
   return (
     <div>
