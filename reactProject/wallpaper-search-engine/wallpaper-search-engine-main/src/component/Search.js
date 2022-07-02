@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../asset/search.svg';
 import SearchTag from './SearchTag';
@@ -47,8 +47,12 @@ const SearchOptionButton = styled.p`
 `;
 
 const Search = ({ setQuery }) => {
+    const savedSearchTags = localStorage.getItem('searchTags');
+    const initialSearchTags = savedSearchTags
+        ? JSON.parse(savedSearchTags) //문자열을 다시 객체로
+        : [];
     const [searchOption, setSearchOption] = useState(false);
-    const [searchTags, setSearchTags] = useState([]); //검색이 일어날 때 업데이트
+    const [searchTags, setSearchTags] = useState(initialSearchTags); //검색이 일어날 때 업데이트
     const inputRef = useRef(null);
 
     const updateSearchInput = (value) => {
@@ -80,6 +84,10 @@ const Search = ({ setQuery }) => {
         newSearchTags.splice(idx, 1);
         setSearchTags(newSearchTags);
     };
+
+    useEffect(() => {
+        localStorage.setItem('searchTags', JSON.stringify(searchTags));
+    }, [searchTags]);
 
     return (
         <>

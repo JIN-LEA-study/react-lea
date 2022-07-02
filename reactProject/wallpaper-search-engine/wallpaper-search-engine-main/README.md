@@ -45,3 +45,10 @@
 #### study note
 
 -   api는 여러번 사용될 가능성이 있기 때문에 component를 따로 분리해서 사용하는 것이 좋다.
+-   localStorae는 항상 문자열로 저장해주어야 한다. (JSON.stringify 사용하기)
+
+```js
+useEffect(() => {
+    localStorage.setItem('searchTags', JSON.stringify(searchTags));
+}, [searchTags]);
+```
