@@ -17,6 +17,8 @@ const Container = styled.div`
 function App() {
     const [data, setData] = useState({});
     const [query, setQuery] = useState('');
+    const [order, setOrder] = useState('populer');
+    const [orientation, setOrientation] = useState('all');
 
     // useEffect 내부에서 데이터를 fatch하고, fatch한 데이터를 상태저장
 
@@ -24,6 +26,8 @@ function App() {
         const fetch = async () => {
             const data = await getWallPapers({
                 q: query,
+                orientation: orientation,
+                order: order,
             });
             setData(data);
         };
@@ -34,7 +38,11 @@ function App() {
     return (
         <>
             <Container>
-                <Hero setQuery={setQuery} />
+                <Hero
+                    setQuery={setQuery}
+                    setOrder={setOrder}
+                    setOrientation={setOrientation}
+                />
                 <ResultContainer data={data} />
                 <Footer />
                 <ToggleThemeButton />
