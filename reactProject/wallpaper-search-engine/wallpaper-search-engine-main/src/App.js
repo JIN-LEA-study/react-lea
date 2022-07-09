@@ -22,6 +22,9 @@ function App() {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(20);
 
+    // ceil로 올림처리를 해서 정수가 나오도록
+    const numOfPage = data.totalHits ? Math.ceil(data.totalHits / perPage) : 0;
+
     // useEffect 내부에서 데이터를 fatch하고, fatch한 데이터를 상태저장
 
     useEffect(() => {
@@ -48,7 +51,12 @@ function App() {
                     setOrientation={setOrientation}
                     setPerPage={setPerPage}
                 />
-                <ResultContainer data={data} />
+                <ResultContainer
+                    data={data}
+                    page={page}
+                    setPage={setPage}
+                    numOfPage={numOfPage}
+                />
                 <Footer />
                 <ToggleThemeButton />
             </Container>
