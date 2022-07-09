@@ -29,7 +29,11 @@ const Pagination = ({ page, setPage, numOfPage }) => {
         <Nav>
             <PrevIcon width="24" cursor="pointer" fill="var(--text)" />
             {`총 ${numOfPage} 중 `}
-            <PageSelect name="page">
+            <PageSelect
+                name="page"
+                value={page}
+                onChange={(e) => setPage(e.target.value)}
+            >
                 {Array(numOfPage)
                     .fill()
                     .map((data, idx) => (
