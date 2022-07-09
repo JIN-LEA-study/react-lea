@@ -27,12 +27,19 @@ const PageSelect = styled.select`
 const Pagination = ({ page, setPage, numOfPage }) => {
     return (
         <Nav>
-            <PrevIcon width="24" cursor="pointer" fill="var(--text)" />
+            {page !== 1 && (
+                <PrevIcon
+                    width="24"
+                    cursor="pointer"
+                    fill="var(--text)"
+                    onClick={() => setPage((prev) => prev - 1)}
+                />
+            )}
             {`총 ${numOfPage} 중 `}
             <PageSelect
                 name="page"
                 value={page}
-                onChange={(e) => setPage(e.target.value)}
+                onChange={(e) => setPage(parseInt(e.target.value))}
             >
                 {Array(numOfPage)
                     .fill()
@@ -43,7 +50,14 @@ const Pagination = ({ page, setPage, numOfPage }) => {
                     ))}
             </PageSelect>
             페이지
-            <NextIcon width="24" cursor="pointer" fill="var(--text)" />
+            {page !== numOfPage && (
+                <NextIcon
+                    width="24"
+                    cursor="pointer"
+                    fill="var(--text)"
+                    onClick={() => setPage((prev) => prev + 1)}
+                />
+            )}
         </Nav>
     );
 };
