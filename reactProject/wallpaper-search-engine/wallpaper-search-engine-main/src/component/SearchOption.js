@@ -96,6 +96,7 @@ const SearchOption = ({ setOrder, setOrientation, setPerPage }) => {
                             name="per_page"
                             id="20"
                             value={20}
+                            defaultChecked={true}
                         />
                         <label htmlFor="20">20</label>
                         <input
@@ -104,7 +105,7 @@ const SearchOption = ({ setOrder, setOrientation, setPerPage }) => {
                             id="30"
                             value={30}
                         />
-                        <label htmlFor="10">30</label>
+                        <label htmlFor="30">30</label>
                     </form>
                 </SearchOptionLi>
             </SearchOptionUl>

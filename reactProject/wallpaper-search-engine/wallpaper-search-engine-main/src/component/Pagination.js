@@ -24,15 +24,19 @@ const PageSelect = styled.select`
     }
 `;
 
-const Pagination = () => {
+const Pagination = ({ page, setPage, numOfPage }) => {
     return (
         <Nav>
             <PrevIcon width="24" cursor="pointer" fill="var(--text)" />
-            {`총 10 중 `}
+            {`총 ${numOfPage} 중 `}
             <PageSelect name="page">
-                <option value={1} key={1}>
-                    1
-                </option>
+                {Array(numOfPage)
+                    .fill()
+                    .map((data, idx) => (
+                        <option value={idx + 1} key={idx + 1}>
+                            {idx + 1}
+                        </option>
+                    ))}
             </PageSelect>
             페이지
             <NextIcon width="24" cursor="pointer" fill="var(--text)" />
