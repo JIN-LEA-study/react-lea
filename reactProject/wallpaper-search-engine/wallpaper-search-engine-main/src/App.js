@@ -19,6 +19,8 @@ function App() {
     const [query, setQuery] = useState('');
     const [order, setOrder] = useState('populer');
     const [orientation, setOrientation] = useState('all');
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(20);
 
     // useEffect 내부에서 데이터를 fatch하고, fatch한 데이터를 상태저장
 
@@ -28,12 +30,14 @@ function App() {
                 q: query,
                 orientation: orientation,
                 order: order,
+                page: page,
+                per_page: perPage,
             });
             setData(data);
         };
         fetch();
         // query가 update될 때마다 요청함
-    }, [query]);
+    }, [query, orientation, order, page, perPage]);
 
     return (
         <>
@@ -42,6 +46,7 @@ function App() {
                     setQuery={setQuery}
                     setOrder={setOrder}
                     setOrientation={setOrientation}
+                    setPerPage={setPerPage}
                 />
                 <ResultContainer data={data} />
                 <Footer />
