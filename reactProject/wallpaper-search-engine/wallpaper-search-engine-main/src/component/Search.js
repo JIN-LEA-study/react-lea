@@ -115,6 +115,7 @@ const Search = ({ setQuery, setOrder, setOrientation, setPerPage }) => {
                 {searchTags.map((tag, idx) => {
                     return (
                         <SearchTag
+                            key={tag + idx}
                             tag={tag}
                             searchTag={() => searchTag(tag)}
                             deleteTag={() => deleteTag(idx)}

@@ -31,7 +31,7 @@ const DetailRow = styled.div`
     }
 `;
 
-const ImageModal = () => {
+const ImageModal = ({ currentImgDetail }) => {
     const { largeImageURL } = DummyData.hits[0];
     return (
         <Modal>
