@@ -2,16 +2,16 @@ import React from "react";
 
 interface Props {
   title: string;
-  childrean: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const ServiceLayout = function ({ title = "blah lea", childrean }: Props) {
+const ServiceLayout = function ({ title = "blah lea", children }: Props) {
   return (
     <div>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
-      {childrean}
+      </head>
+      {children}
     </div>
   );
 };
