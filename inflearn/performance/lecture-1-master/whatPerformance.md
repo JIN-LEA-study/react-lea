@@ -23,7 +23,25 @@
 
 - #### OPPORTUNITIES
 
-  - 리소스의 관점에서 가이드 (로딩 성능 최적화)
+  - **리소스의 관점**에서 가이드 (로딩 성능 최적화)
+  - 이미지를 가져올 때는 너비 기준 2배정도 큰 이미지를 사용하는게 좋다. (ex. 120 x 120px -> 240 x 240px)
+  - API를 가져와서 불러오는 경우? Image CDN(컨텐츠 서버)으로 처리한다.
+  - **imgIX** (imgix.com) 이용하면 CDN을 이용하지 않아도 사용 가능하다.
+  - **getParametersForUnsplash** : 이미지를 프로세싱 할 수 있는 파라미터를 이용해 함수를 만들어 활용한다.
+
+  ```js
+  function getParametersForUnsplash({ width, height, quality, format }) {
+    return `?w=${width}&h=${height}&q=${quality}&fm=${format}&fit=crop`;
+  }
+  ```
+
+  - #### Image processing CDN
+
+    - 원본 이미지를 특정 형태로 가공 (사이즈 변경, 이미지 포맷 변경 등) 후 보내줌
+
+    ```
+    http://cdn.image.com?src=[img src]&width=200&height=100
+    ```
 
 - #### DIAGNOSTICS
-  - 페이지의 실행 관점에서 가이드 (렌더링 성능 최적화)
+  - **페이지의 실행 관점**에서 가이드 (렌더링 성능 최적화)
