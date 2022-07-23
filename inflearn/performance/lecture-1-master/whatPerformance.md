@@ -6,7 +6,7 @@
 
 - 이미지 사이즈 최적화 : 어떤 이미지 사이즈가 적절한가?
 - code split : 코드를 효율적으로 분할
-- 텍스트 압축 : 리소스들을 다운 받기 전 압축해서 다운 받는데 다운로드 데이터 양 줄이기
+- ㄹ
 
 #### 렌더링 성능 최적화
 
@@ -43,5 +43,14 @@
     http://cdn.image.com?src=[img src]&width=200&height=100
     ```
 
+  - #### Minify JavaScript
+    - 자바스크립트의 코드 중 공백, 주석을 줄임으로서 자바스크립트 파일의 크기를 줄임
+  - #### Preconnet to required origins
+    -
+
 - #### DIAGNOSTICS
+
   - **페이지의 실행 관점**에서 가이드 (렌더링 성능 최적화)
+
+  - #### Reduce Javascript execution time
+    - 자바스크립트의 파일들의 시간 소요를 보여줌, 어떤 코드로 인해 오래 걸렸는지는 알 수가 없음(Performance tap 이용: 페이지가 로드되면서 실행되는 작업들을 차트 형태로 보여줌)
