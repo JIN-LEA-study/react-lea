@@ -18,3 +18,12 @@
 - Chrome performance tap
 - Chrome Audit tap (Light house) : 어느정도 성능인지 파악 가능
 - webpack-bundle-analyzer
+
+### Lighthouse
+
+- #### OPPORTUNITIES
+
+  - 리소스의 관점에서 가이드 (로딩 성능 최적화)
+
+- #### DIAGNOSTICS
+  - 페이지의 실행 관점에서 가이드 (렌더링 성능 최적화)
