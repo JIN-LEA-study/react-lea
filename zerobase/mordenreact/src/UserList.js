@@ -29,9 +29,10 @@ function UserList() {
 
   return (
     <div>
-      <User user={users[0]} />
-      <User user={users[1]} />
-      <User user={users[2]} />
+      {users.map((user, index) => (
+        // key props은 각 원소마다 고유값을 주는 것, 리렌더링 성능 최적화를 시켜줌
+        <User user={user} key={user.id} />
+      ))}
     </div>
   );
 }
