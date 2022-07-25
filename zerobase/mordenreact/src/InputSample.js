@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 const InputSample = () => {
+  const [text, setText] = useState("");
+
   const onChange = (e) => {
-    console.log(e.target.value);
+    setText(e.target.value);
+  };
+
+  const onReset = () => {
+    setText("");
   };
   return (
     <div>
-      <input onChange={onChange} />
-      <button>초기화</button>
+      <input onChange={onChange} value={text} />
+      <button onClick={onReset}>초기화</button>
       <div>
         <b>값: </b>
-        어쩌고 저쩌고
+        {text}
       </div>
     </div>
   );
