@@ -27,7 +27,7 @@ function reducer(state, action) {
 }
 
 //callback에는 api, deps 값이 변경될때 deps
-export default function useAsync(callback, deps = []) {
+export default function useAsync(callback, deps = [], skip = false) {
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
     data: null,
@@ -38,13 +38,16 @@ export default function useAsync(callback, deps = []) {
     dispatch({ type: "LOADING" });
     try {
       const data = await callback();
-      dispatch({ type: "SUCESS", data });
+      dispatch({ type: "SUCCESS", data });
     } catch (e) {
       dispatch({ type: "ERROR", error: e });
     }
   }, [callback]);
 
   useEffect(() => {
+    if (skip) {
+      return;
+    }
     fetchData();
     // eslint-disable-next-line
   }, deps);
