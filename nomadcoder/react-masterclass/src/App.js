@@ -2,15 +2,15 @@ import styled, { keyframes } from "styled-components";
 
 function App() {
   return (
-    <Father as="header">
+    <Wrapper>
       <Box>
-        <span>😃</span>
+        <Emoji>😃</Emoji>
       </Box>
-    </Father>
+    </Wrapper>
   );
 }
 
-const Father = styled.div`
+const Wrapper = styled.div`
   display: flex;
 `;
 
@@ -27,6 +27,10 @@ const rotationAnimation = keyframes`
 
 `;
 
+const Emoji = styled.span`
+  font-size: 36px;
+`;
+
 const Box = styled.div`
   height: 200px;
   width: 200px;
@@ -36,13 +40,10 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
 
-  span {
+  ${Emoji} {
     font-size: 36px;
     &:hover {
-      font-size: 50px;
-    }
-    &:active {
-      opacity: 0;
+      font-size: 98px;
     }
   }
 `;
