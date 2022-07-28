@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 function App() {
   return (
-    <Father>
-      <Btn>Log in</Btn>
-      <Btn as="a">Log in</Btn>
+    <Father as="header">
+      <Input />
+      <Input />
+      <Input />
     </Father>
   );
 }
@@ -13,13 +14,8 @@ const Father = styled.div`
   display: flex;
 `;
 
-const Btn = styled.button`
-  color: white;
+const Input = styled.input.attrs({ required: true, minlength: 10 })`
   background-color: tomato;
-  border: 0;
-  border-radius: 15px;
 `;
-
-const Link = styled(Btn)``;
 
 export default App;
