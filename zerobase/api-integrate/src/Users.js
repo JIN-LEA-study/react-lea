@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import axios from "axios";
 
+// Loading, success, error
 function reducer(state, action) {
   switch (action.type) {
     case "LOADING":
@@ -28,6 +29,7 @@ function reducer(state, action) {
 
 const Users = () => {
   const [state, dispatch] = useReducer(reducer, {
+    //리듀서에서 관리할 상태 초기값
     loading: false,
     data: null,
     error: null,
