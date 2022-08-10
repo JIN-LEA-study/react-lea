@@ -1,7 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
+type Params = {
+  id: string;
+};
 
 const DetailPage = () => {
-  return <div>DetailPage</div>;
+  const { id } = useParams<Params>();
+  return <div>DetailPage id: {id}</div>;
 };
 
 export default DetailPage;
