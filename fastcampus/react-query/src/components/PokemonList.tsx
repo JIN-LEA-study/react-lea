@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import usePokemon from "../hooks/usePokemon";
+import { SimplePokemonInfo } from "../types/index";
 
 const Base = styled.div`
   margin-top: 24px;
@@ -39,12 +41,42 @@ const Index = styled.p`
   color: #d1d5db;
 `;
 
+const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 180px);
+`;
+
+const Loading = styled.img``;
 const getImageUrl = (index: number): string =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`;
 
 const PokemonList: React.FC = () => {
+  const { isLoading, isError, data } = usePokemon();
+
+  const formatNumbering = (idx: number): string => {
+    return `#${String(idx).padStart(3, "0")}`;
+  };
+
   return (
     <Base>
+      {isLoading || isError ? (
+        <LoadingWrapper>
+          <Loading src="/loading.git" />
+        </LoadingWrapper>
+      ) : (
+        <List>
+          {data?.data.results.map((pakemon: SimplePokemonInfo, idx: number) => (
+            <ListItem key={pakemon.name}>
+              <Image src={getImageUrl(idx)} />
+              <Name>{pakemon.name}</Name>
+              <Index>{formatNumbering(idx + 1)}</Index>
+            </ListItem>
+          ))}
+        </List>
+      )}
       <List>
         <ListItem>
           <Image src={getImageUrl(1)} />
